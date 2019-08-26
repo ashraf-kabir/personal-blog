@@ -12,31 +12,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="index.html">Brand</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div
-                class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">About us</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="contact.html">Contact us</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="post.html">Blog Post</a></li>
-                </ul>
-        </div>
-        </div>
-    </nav>
-    <header class="masthead" style="background-image:url('assets/img/post-bg.jpg');">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-lg-8 mx-auto">
-                    <div class="post-heading">
-                        <h1>Man must explore, and this is exploration at its greatest</h1>
-                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2><span class="meta">Posted by&nbsp;<a href="#">Start Bootstrap</a>&nbsp;on August 24, 2018</span></div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <?php include 'includes/header.php'; ?>
+    
     <article>
         <div class="container">
             <div class="row">
