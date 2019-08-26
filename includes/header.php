@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-light navbar-expand-lg fixed-top" id="mainNav">
+<nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
     <div class="container">
     <a class="navbar-brand" href="index.php">Ashraf Kabir</a>
     <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
