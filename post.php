@@ -44,6 +44,7 @@
         </div>
     </article>
 
+    <!-- Footer -->
     <?php include 'includes/footer.php'; ?>
     
     <script src="assets/js/jquery.min.js"></script>

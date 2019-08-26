@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+    <!-- Header -->
     <?php include 'includes/header.php'; ?>
     
     <div class="container">
@@ -53,7 +53,8 @@
             </div>
         </div>
     </div>
-
+    
+    <!-- Footer -->
     <?php include 'includes/footer.php'; ?>
     
     <script src="assets/js/jquery.min.js"></script>
