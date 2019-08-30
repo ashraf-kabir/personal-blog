@@ -134,7 +134,20 @@
             <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                       data-toggle="dropdown" aria-expanded="false"
                                                       href="#"><span
-                        class="d-none d-lg-inline mr-2 text-gray-600 small">Valerie Luna</span><img
+                        class="d-none d-lg-inline mr-2 text-gray-600 small">
+                        <?php
+                        $email = $_SESSION['alogin'];
+                        $sql = "SELECT `username` FROM `admin` WHERE email=:email";
+                        $query = $dbh->prepare($sql);
+                        $query->bindParam(':email', $email, PDO::PARAM_STR);
+                        $query->execute();
+                        $results = $query->fetchAll(PDO::FETCH_OBJ);
+                        if ($query->rowCount() > 0) {
+                            foreach ($results as $result) {
+                                echo htmlentities($result->username);
+                            }
+                        } ?>
+                    </span><img
                         class="border rounded-circle img-profile"
                         src="assets/img/avatars/avatar1.jpeg"></a>
                 <div
