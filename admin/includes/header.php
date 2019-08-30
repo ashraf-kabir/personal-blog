@@ -148,7 +148,7 @@
                             class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity
                                                                                    log</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" role="presentation" href="#"><i
+                    <a class="dropdown-item" role="presentation" href="logout.php"><i
                             class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                 </div>
             </li>
