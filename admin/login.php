@@ -28,7 +28,7 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Login - Brand</title>
+    <title>Login - Admin</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -53,7 +53,8 @@ if (isset($_POST['login'])) {
                                     </div>
                                     <form class="user" method="post">
                                         <div class="form-group"><input class="form-control form-control-user"
-                                                                       type="email"
+                                                                       type="email" id="exampleInputEmail"
+                                                                       aria-describedby="emailHelp"
                                                                        placeholder="Enter Email Address"
                                                                        name="email"></div>
                                         <div class="form-group"><input class="form-control form-control-user"
@@ -68,7 +69,8 @@ if (isset($_POST['login'])) {
                                                             for="formCheck-1">Remember Me</label></div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary btn-block text-white btn-user" type="submit" name="login">
+                                        <button class="btn btn-primary btn-block text-white btn-user" type="submit"
+                                                name="login">
                                             Login
                                         </button>
                                     </form>
