@@ -19,7 +19,6 @@ if (isset($_POST['login'])) {
         echo "<script>alert('Invalid Details');</script>";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
