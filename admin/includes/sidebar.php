@@ -17,10 +17,14 @@
                         class="fas fa-user-circle"></i><span>Register</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="forgot-password.php"><i
                         class="fas fa-key"></i><span>Forgotten Password</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="view-post.php"><i
+                            class="fas fa-window-maximize"></i><span>View Posts</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="add-post.php"><i
+                        class="fas fa-window-maximize"></i><span>Add Posts</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="edit-post.php"><i
+                            class="fas fa-window-maximize"></i><span>Edit Posts</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="404.php"><i
-                        class="fas fa-exclamation-circle"></i><span>Page Not Found</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="blank.php"><i
-                        class="fas fa-window-maximize"></i><span>Blank Page</span></a></li>
+                            class="fas fa-exclamation-circle"></i><span>Page Not Found</span></a></li>
         </ul>
         <div class="text-center d-none d-md-inline">
             <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
