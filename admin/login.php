@@ -44,7 +44,7 @@ if (isset($_POST['login'])) {
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex">
                                 <div class="flex-grow-1 bg-login-image"
-                                     style="background-image: url(&quot;assets/img/dogs/image3.jpeg&quot;);"></div>
+                                     style="background-image: url(&quot;assets/img/sample/Spongebob-Squarepants.jpg&quot;);"></div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
