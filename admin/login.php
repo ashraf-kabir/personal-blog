@@ -1,3 +1,27 @@
+<?php
+session_start();
+include('includes/config.php');
+
+if (isset($_POST['login'])) {
+    $uname = $_POST['username'];
+    $password = md5($_POST['password']);
+    $sql = "SELECT username,password FROM admin WHERE username=:uname and password=:password";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':uname', $uname, PDO::PARAM_STR);
+    $query->bindParam(':password', $password, PDO::PARAM_STR);
+    $query->execute();
+    $results = $query->fetchAll(PDO::FETCH_OBJ);
+
+    if ($query->rowCount() > 0) {
+        $_SESSION['alogin'] = $_POST['username'];
+        echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+    } else {
+        echo "<script>alert('Invalid Details');</script>";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,12 +51,11 @@
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Welcome Back!</h4>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" method="post">
                                         <div class="form-group"><input class="form-control form-control-user"
-                                                                       type="email" id="exampleInputEmail"
-                                                                       aria-describedby="emailHelp"
-                                                                       placeholder="Enter Email Address..."
-                                                                       name="email"></div>
+                                                                       type="text"
+                                                                       placeholder="Enter Username"
+                                                                       name="username"></div>
                                         <div class="form-group"><input class="form-control form-control-user"
                                                                        type="password" id="exampleInputPassword"
                                                                        placeholder="Password" name="password"></div>
@@ -45,21 +68,12 @@
                                                             for="formCheck-1">Remember Me</label></div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary btn-block text-white btn-user" type="submit">
+                                        <button class="btn btn-primary btn-block text-white btn-user" type="submit" name="login">
                                             Login
                                         </button>
-                                        <hr>
-                                        <a class="btn btn-primary btn-block text-white btn-google btn-user"
-                                           role="button"><i class="fab fa-google"></i>&nbsp; Login with Google</a><a
-                                                class="btn btn-primary btn-block text-white btn-facebook btn-user"
-                                                role="button"><i class="fab fa-facebook-f"></i>&nbsp; Login with
-                                                                                               Facebook</a>
-                                        <hr>
                                     </form>
                                     <div class="text-center"><a class="small" href="forgot-password.php">Forgot
                                                                                                          Password?</a>
-                                    </div>
-                                    <div class="text-center"><a class="small" href="register.php">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
