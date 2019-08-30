@@ -15,7 +15,7 @@
             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
                                                                 data-toggle="dropdown"
                                                                 aria-expanded="false" href="#"><i
-                        class="fas fa-search"></i></a>
+                            class="fas fa-search"></i></a>
                 <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu"
                      aria-labelledby="searchDropdown">
                     <form class="form-inline mr-auto navbar-search w-100">
@@ -23,7 +23,7 @@
                                                         type="text" placeholder="Search for ...">
                             <div class="input-group-append">
                                 <button class="btn btn-primary py-0" type="button"><i
-                                        class="fas fa-search"></i></button>
+                                            class="fas fa-search"></i></button>
                             </div>
                         </div>
                     </form>
@@ -33,15 +33,15 @@
             <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                       data-toggle="dropdown" aria-expanded="false"
                                                       href="#"><span
-                        class="badge badge-danger badge-counter">3+</span><i
-                        class="fas fa-bell fa-fw"></i></a>
+                            class="badge badge-danger badge-counter">3+</span><i
+                            class="fas fa-bell fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
                      role="menu">
                     <h6 class="dropdown-header">alerts center</h6>
                     <a class="d-flex align-items-center dropdown-item" href="#">
                         <div class="mr-3">
                             <div class="bg-primary icon-circle"><i
-                                    class="fas fa-file-alt text-white"></i></div>
+                                        class="fas fa-file-alt text-white"></i></div>
                         </div>
                         <div><span class="small text-gray-500">December 12, 2019</span>
                             <p>A new monthly report is ready to download!</p>
@@ -59,7 +59,7 @@
                     <a class="d-flex align-items-center dropdown-item" href="#">
                         <div class="mr-3">
                             <div class="bg-warning icon-circle"><i
-                                    class="fas fa-exclamation-triangle text-white"></i></div>
+                                        class="fas fa-exclamation-triangle text-white"></i></div>
                         </div>
                         <div><span class="small text-gray-500">December 2, 2019</span>
                             <p>Spending Alert: We've noticed unusually high spending for your
@@ -74,8 +74,8 @@
             <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                       data-toggle="dropdown" aria-expanded="false"
                                                       href="#"><i
-                        class="fas fa-envelope fa-fw"></i><span
-                        class="badge badge-danger badge-counter">7</span></a>
+                            class="fas fa-envelope fa-fw"></i><span
+                            class="badge badge-danger badge-counter">7</span></a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
                      role="menu">
                     <h6 class="dropdown-header">alerts center</h6>
@@ -134,7 +134,7 @@
             <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                       data-toggle="dropdown" aria-expanded="false"
                                                       href="#"><span
-                        class="d-none d-lg-inline mr-2 text-gray-600 small">
+                            class="d-none d-lg-inline mr-2 text-gray-600 small">
                         <?php
                         $email = $_SESSION['alogin'];
                         $sql = "SELECT `username` FROM `admin` WHERE email=:email";
@@ -148,21 +148,21 @@
                             }
                         } ?>
                     </span><img
-                        class="border rounded-circle img-profile"
-                        src="assets/img/avatars/avatar1.jpeg"></a>
+                            class="border rounded-circle img-profile"
+                            src="assets/img/avatars/avatar1.jpeg"></a>
                 <div
-                    class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
+                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
                     <a class="dropdown-item" role="presentation" href="profile.php"><i
-                            class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a
-                        class="dropdown-item" role="presentation" href="#"><i
-                            class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a
+                            class="dropdown-item" role="presentation" href="#"><i
+                                class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
                     <a
-                        class="dropdown-item" role="presentation" href="#"><i
-                            class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity
-                                                                                   log</a>
+                            class="dropdown-item" role="presentation" href="#"><i
+                                class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity
+                                                                                       log</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" role="presentation" href="logout.php"><i
-                            class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                 </div>
             </li>
             </li>
