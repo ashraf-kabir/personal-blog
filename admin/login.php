@@ -3,17 +3,17 @@ session_start();
 include('includes/config.php');
 
 if (isset($_POST['login'])) {
-    $uname = $_POST['username'];
+    $email = $_POST['email'];
     $password = md5($_POST['password']);
-    $sql = "SELECT username,password FROM admin WHERE username=:uname and password=:password";
+    $sql = "SELECT email,password FROM admin WHERE email=:email and password=:password";
     $query = $dbh->prepare($sql);
-    $query->bindParam(':uname', $uname, PDO::PARAM_STR);
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
     $query->execute();
     $results = $query->fetchAll(PDO::FETCH_OBJ);
 
     if ($query->rowCount() > 0) {
-        $_SESSION['alogin'] = $_POST['username'];
+        $_SESSION['alogin'] = $_POST['email'];
         echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
     } else {
         echo "<script>alert('Invalid Details');</script>";
@@ -53,9 +53,9 @@ if (isset($_POST['login'])) {
                                     </div>
                                     <form class="user" method="post">
                                         <div class="form-group"><input class="form-control form-control-user"
-                                                                       type="text"
-                                                                       placeholder="Enter Username"
-                                                                       name="username"></div>
+                                                                       type="email"
+                                                                       placeholder="Enter Email Address"
+                                                                       name="email"></div>
                                         <div class="form-group"><input class="form-control form-control-user"
                                                                        type="password" id="exampleInputPassword"
                                                                        placeholder="Password" name="password"></div>
