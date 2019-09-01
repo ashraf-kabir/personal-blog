@@ -99,13 +99,13 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                 <p class="text-primary m-0 font-weight-bold">Add a post</p>
                                             </div>
                                             <div class="card-body">
-                                                <form>
+                                                <form method="post" enctype="multipart/form-data">
 
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
                                                             <div class="form-group">
-                                                                <label for="title"><strong>Title</strong></label>
-                                                                <input class="form-control" type="text"
+                                                                <label for="title1"><strong>Title</strong></label>
+                                                                <input class="form-control" id="title1" type="text"
                                                                        placeholder="Enter title" name="title" required>
                                                             </div>
                                                         </div>
@@ -114,9 +114,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
                                                             <div class="form-group">
-                                                                <label for="selectcat"><strong>Select
-                                                                                               Category</strong></label>
-                                                                <select class="form-control" name="selectcat" required>
+                                                                <label for="select1"><strong>Select
+                                                                                             Category</strong></label>
+                                                                <select class="form-control" id="select1"
+                                                                        name="selectcat" required>
                                                                     <option value="">-- Select --</option>
                                                                     <?php $ret = "SELECT `id`,`catname` FROM `categories`";
                                                                     $query = $dbh->prepare($ret);
@@ -139,10 +140,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
                                                             <div class="form-group">
-                                                                <label for="exampleFormControlFile1"><strong>Insert an
-                                                                                                             image</strong></label>
+                                                                <label for="insertimage1"><strong>Insert an
+                                                                                                  image</strong></label>
                                                                 <input type="file" class="form-control-file"
-                                                                       id="exampleFormControlFile1" disabled>
+                                                                       id="insertimage1" disabled>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -150,10 +151,11 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <div class="form-group">
                                                         <div class="form-row">
                                                             <div class="col-md-12 col-lg-12 col-xl-12">
-                                                                <div class="form-group"><label for="signature"><strong>Description</strong><br></label><textarea
-                                                                            class="form-control" rows="4"
-                                                                            name="description" style="height: 200px;"
-                                                                            required></textarea></div>
+                                                                <div class="form-group"><label for="textarea1"><strong>Description</strong></label>
+                                                                    <textarea class="form-control" id="textarea1"
+                                                                              rows="4"
+                                                                              name="description" style="height: 200px;"
+                                                                              required></textarea></div>
                                                                 <div class="form-group">
                                                                     <button class="btn btn-primary" type="submit"
                                                                             name="submit">Post
