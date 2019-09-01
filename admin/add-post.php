@@ -147,7 +147,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <div class="col-md-12 col-lg-12 col-xl-12">
                                                                 <div class="form-group"><label for="signature"><strong>Description</strong><br></label><textarea
                                                                             class="form-control" rows="4"
-                                                                            name="description" required></textarea></div>
+                                                                            name="description" style="height: 200px;" required></textarea></div>
                                                                 <div class="form-group">
                                                                     <button class="btn btn-primary" type="submit"
                                                                             name="submit">Post
