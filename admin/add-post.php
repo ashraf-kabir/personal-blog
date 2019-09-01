@@ -136,9 +136,9 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
-                                                            <label for="exampleFormControlFile1">Insert image</label>
+                                                            <label for="exampleFormControlFile1"><strong>Insert an image</strong></label>
                                                             <input type="file" class="form-control-file"
-                                                                   id="exampleFormControlFile1">
+                                                                   id="exampleFormControlFile1" disabled>
                                                         </div>
                                                     </div>
 
@@ -149,7 +149,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                             class="form-control" rows="4"
                                                                             name="signature" required></textarea></div>
                                                                 <div class="form-group">
-                                                                    <button class="btn btn-primary btn-sm" type="submit"
+                                                                    <button class="btn btn-primary" type="submit"
                                                                             name="submit">Post
                                                                     </button>
                                                                 </div>
@@ -162,88 +162,9 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card shadow mb-3">
-                                            <div class="card-header py-3">
-                                                <p class="text-primary m-0 font-weight-bold">Add a post</p>
-                                            </div>
-                                            <div class="card-body">
-                                                <form method="post" enctype="multipart/form-data">
-
-                                                    <div class="form-row">
-                                                        <div class="col">
-                                                            <div class="form-group"><label
-                                                                        for="title"><strong>Title</strong></label><input
-                                                                        class="form-control" type="text"
-                                                                        placeholder="Enter Title" name="title" required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row">
-                                                        <div class="col">
-                                                            <div class="form-group">
-                                                                <label for="selectcat"><strong>Select Category</strong></label>
-                                                                <div class="">
-                                                                    <select class="form-control" name="selectcat"
-                                                                            required>
-                                                                        <option value="">-- Select --</option>
-                                                                        <?php $ret = "SELECT `id`,`catname` FROM `categories`";
-                                                                        $query = $dbh->prepare($ret);
-                                                                        //$query->bindParam(':id',$id, PDO::PARAM_STR);
-                                                                        $query->execute();
-                                                                        $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                                                        if ($query->rowCount() > 0) {
-                                                                            foreach ($results as $result) {
-                                                                                ?>
-                                                                                <option value="<?php echo htmlentities($result->id); ?>">
-                                                                                    <?php echo htmlentities($result->catname); ?>
-                                                                                </option>
-                                                                            <?php }
-                                                                        } ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row">
-                                                        <div class="col">
-                                                            <div class="form-group" style="width: 564px;"><label
-                                                                        for="signature"><strong>Description</strong><br></label><textarea
-                                                                        class="form-control form-control-lg" rows="4"
-                                                                        name="description"
-                                                                        style="height: 300px;" required></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row">
-                                                        <div class="col">
-                                                            <div class="form-group">
-                                                                <button class="btn btn-primary btn-sm" type="submit"
-                                                                        name="submit">
-                                                                    Post
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="card shadow"></div>
-                                    </div>
-                                </div>
                             </div>
-                            <div class="col-lg-4">
 
-
-                            </div>
                         </div>
-                        <div class="card shadow mb-5"></div>
                     </div>
                 </div>
 
