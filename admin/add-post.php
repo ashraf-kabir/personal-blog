@@ -31,7 +31,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                     <?php include 'includes/header.php'; ?>
 
                     <div class="container-fluid">
-                        <h3 class="text-dark mb-4">Profile</h3>
+                        <h3 class="text-dark mb-4">Add a Post</h3>
                         <div class="row mb-3">
                             <div class="col-lg-8">
                                 <div class="row mb-3 d-none">
@@ -40,7 +40,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <div class="card-body">
                                                 <div class="row mb-2">
                                                     <div class="col">
-                                                        <p class="m-0">Peformance</p>
+                                                        <p class="m-0">Performance</p>
                                                         <p class="m-0"><strong>65.2%</strong></p>
                                                     </div>
                                                     <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
@@ -58,7 +58,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <div class="card-body">
                                                 <div class="row mb-2">
                                                     <div class="col">
-                                                        <p class="m-0">Peformance</p>
+                                                        <p class="m-0">Performance</p>
                                                         <p class="m-0"><strong>65.2%</strong></p>
                                                     </div>
                                                     <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
@@ -76,52 +76,38 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     <div class="col">
                                         <div class="card shadow mb-3">
                                             <div class="card-header py-3">
-                                                <p class="text-primary m-0 font-weight-bold">User Settings</p>
+                                                <p class="text-primary m-0 font-weight-bold">Add a post</p>
                                             </div>
                                             <div class="card-body">
                                                 <form>
                                                     <div class="form-row">
                                                         <div class="col">
-                                                            <div class="form-group"><label for="username"><strong>Username</strong></label><input
+                                                            <div class="form-group"><label
+                                                                        for="address"><strong>Title</strong></label><input
                                                                         class="form-control" type="text"
-                                                                        placeholder="user.name" name="username"></div>
+                                                                        placeholder="Sunset Blvd, 38" name="address"></div>
                                                         </div>
+                                                    </div>
+
+                                                    <div class="form-row">
                                                         <div class="col">
-                                                            <div class="form-group"><label for="email"><strong>Email
-                                                                                                               Address</strong></label><input
-                                                                        class="form-control" type="email"
-                                                                        placeholder="user@example.com" name="email">
+                                                            <div class="form-group" style="width: 564px;"><label
+                                                                        for="signature"><strong>Description</strong><br></label><textarea
+                                                                        class="form-control form-control-lg" rows="4"
+                                                                        name="signature" style="height: 300px;"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                     <div class="form-row">
                                                         <div class="col">
-                                                            <div class="form-group"><label for="first_name"><strong>First
-                                                                                                                    Name</strong></label><input
-                                                                        class="form-control" type="text"
-                                                                        placeholder="John" name="first_name"></div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="form-group"><label for="last_name"><strong>Last
-                                                                                                                   Name</strong></label><input
-                                                                        class="form-control" type="text"
-                                                                        placeholder="Doe" name="last_name"></div>
+                                                            <div class="form-group">
+                                                                <button class="btn btn-primary btn-sm" type="submit">Post
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group"><label
-                                                                for="address"><strong>Address</strong></label><input
-                                                                class="form-control" type="text"
-                                                                placeholder="Sunset Blvd, 38" name="address"></div>
-                                                    <div class="form-group" style="width: 564px;"><label
-                                                                for="signature"><strong>Signature</strong><br></label><textarea
-                                                                class="form-control form-control-lg" rows="4"
-                                                                name="signature" style="height: 300px;"></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <button class="btn btn-primary btn-sm" type="submit">Save
-                                                                                                             Settings
-                                                        </button>
-                                                    </div>
+
                                                 </form>
                                             </div>
                                         </div>
@@ -132,7 +118,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                             <div class="col-lg-4">
                                 <div class="card shadow mb-4">
                                     <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4"
-                                                                                   src="assets/img/dogs/image2.jpeg"
+                                                                                   src="assets/img/sample/image2.jpeg"
                                                                                    width="160" height="160">
                                         <div class="mb-3">
                                             <button class="btn btn-primary btn-sm" type="button">Change Photo</button>
