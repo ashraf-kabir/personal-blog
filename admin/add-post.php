@@ -103,42 +103,47 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
-                                                            <div class="form-group"><label
-                                                                        for="title"><strong>Title</strong></label><input
-                                                                        class="form-control" type="text"
-                                                                        placeholder="Enter title" name="title" required>
+                                                            <div class="form-group">
+                                                                <label for="title"><strong>Title</strong></label>
+                                                                <input class="form-control" type="text"
+                                                                       placeholder="Enter title" name="title" required>
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
-                                                            <label for="selectcat"><strong>Select
-                                                                                           Category</strong></label>
-                                                            <select class="form-control" name="selectcat" required>
-                                                                <option value="">-- Select --</option>
-                                                                <?php $ret = "SELECT `id`,`catname` FROM `categories`";
-                                                                $query = $dbh->prepare($ret);
-                                                                //$query->bindParam(':id',$id, PDO::PARAM_STR);
-                                                                $query->execute();
-                                                                $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                                                if ($query->rowCount() > 0) {
-                                                                    foreach ($results as $result) {
-                                                                        ?>
-                                                                        <option value="<?php echo htmlentities($result->id); ?>">
-                                                                            <?php echo htmlentities($result->catname); ?>
-                                                                        </option>
-                                                                    <?php }
-                                                                } ?>
-                                                            </select>
+                                                            <div class="form-group">
+                                                                <label for="selectcat"><strong>Select
+                                                                                               Category</strong></label>
+                                                                <select class="form-control" name="selectcat" required>
+                                                                    <option value="">-- Select --</option>
+                                                                    <?php $ret = "SELECT `id`,`catname` FROM `categories`";
+                                                                    $query = $dbh->prepare($ret);
+                                                                    //$query->bindParam(':id',$id, PDO::PARAM_STR);
+                                                                    $query->execute();
+                                                                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                                                    if ($query->rowCount() > 0) {
+                                                                        foreach ($results as $result) {
+                                                                            ?>
+                                                                            <option value="<?php echo htmlentities($result->id); ?>">
+                                                                                <?php echo htmlentities($result->catname); ?>
+                                                                            </option>
+                                                                        <?php }
+                                                                    } ?>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
-                                                            <label for="exampleFormControlFile1"><strong>Insert an image</strong></label>
-                                                            <input type="file" class="form-control-file"
-                                                                   id="exampleFormControlFile1" disabled>
+                                                            <div class="form-group">
+                                                                <label for="exampleFormControlFile1"><strong>Insert an
+                                                                                                             image</strong></label>
+                                                                <input type="file" class="form-control-file"
+                                                                       id="exampleFormControlFile1" disabled>
+                                                            </div>
                                                         </div>
                                                     </div>
 
@@ -147,7 +152,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <div class="col-md-12 col-lg-12 col-xl-12">
                                                                 <div class="form-group"><label for="signature"><strong>Description</strong><br></label><textarea
                                                                             class="form-control" rows="4"
-                                                                            name="description" style="height: 200px;" required></textarea></div>
+                                                                            name="description" style="height: 200px;"
+                                                                            required></textarea></div>
                                                                 <div class="form-group">
                                                                     <button class="btn btn-primary" type="submit"
                                                                             name="submit">Post
