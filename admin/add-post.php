@@ -91,6 +91,78 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card shadow mb-3">
+                                            <div class="card-header py-3">
+                                                <p class="text-primary m-0 font-weight-bold">Add a post</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <form>
+
+                                                    <div class="form-row">
+                                                        <div class="col-md-8 col-lg-6 col-xl-6">
+                                                            <div class="form-group"><label
+                                                                        for="title"><strong>Title</strong></label><input
+                                                                        class="form-control" type="text"
+                                                                        placeholder="Enter title" name="title" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <div class="col-md-8 col-lg-6 col-xl-6">
+                                                            <label for="selectcat"><strong>Select
+                                                                                           Category</strong></label>
+                                                            <select class="form-control" name="selectcat" required>
+                                                                <option value="">-- Select --</option>
+                                                                <?php $ret = "SELECT `id`,`catname` FROM `categories`";
+                                                                $query = $dbh->prepare($ret);
+                                                                //$query->bindParam(':id',$id, PDO::PARAM_STR);
+                                                                $query->execute();
+                                                                $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                                                if ($query->rowCount() > 0) {
+                                                                    foreach ($results as $result) {
+                                                                        ?>
+                                                                        <option value="<?php echo htmlentities($result->id); ?>">
+                                                                            <?php echo htmlentities($result->catname); ?>
+                                                                        </option>
+                                                                    <?php }
+                                                                } ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <div class="col-md-8 col-lg-6 col-xl-6">
+                                                            <label for="exampleFormControlFile1">Insert image</label>
+                                                            <input type="file" class="form-control-file"
+                                                                   id="exampleFormControlFile1">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="form-row">
+                                                            <div class="col-md-12 col-lg-12 col-xl-12">
+                                                                <div class="form-group"><label for="signature"><strong>Description</strong><br></label><textarea
+                                                                            class="form-control" rows="4"
+                                                                            name="signature" required></textarea></div>
+                                                                <div class="form-group">
+                                                                    <button class="btn btn-primary btn-sm" type="submit"
+                                                                            name="submit">Post
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="col">
                                         <div class="card shadow mb-3">
@@ -115,7 +187,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <div class="form-group">
                                                                 <label for="selectcat"><strong>Select Category</strong></label>
                                                                 <div class="">
-                                                                    <select class="form-control" name="selectcat" required>
+                                                                    <select class="form-control" name="selectcat"
+                                                                            required>
                                                                         <option value="">-- Select --</option>
                                                                         <?php $ret = "SELECT `id`,`catname` FROM `categories`";
                                                                         $query = $dbh->prepare($ret);
@@ -150,7 +223,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <div class="form-row">
                                                         <div class="col">
                                                             <div class="form-group">
-                                                                <button class="btn btn-primary btn-sm" type="submit" name="submit">
+                                                                <button class="btn btn-primary btn-sm" type="submit"
+                                                                        name="submit">
                                                                     Post
                                                                 </button>
                                                             </div>
@@ -165,57 +239,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <div class="card shadow mb-4">
-                                    <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4"
-                                                                                   src="assets/img/sample/image2.jpeg"
-                                                                                   width="160" height="160">
-                                        <div class="mb-3">
-                                            <button class="btn btn-primary btn-sm" type="button">Change Photo</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-3">
-                                    <div class="card-header py-3">
-                                        <h6 class="text-primary font-weight-bold m-0">Projects</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="small font-weight-bold">Server migration<span
-                                                    class="float-right">20%</span></h4>
-                                        <div class="progress progress-sm mb-3">
-                                            <div class="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0"
-                                                 aria-valuemax="100" style="width: 20%;"><span
-                                                        class="sr-only">20%</span></div>
-                                        </div>
-                                        <h4 class="small font-weight-bold">Sales tracking<span
-                                                    class="float-right">40%</span></h4>
-                                        <div class="progress progress-sm mb-3">
-                                            <div class="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0"
-                                                 aria-valuemax="100" style="width: 40%;"><span
-                                                        class="sr-only">40%</span></div>
-                                        </div>
-                                        <h4 class="small font-weight-bold">Customer Database<span class="float-right">60%</span>
-                                        </h4>
-                                        <div class="progress progress-sm mb-3">
-                                            <div class="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0"
-                                                 aria-valuemax="100" style="width: 60%;"><span
-                                                        class="sr-only">60%</span></div>
-                                        </div>
-                                        <h4 class="small font-weight-bold">Payout Details<span
-                                                    class="float-right">80%</span></h4>
-                                        <div class="progress progress-sm mb-3">
-                                            <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0"
-                                                 aria-valuemax="100" style="width: 80%;"><span
-                                                        class="sr-only">80%</span></div>
-                                        </div>
-                                        <h4 class="small font-weight-bold">Account setup<span class="float-right">Complete!</span>
-                                        </h4>
-                                        <div class="progress progress-sm mb-3">
-                                            <div class="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0"
-                                                 aria-valuemax="100" style="width: 100%;"><span
-                                                        class="sr-only">100%</span></div>
-                                        </div>
-                                    </div>
-                                </div>
+
+
                             </div>
                         </div>
                         <div class="card shadow mb-5"></div>
