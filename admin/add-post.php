@@ -18,9 +18,9 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
         if ($lastInsertId) {
-            $msg = "Blog Posted successfully";
+            echo "<script>alert('Blog posted successfully')</script>";
         } else {
-            $error = "Something went wrong. Please try again";
+            echo "<script>alert('Something went wrong')</script>";
         }
     }
     ?>
@@ -99,6 +99,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             </div>
                                             <div class="card-body">
                                                 <form method="post" enctype="multipart/form-data">
+
                                                     <div class="form-row">
                                                         <div class="col">
                                                             <div class="form-group"><label
@@ -108,13 +109,14 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                     <div class="form-row">
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label for="selectcat"><strong>Select Category</strong></label>
                                                                 <div class="">
                                                                     <select class="form-control" name="selectcat" required>
-                                                                        <option value="">Select</option>
+                                                                        <option value="">-- Select --</option>
                                                                         <?php $ret = "SELECT `id`,`catname` FROM `categories`";
                                                                         $query = $dbh->prepare($ret);
                                                                         //$query->bindParam(':id',$id, PDO::PARAM_STR);
@@ -139,7 +141,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <div class="form-group" style="width: 564px;"><label
                                                                         for="signature"><strong>Description</strong><br></label><textarea
                                                                         class="form-control form-control-lg" rows="4"
-                                                                        name="signature"
+                                                                        name="description"
                                                                         style="height: 300px;" required></textarea>
                                                             </div>
                                                         </div>
