@@ -104,7 +104,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <div class="form-group"><label
                                                                         for="title"><strong>Title</strong></label><input
                                                                         class="form-control" type="text"
-                                                                        placeholder="Enter Title" name="title">
+                                                                        placeholder="Enter Title" name="title" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -140,7 +140,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                         for="signature"><strong>Description</strong><br></label><textarea
                                                                         class="form-control form-control-lg" rows="4"
                                                                         name="signature"
-                                                                        style="height: 300px;"></textarea>
+                                                                        style="height: 300px;" required></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
