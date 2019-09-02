@@ -24,7 +24,7 @@ error_reporting(0);
     <div class="container">
         <div class="row">
 
-            <?php $sql = "SELECT posts.title,categories.catname,posts.creationdate FROM posts JOIN categories ON categories.id=posts.category";
+            <?php $sql = "SELECT posts.title,categories.catname,posts.creationdate FROM posts JOIN categories ON categories.id=posts.category ORDER BY posts.id DESC LIMIT 3";
             $query = $dbh->prepare($sql);
             $query->execute();
             $results = $query->fetchAll(PDO::FETCH_OBJ);
