@@ -116,7 +116,9 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <div class="form-group">
                                                                 <label for="title1"><strong>Title</strong></label>
                                                                 <input class="form-control" id="title1" type="text"
-                                                                       placeholder="Enter title" name="title" value="<?php echo htmlentities($result->title); ?>" required>
+                                                                       placeholder="Enter title" name="title"
+                                                                       value="<?php echo htmlentities($result->title); ?>"
+                                                                       required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -139,11 +141,11 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                             if ($results->catname == $cname) {
                                                                                 continue;
                                                                             } else {
-                                                                            ?>
-                                                                            <option value="<?php echo htmlentities($result->id); ?>">
-                                                                                <?php echo htmlentities($result->catname); ?>
-                                                                            </option>
-                                                                        <?php }
+                                                                                ?>
+                                                                                <option value="<?php echo htmlentities($result->id); ?>">
+                                                                                    <?php echo htmlentities($result->catname); ?>
+                                                                                </option>
+                                                                            <?php }
                                                                         }
                                                                     } ?>
                                                                 </select>
@@ -169,7 +171,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                     <textarea class="form-control" id="textarea1"
                                                                               rows="4"
                                                                               name="description" style="height: 200px;"
-                                                                              required><?php echo htmlentities($result->description); ?></textarea></div>
+                                                                              required><?php echo htmlentities($result->description); ?></textarea>
+                                                                </div>
 
                                                                 <?php }
                                                                 } ?>
