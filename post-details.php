@@ -41,6 +41,8 @@ error_reporting(0);
                         <div class="col-md-10 col-lg-8 mx-auto">
                             <div class="post-preview">
                                 <h2 class="post-title"><?php echo htmlentities($result->title); ?></h2>
+                                <p class="post-meta">Category: <a href="#"><?php echo htmlentities($result->catname); ?></a>
+                                </p>
                                 <p><?php echo htmlentities($result->description); ?></p>
                                 <p class="post-meta">Posted by&nbsp;<a href="#">Admin on <?php echo htmlentities($result->creationdate); ?></a>
                                 </p>
