@@ -8,20 +8,17 @@ if (strlen($_SESSION['alogin']) == 0) {
         $title = $_POST['title'];
         $cat = $_POST['selectcat'];
         $description = $_POST['description'];
+        $id = intval($_GET['id']);
 
-        $sql = "INSERT INTO posts(title,category,description) VALUES(:title,:cat,:description)";
+        $sql = "UPDATE `posts` SET title=:title,category=:cat,description=:description WHERE id=:id ";
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
         $query->bindParam(':description', $description, PDO::PARAM_STR);
-
+        $query->bindParam(':id', $id, PDO::PARAM_STR);
         $query->execute();
-        $lastInsertId = $dbh->lastInsertId();
-        if ($lastInsertId) {
-            echo "<script>alert('Blog posted successfully')</script>";
-        } else {
-            echo "<script>alert('Something went wrong')</script>";
-        }
+
+        echo "<script>alert('Data has updated successfully');</script>";
     }
     ?>
     <!DOCTYPE html>
@@ -30,7 +27,7 @@ if (strlen($_SESSION['alogin']) == 0) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Profile - Add Post</title>
+        <title>Edit Post</title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -50,7 +47,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                     <?php include 'includes/header.php'; ?>
 
                     <div class="container-fluid">
-                        <h3 class="text-dark mb-4">Add a Post</h3>
+                        <h3 class="text-dark mb-4">Edit Post</h3>
                         <div class="row mb-3">
                             <div class="col-lg-8">
                                 <div class="row mb-3 d-none">
@@ -96,8 +93,21 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     <div class="col">
                                         <div class="card shadow mb-3">
                                             <div class="card-header py-3">
-                                                <p class="text-primary m-0 font-weight-bold">Add a post</p>
+                                                <p class="text-primary m-0 font-weight-bold">Edit post</p>
                                             </div>
+                                            <?php
+                                            $id = intval($_GET['id']);
+                                            $sql = "SELECT posts.*,categories.catname,categories.id as cid from posts join categories on categories.id=posts.category where posts.id=:id";
+                                            $query = $dbh->prepare($sql);
+                                            $query->bindParam(':id', $id, PDO::PARAM_STR);
+                                            $query->execute();
+                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                            $cnt = 1;
+                                            if ($query->rowCount() > 0) {
+                                            foreach ($results
+
+                                            as $result) { ?>
+
                                             <div class="card-body">
                                                 <form method="post" enctype="multipart/form-data">
 
@@ -106,7 +116,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <div class="form-group">
                                                                 <label for="title1"><strong>Title</strong></label>
                                                                 <input class="form-control" id="title1" type="text"
-                                                                       placeholder="Enter title" name="title" required>
+                                                                       placeholder="Enter title" name="title" value="<?php echo htmlentities($result->title); ?>" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -118,7 +128,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                                              Category</strong></label>
                                                                 <select class="form-control" id="select1"
                                                                         name="selectcat" required>
-                                                                    <option value="">-- Select --</option>
+                                                                    <option value="<?php echo htmlentities($result->cid); ?>"><?php echo htmlentities($cname = $result->catname); ?></option>
                                                                     <?php $ret = "SELECT `id`,`catname` FROM `categories`";
                                                                     $query = $dbh->prepare($ret);
                                                                     //$query->bindParam(':id',$id, PDO::PARAM_STR);
@@ -126,11 +136,15 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                     $results = $query->fetchAll(PDO::FETCH_OBJ);
                                                                     if ($query->rowCount() > 0) {
                                                                         foreach ($results as $result) {
+                                                                            if ($results->catname == $cname) {
+                                                                                continue;
+                                                                            } else {
                                                                             ?>
                                                                             <option value="<?php echo htmlentities($result->id); ?>">
                                                                                 <?php echo htmlentities($result->catname); ?>
                                                                             </option>
                                                                         <?php }
+                                                                        }
                                                                     } ?>
                                                                 </select>
                                                             </div>
@@ -155,12 +169,17 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                     <textarea class="form-control" id="textarea1"
                                                                               rows="4"
                                                                               name="description" style="height: 200px;"
-                                                                              required></textarea></div>
+                                                                              required><?php echo htmlentities($result->description); ?></textarea></div>
+
+                                                                <?php }
+                                                                } ?>
+
                                                                 <div class="form-group">
                                                                     <button class="btn btn-primary" type="submit"
-                                                                            name="submit">Post
+                                                                            name="submit">Update
                                                                     </button>
                                                                 </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
