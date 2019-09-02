@@ -22,13 +22,13 @@ if (strlen($_SESSION['alogin']) == 0) {
         <div id="wrapper">
 
             <!-- sidebar -->
-            <?php include "includes/sidebar.php"; ?>
+            <?php include 'includes/sidebar.php'; ?>
 
             <div class="d-flex flex-column" id="content-wrapper">
                 <div id="content">
 
                     <!-- header -->
-                    <?php include "includes/header.php"; ?>
+                    <?php include 'includes/header.php'; ?>
 
                     <div class="container-fluid">
                         <h3 class="text-dark mb-4">Team</h3>
