@@ -7,7 +7,7 @@ if (strlen($_SESSION['alogin']) == 0) {
     if (isset($_POST['submit'])) {
         $title = $_POST['title'];
         $cat = $_POST['selectcat'];
-        $description = $_POST['description'];
+        $description = $_POST['desc'];
         $id = intval($_GET['id']);
 
         $sql = "UPDATE `posts` SET title=:title,category=:cat,description=:description WHERE id=:id ";
@@ -95,21 +95,21 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <div class="card-header py-3">
                                                 <p class="text-primary m-0 font-weight-bold">Edit post</p>
                                             </div>
-                                            <?php
-                                            $id = intval($_GET['id']);
-                                            $sql = "SELECT posts.*,categories.catname,categories.id as cid from posts join categories on categories.id=posts.category where posts.id=:id";
-                                            $query = $dbh->prepare($sql);
-                                            $query->bindParam(':id', $id, PDO::PARAM_STR);
-                                            $query->execute();
-                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                            $cnt = 1;
-                                            if ($query->rowCount() > 0) {
-                                            foreach ($results
-
-                                            as $result) { ?>
 
                                             <div class="card-body">
-                                                <form method="post" enctype="multipart/form-data">
+                                                <?php
+                                                $id = intval($_GET['id']);
+                                                $sql = "SELECT posts.*,categories.catname,categories.id as cid from posts join categories on categories.id=posts.category where posts.id=:id";
+                                                $query = $dbh->prepare($sql);
+                                                $query->bindParam(':id', $id, PDO::PARAM_STR);
+                                                $query->execute();
+                                                $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                                $cnt = 1;
+                                                if ($query->rowCount() > 0) {
+                                                foreach ($results
+
+                                                as $result) { ?>
+                                                <form method="post">
 
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
@@ -123,6 +123,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         </div>
                                                     </div>
 
+
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
                                                             <div class="form-group">
@@ -135,15 +136,15 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                     $query = $dbh->prepare($ret);
                                                                     //$query->bindParam(':id',$id, PDO::PARAM_STR);
                                                                     $query->execute();
-                                                                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                                                    $resultss = $query->fetchAll(PDO::FETCH_OBJ);
                                                                     if ($query->rowCount() > 0) {
-                                                                        foreach ($results as $result) {
+                                                                        foreach ($resultss as $results) {
                                                                             if ($results->catname == $cname) {
                                                                                 continue;
                                                                             } else {
                                                                                 ?>
-                                                                                <option value="<?php echo htmlentities($result->id); ?>">
-                                                                                    <?php echo htmlentities($result->catname); ?>
+                                                                                <option value="<?php echo htmlentities($results->id); ?>">
+                                                                                    <?php echo htmlentities($results->catname); ?>
                                                                                 </option>
                                                                             <?php }
                                                                         }
@@ -152,6 +153,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             </div>
                                                         </div>
                                                     </div>
+
 
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
@@ -164,13 +166,15 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         </div>
                                                     </div>
 
+
                                                     <div class="form-group">
                                                         <div class="form-row">
                                                             <div class="col-md-12 col-lg-12 col-xl-12">
-                                                                <div class="form-group"><label for="textarea1"><strong>Description</strong></label>
+                                                                <div class="form-group">
+                                                                    <label for="textarea1"><strong>Description</strong></label>
                                                                     <textarea class="form-control" id="textarea1"
-                                                                              rows="4"
-                                                                              name="description" style="height: 200px;"
+                                                                              rows="4" name="desc"
+                                                                              style="height: 200px;"
                                                                               required><?php echo htmlentities($result->description); ?></textarea>
                                                                 </div>
 
