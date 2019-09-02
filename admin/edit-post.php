@@ -123,7 +123,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         </div>
                                                     </div>
 
-
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
                                                             <div class="form-group">
@@ -154,7 +153,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         </div>
                                                     </div>
 
-
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
                                                             <div class="form-group">
@@ -165,7 +163,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             </div>
                                                         </div>
                                                     </div>
-
 
                                                     <div class="form-group">
                                                         <div class="form-row">
