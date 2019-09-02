@@ -99,7 +99,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <div class="card-body">
                                                 <?php
                                                 $id = intval($_GET['id']);
-                                                $sql = "SELECT posts.*,categories.catname,categories.id as cid from posts join categories on categories.id=posts.category where posts.id=:id";
+                                                $sql = "SELECT posts.*,categories.catname,categories.id AS cid FROM posts JOIN categories ON categories.id=posts.category WHERE posts.id=:id";
                                                 $query = $dbh->prepare($sql);
                                                 $query->bindParam(':id', $id, PDO::PARAM_STR);
                                                 $query->execute();
