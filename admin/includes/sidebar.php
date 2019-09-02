@@ -19,6 +19,8 @@
                         class="fas fa-key"></i><span>Forgotten Password</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="manage-posts.php"><i
                             class="fas fa-window-maximize"></i><span>Manage Posts</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="manage-pages.php"><i
+                            class="fas fa-window-maximize"></i><span>Manage Pages</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="add-post.php"><i
                         class="fas fa-window-maximize"></i><span>Add Posts</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="404.php"><i
