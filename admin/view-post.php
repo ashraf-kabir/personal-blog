@@ -42,7 +42,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                         <h3 class="text-dark mb-4">Posts</h3>
                         <div class="card shadow">
                             <div class="card-header py-3">
-                                <p class="text-primary m-0 font-weight-bold">Employee Info</p>
+                                <p class="text-primary m-0 font-weight-bold">Posts</p>
                             </div>
                             <div class="card-body">
                                 <div class="row">
