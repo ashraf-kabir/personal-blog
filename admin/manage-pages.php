@@ -190,7 +190,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                               required>
                                                                         <?php
                                                                         $pagetype = $_GET['type'];
-                                                                        $sql = "SELECT detail FROM pages WHERE type=:pagetype";
+                                                                        $sql = "SELECT description FROM pages WHERE type=:pagetype";
                                                                         $query = $dbh->prepare($sql);
                                                                         $query->bindParam(':pagetype', $pagetype, PDO::PARAM_STR);
                                                                         $query->execute();
