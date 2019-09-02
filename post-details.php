@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <?php include 'includes/header.php'; ?>
+
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <h2 class="section-heading">Heading</h2>
+                    <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally,
+                       it is a task to occupy the generations. And no matter how much progress one makes, there is
+                       always the thrill of just beginning.</p>
+                    <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally,
+                       it is a task to occupy the generations. And no matter how much progress one makes, there is
+                       always the thrill of just beginning.</p>
+                    <blockquote
+                        class="blockquote">
+                        <p class="mb-0">The dreams of yesterday are the hopes of today and the reality of tomorrow.
+                                        Science has not yet mastered prophecy. We predict too much for the next year and
+                                        yet far too little for the next ten.</p>
+                    </blockquote>
+                    <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is
+                       a historical process which mankind is carrying out in accordance with the natural laws of human
+                       development.</p>
+                    <h2 class="section-heading">Reaching for the Stars</h2>
+                    <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the
+                       size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked
+                       so fragile, so delicate, that if you
+                       touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p><a
+                        href="#"><img class="img-fluid" src="assets/img/post-sample-image.jpg"></a><span
+                        class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
+                    <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year
+                       mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go
+                       where no man has gone before.</p>
+                    <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a
+                       fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
+                    <p><span>Placeholder text by&nbsp;</span><a href="http://spaceipsum.com">Space Ipsum</a><span>&nbsp;Photographs by&nbsp;</span><a
+                            href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <?php include 'includes/footer.php'; ?>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/clean-blog.js"></script>
+</body>
+
+</html>
