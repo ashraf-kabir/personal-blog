@@ -120,7 +120,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                     <?php include 'includes/header.php'; ?>
 
                     <div class="container-fluid">
-                        <h3 class="text-dark mb-4">Edit Post</h3>
+                        <h3 class="text-dark mb-4">Manage Pages</h3>
                         <div class="row mb-3">
                             <div class="col-lg-8">
 
@@ -128,7 +128,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     <div class="col">
                                         <div class="card shadow mb-3">
                                             <div class="card-header py-3">
-                                                <p class="text-primary m-0 font-weight-bold">Edit post</p>
+                                                <p class="text-primary m-0 font-weight-bold">Manage pages</p>
                                             </div>
 
                                             <div class="card-body">
@@ -157,7 +157,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <div class="form-group">
                                                                 <label class="col-sm-4 control-label">Selected
                                                                                                       Page:</label>
-                                                                <div class="col-sm-8">
+                                                                <div class="">
                                                                     <?php
                                                                     switch ($_GET['type']) {
                                                                         case "aboutus" :
