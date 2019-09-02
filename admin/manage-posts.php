@@ -19,7 +19,7 @@ if (strlen($_SESSION['alogin']) == 0) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Table - Admin</title>
+        <title>Posts - Manage Posts</title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -65,7 +65,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     <table class="table dataTable my-0" id="dataTable">
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>#</th>
                                             <th>Title</th>
                                             <th>Category</th>
                                             <th>Edit</th>
@@ -86,7 +86,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <td><?php echo htmlentities($result->title); ?></td>
                                                     <td><?php echo htmlentities($result->catname); ?></td>
                                                     <td><a href="edit-post.php?id=<?php echo $result->id; ?>">edit</a>
-                                                    <td><a href="view-post.php?del=<?php echo $result->id; ?>"
+                                                    <td><a href="manage-posts.php?del=<?php echo $result->id; ?>"
                                                            onclick="return confirm('Do you want to delete?');">delete</a>
                                                     </td>
                                                 </tr>
@@ -97,7 +97,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         </tbody>
                                         <tfoot>
                                         <tr>
-                                            <td><strong>ID</strong></td>
+                                            <td><strong>#</strong></td>
                                             <td><strong>Title</strong></td>
                                             <td><strong>Category</strong></td>
                                             <td><strong>Edit</strong></td>

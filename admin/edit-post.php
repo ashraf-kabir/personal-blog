@@ -18,7 +18,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->bindParam(':id', $id, PDO::PARAM_STR);
         $query->execute();
 
-        echo "<script>alert('Data has updated successfully');</script>";
+        echo "<script>alert('Post has updated successfully');</script>";
     }
     ?>
     <!DOCTYPE html>
@@ -130,7 +130,9 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                                              Category</strong></label>
                                                                 <select class="form-control" id="select1"
                                                                         name="selectcat" required>
-                                                                    <option value="<?php echo htmlentities($result->cid); ?>"><?php echo htmlentities($cname = $result->catname); ?></option>
+                                                                    <option value="<?php echo htmlentities($result->cid); ?>">
+                                                                        <?php echo htmlentities($cname = $result->catname); ?>
+                                                                    </option>
                                                                     <?php $ret = "SELECT `id`,`catname` FROM `categories`";
                                                                     $query = $dbh->prepare($ret);
                                                                     //$query->bindParam(':id',$id, PDO::PARAM_STR);
