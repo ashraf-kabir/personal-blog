@@ -32,7 +32,6 @@ error_reporting(0);
             if ($query->rowCount() > 0) {
                 foreach ($results as $result) {
                     ?>
-
                     <div class="col-md-10 col-lg-8">
                         <div class="post-preview">
                             <a href="#">
@@ -49,7 +48,6 @@ error_reporting(0);
                             <button class="btn btn-primary float-right" type="button">Older Posts&nbsp;⇒</button>
                         </div>
                     </div>
-
                 <?php }
             } ?>
 
