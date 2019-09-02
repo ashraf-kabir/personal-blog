@@ -5,7 +5,7 @@ include('includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
     header('location: login.php');
 } else {
-    if (isset($_POST['submit']) == "Update") {
+    if ($_POST['submit'] == "Update") {
         $pagetype = $_GET['type'];
         $description = $_POST['desc'];
         $sql = "UPDATE pages SET description=:description WHERE type=:pagetype";
