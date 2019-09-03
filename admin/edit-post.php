@@ -78,7 +78,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <div class="form-group">
                                                                 <label for="title1"><strong>Title</strong></label>
                                                                 <input class="form-control" id="title1" type="text"
-                                                                       placeholder="Enter title" name="title"
+                                                                       name="title"
                                                                        value="<?php echo htmlentities($result->title); ?>"
                                                                        required>
                                                             </div>
