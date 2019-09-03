@@ -8,13 +8,15 @@ if (strlen($_SESSION['alogin']) == 0) {
         $title = $_POST['title'];
         $cat = $_POST['selectcat'];
         $description = $_POST['desc'];
+        $grabber = $_POST['grabber'];
         $id = intval($_GET['id']);
 
-        $sql = "UPDATE `posts` SET title=:title,category=:cat,description=:description WHERE id=:id ";
+        $sql = "UPDATE `posts` SET title=:title,category=:cat,description=:description,grabber=:grabber WHERE id=:id ";
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
         $query->bindParam(':description', $description, PDO::PARAM_STR);
+        $query->bindParam(':grabber', $grabber, PDO::PARAM_STR);
         $query->bindParam(':id', $id, PDO::PARAM_STR);
         $query->execute();
 
@@ -128,9 +130,20 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         </div>
                                                     </div>
 
+
+
                                                     <div class="form-group">
                                                         <div class="form-row">
                                                             <div class="col-md-12 col-lg-12 col-xl-12">
+
+                                                                <div class="form-group">
+                                                                    <label for="textarea2"><strong>Grabber</strong></label>
+                                                                    <textarea class="form-control" id="textarea2"
+                                                                              rows="4" name="grabber"
+                                                                              style="height: 70px;"
+                                                                              required><?php echo htmlentities($result->grabber); ?></textarea>
+                                                                </div>
+
                                                                 <div class="form-group">
                                                                     <label for="textarea1"><strong>Description</strong></label>
                                                                     <textarea class="form-control" id="textarea1"
