@@ -35,6 +35,7 @@ include('includes/config.php');
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-lg-8 mx-auto">
+                        <h2 class="post-title"><?php echo htmlentities($result->pagename); ?></h2>
                         <p><?php echo htmlentities($result->description); ?></p>
                     </div>
                 </div>
