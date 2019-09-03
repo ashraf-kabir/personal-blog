@@ -3,22 +3,22 @@ session_start();
 error_reporting(0);
 include('includes/config.php');
 if (isset($_POST['send'])) {
-    $name = $_POST['fullname'];
+    $uname = $_POST['uname'];
     $email = $_POST['email'];
-    $contactno = $_POST['contactno'];
+    $contact = $_POST['contact'];
     $message = $_POST['message'];
-    $sql = "INSERT INTO tblcontactusquery(name,EmailId,ContactNumber,Message) VALUES(:name,:email,:contactno,:message)";
+    $sql = "INSERT INTO contactusquery(`uname`,`email`,`contact`,`message`) VALUES(:uname,:email,:contact,:message)";
     $query = $dbh->prepare($sql);
-    $query->bindParam(':name', $name, PDO::PARAM_STR);
+    $query->bindParam(':uname', $uname, PDO::PARAM_STR);
     $query->bindParam(':email', $email, PDO::PARAM_STR);
-    $query->bindParam(':contactno', $contactno, PDO::PARAM_STR);
+    $query->bindParam(':contact', $contact, PDO::PARAM_STR);
     $query->bindParam(':message', $message, PDO::PARAM_STR);
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
-        $msg = "Query Sent. We will contact you shortly";
+        echo "<script>alert('Form successfully submitted. We will contact you soon.')</script>";
     } else {
-        $error = "Something went wrong. Please try again";
+        echo "<script>alert('An error occurred. Try again.')</script>";
     }
 }
 ?>
@@ -44,36 +44,35 @@ if (isset($_POST['send'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto">
-                <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon
-                   as possible!</p>
+                <h2 class="post-title">Contact Us</h2>
                 <form id="contactForm" name="sentMessage" novalidate="novalidate">
                     <div class="control-group">
-                        <div class="form-group floating-label-form-group controls"><label>Name</label><input
-                                    class="form-control" type="text" id="name" required="" placeholder="Name"><small
+                        <div class="form-group floating-label-form-group controls"><label for="name">Name</label><input
+                                    class="form-control" type="text" id="name" required="" placeholder="Name" name="uname"><small
                                     class="form-text text-danger help-block"></small></div>
                     </div>
                     <div class="control-group">
-                        <div class="form-group floating-label-form-group controls"><label>Email Address</label><input
+                        <div class="form-group floating-label-form-group controls"><label for="email">Email Address</label><input
                                     class="form-control" type="email" id="email" required=""
-                                    placeholder="Email Address"><small class="form-text text-danger help-block"></small>
+                                    placeholder="Email Address" name="email"><small class="form-text text-danger help-block"></small>
                         </div>
                     </div>
                     <div class="control-group">
-                        <div class="form-group floating-label-form-group controls"><label>Phone Number</label><input
+                        <div class="form-group floating-label-form-group controls"><label for="phone">Phone Number</label><input
                                     class="form-control" type="tel" id="phone" required=""
-                                    placeholder="Phone Number"><small class="form-text text-danger help-block"></small>
+                                    placeholder="Phone Number" name="contact"><small class="form-text text-danger help-block"></small>
                         </div>
                     </div>
                     <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-3"><label>Message</label><textarea
+                        <div class="form-group floating-label-form-group controls mb-3"><label for="message">Message</label><textarea
                                     class="form-control" id="message"
                                     data-validation-required-message="Please enter a message." required=""
-                                    placeholder="Message" rows="5"></textarea><small
+                                    placeholder="Message" rows="5" name="message"></textarea><small
                                     class="form-text text-danger help-block"></small></div>
                     </div>
                     <div id="success"></div>
                     <div class="form-group">
-                        <button class="btn btn-primary" id="sendMessageButton" type="submit">Send</button>
+                        <button class="btn btn-primary" id="sendMessageButton" type="submit" name="send">Send</button>
                     </div>
                 </form>
             </div>
