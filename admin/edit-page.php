@@ -10,7 +10,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $description = $_POST['desc'];
         $id = intval($_GET['id']);
 
-        $sql = "UPDATE `pages` SET pagename=:pagename,pagetype=:pagetypetype,description=:description WHERE id=:id ";
+        $sql = "UPDATE `pages` SET pagename=:pagename,pagetype=:pagetype,description=:description WHERE id=:id ";
         $query = $dbh->prepare($sql);
         $query->bindParam(':pagename', $pagename, PDO::PARAM_STR);
         $query->bindParam(':pagetype', $pagetype, PDO::PARAM_STR);
