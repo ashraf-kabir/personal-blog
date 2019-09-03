@@ -45,13 +45,21 @@ error_reporting(0);
                         </div>
                         <hr>
 
-                        <div class="clearfix">
-                            <button class="btn btn-primary float-right" type="button">Older Posts&nbsp;⇒</button>
-                        </div>
+
                     </div>
                 <?php }
             } ?>
 
+        </div>
+        
+        <div class="row">
+            <div class="col-md-10 col-lg-8">
+                <div class="clearfix">
+                    <a href="post.php">
+                        <button class="btn btn-primary float-right" type="button">Older Posts&nbsp;⇒</button>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
