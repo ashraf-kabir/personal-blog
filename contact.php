@@ -16,7 +16,7 @@ if (isset($_POST['send'])) {
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
-        echo "<script>alert('Form successfully submitted. We will contact you soon.')</script>";
+        echo "<script>alert('Form successfully submitted. We\'ll contact you soon.')</script>";
     } else {
         echo "<script>alert('An error occurred. Try again.')</script>";
     }
@@ -45,7 +45,7 @@ if (isset($_POST['send'])) {
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto">
                 <h2 class="post-title">Contact Us</h2>
-                <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                <form id="contactForm" name="sentMessage" novalidate="novalidate" method="post">
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls"><label for="name">Name</label><input
                                     class="form-control" type="text" id="name" required="" placeholder="Name" name="uname"><small
