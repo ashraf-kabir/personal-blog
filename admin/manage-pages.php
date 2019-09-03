@@ -51,7 +51,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         </thead>
                                         <tbody>
 
-                                        <?php $sql = "SELECT pages.id,pages.pagename,pages.type FROM pages";
+                                        <?php $sql = "SELECT pages.id,pages.pagename,pages.pagetype FROM pages";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -61,7 +61,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                 <tr>
                                                     <td><?php echo htmlentities($cnt); ?></td>
                                                     <td><?php echo htmlentities($result->pagename); ?></td>
-                                                    <td><?php echo htmlentities($result->type); ?></td>
+                                                    <td><?php echo htmlentities($result->pagetype); ?></td>
                                                     <td><a href="edit-page.php?id=<?php echo $result->id; ?>">edit</a>
                                                 </tr>
                                                 <?php $cnt = $cnt + 1;
