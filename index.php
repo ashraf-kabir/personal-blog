@@ -24,7 +24,7 @@ error_reporting(0);
     <div class="container">
         <div class="row">
 
-            <?php $sql = "SELECT posts.id,posts.title,categories.catname,posts.creationdate FROM posts JOIN categories ON categories.id=posts.category ORDER BY posts.id DESC LIMIT 3";
+            <?php $sql = "SELECT posts.id,posts.title,categories.catname,posts.grabber,posts.creationdate FROM posts JOIN categories ON categories.id=posts.category ORDER BY posts.id DESC LIMIT 3";
             $query = $dbh->prepare($sql);
             $query->execute();
             $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -35,11 +35,12 @@ error_reporting(0);
                     <div class="col-md-10 col-lg-8">
                         <div class="post-preview">
                             <a href="post-details.php?id=<?php echo htmlentities($result->id); ?>">
-                                <h2 class="post-title"><?php echo htmlentities($result->catname); ?>
-                                    , <?php echo htmlentities($result->title); ?></h2>
+                                <h2 class="post-title"><?php echo htmlentities($result->title); ?>,
+                                    <i><?php echo htmlentities($result->catname); ?></i></h2>
                                 <h3 class="post-subtitle"><?php echo htmlentities($result->grabber); ?></h3>
                             </a>
-                            <p class="post-meta">Posted by&nbsp;<a href="#">Admin on <?php echo htmlentities($result->creationdate); ?></a>
+                            <p class="post-meta">Posted by&nbsp;<a href="#">Admin
+                                                                            on <?php echo htmlentities($result->creationdate); ?></a>
                             </p>
                         </div>
                         <hr>
