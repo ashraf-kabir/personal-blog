@@ -37,7 +37,7 @@ error_reporting(0);
                             <a href="post-details.php?id=<?php echo htmlentities($result->id); ?>">
                                 <h2 class="post-title"><?php echo htmlentities($result->catname); ?>
                                     , <?php echo htmlentities($result->title); ?></h2>
-                                <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
+                                <h3 class="post-subtitle"><?php echo htmlentities($result->grabber); ?></h3>
                             </a>
                             <p class="post-meta">Posted by&nbsp;<a href="#">Admin on <?php echo htmlentities($result->creationdate); ?></a>
                             </p>
