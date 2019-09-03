@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('includes/config.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -16,13 +20,27 @@
     <!-- Header -->
     <?php include 'includes/header.php'; ?>
 
+    <?php
+    $ptype = 'aboutus';
+    $sql = "SELECT pages.pagename, pages.description FROM pages WHERE pages.pagetype=:ptype";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':ptype', $ptype, PDO::PARAM_STR);
+    $query->execute();
+    $results = $query->fetchAll(PDO::FETCH_OBJ);
+    $cnt = 1;
+    if ($query->rowCount() > 0) {
+    foreach ($results
+
+    as $result) { ?>
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto">
-                <p></p>
+                <p><?php echo htmlentities($result->description);?></p>
             </div>
         </div>
     </div>
+    <?php }
+    }?>
     <hr>
 
     <!-- Footer -->
