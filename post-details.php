@@ -123,7 +123,7 @@ if (isset($_POST['submit'])) {
                                                placeholder="Enter your Valid email" required>
                                     <?php } ?>
                                 </div>
-                                
+
                                 <div class="form-group">
                                             <textarea class="form-control" name="comment" rows="3" placeholder="Comment"
                                                       required></textarea>
