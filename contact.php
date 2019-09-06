@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
+error_reporting(0);
 $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
 if (isset($_POST['send'])) {
     $uname = $_POST['uname'];
