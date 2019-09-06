@@ -13,9 +13,20 @@
                 <?php if (strlen($_SESSION['login']) == 0) {
                     ?>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Log in</a></li>
-                <?php } else { ?>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">loggedin</a></li>
-                <?php } ?>
+                <?php } else {
+                    $email = $_SESSION['login'];
+                    $sql = "SELECT fname FROM users WHERE email=:email ";
+                    $query = $dbh->prepare($sql);
+                    $query->bindParam(':email', $email, PDO::PARAM_STR);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                    if ($query->rowCount() > 0) {
+                        foreach ($results as $result2) {
+                            ?>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#"><?php echo htmlentities($result2->fname." ".$result2->lname); ?></a></li>
+                        <?php }
+                    }
+                } ?>
                 <?php if (strlen($_SESSION['login']) == 0) {
                     ?>
                 <?php } else { ?>
