@@ -9,7 +9,7 @@ if (strlen($_SESSION['login']) == 0) {
         $cat = $_POST['selectcat'];
         $description = $_POST['description'];
 
-        $sql = "INSERT INTO posts(title,category,description) VALUES(:title,:cat,:description)";
+        $sql = "INSERT INTO posts(title,category,grabber,description) VALUES(:title,:cat,:grabber,:description)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
