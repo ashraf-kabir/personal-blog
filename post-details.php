@@ -48,8 +48,8 @@ if (isset($_POST['submit'])) {
 
     <?php
     $id = intval($_GET['id']);
-    $sql = "SELECT posts.*,categories.catname,categories.id AS cid FROM posts JOIN categories ON categories.id=posts.category where posts.id=:id";
-    $query = $dbh->prepare($sql);
+    $sql1 = "SELECT posts.*,categories.catname,categories.id AS cid FROM posts JOIN categories ON categories.id=posts.category where posts.id=:id";
+    $query = $dbh->prepare($sql1);
     $query->bindParam(':id', $id, PDO::PARAM_STR);
     $query->execute();
     $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -87,8 +87,8 @@ if (isset($_POST['submit'])) {
                                         <div class="form-group">
                                             <?php if ($_SESSION['login']) {
                                                 $email = $_SESSION['login'];
-                                                $sql = "SELECT fname,lname FROM users WHERE email=:email ";
-                                                $query = $dbh->prepare($sql);
+                                                $sql2 = "SELECT fname,lname FROM users WHERE email=:email ";
+                                                $query = $dbh->prepare($sql2);
                                                 $query->bindParam(':email', $email, PDO::PARAM_STR);
                                                 $query->execute();
                                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -140,6 +140,34 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
+
+                        <!--Display Comments-->
+                        <div class="col-md-10 col-lg-8 mx-auto">
+                            <?php
+                            $sts = 1;
+                            $id = 2;
+                            $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=:id AND status=:sts";
+                            $query->bindParam(':sts', $sts, PDO::PARAM_STR);
+                            $query->bindParam(':id', $id, PDO::PARAM_STR);
+                            $query = $dbh->prepare($sql3);
+                            $query->execute();
+                            $results3 = $query->fetchAll(PDO::FETCH_OBJ);
+                            $cnt = 1;
+                            if ($query->rowCount() > 0) {
+                                foreach ($results3 as $result3) {
+                                    ?>
+                                        <div class="media-body">
+                                            <h5 class="mt-0"><?php echo htmlentities($result3->name); ?> <br/>
+                                                <span style="font-size:11px;"><b>at</b> <?php echo htmlentities($result3->postingdate); ?></span>
+                                            </h5>
+                                            <?php echo htmlentities($result3->comment); ?>
+                                        </div>
+                                <?php $cnt++;
+                                }
+                            } ?>
+                        </div>
+
+
                     </div>
             </article>
 
