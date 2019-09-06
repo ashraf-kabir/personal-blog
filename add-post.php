@@ -77,6 +77,12 @@ if (strlen($_SESSION['login']) == 0) {
                         </div>
 
                         <div class="control-group">
+                            <div class="form-group floating-label-form-group controls"><label for="grabber">Grabber</label><input
+                                    class="form-control" type="text" id="grabber" required="" placeholder="Grabber" name="grabber"><small
+                                    class="form-text text-danger help-block"></small></div>
+                        </div>
+
+                        <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-3"><label for="desc">Description</label><textarea
                                     class="form-control" id="desc"
                                     data-validation-required-message="Description" required=""
