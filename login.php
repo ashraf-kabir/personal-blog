@@ -67,10 +67,10 @@ if (isset($_POST['login'])) {
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <div class="form-check"><input
-                                                        class="form-check-input custom-control-input"
-                                                        type="checkbox" id="formCheck-1"><label
-                                                        class="form-check-label custom-control-label"
-                                                        for="formCheck-1">Remember Me</label></div>
+                                                            class="form-check-input custom-control-input"
+                                                            type="checkbox" id="formCheck-1"><label
+                                                            class="form-check-label custom-control-label"
+                                                            for="formCheck-1">Remember Me</label></div>
                                             </div>
                                         </div>
                                         <button class="btn btn-primary btn-block text-white btn-user" type="submit"
@@ -78,8 +78,13 @@ if (isset($_POST['login'])) {
                                             Login
                                         </button>
                                     </form>
-                                    <div class="text-center"><a class="small" href="forgot-password.php">Forgot
-                                                                                                         Password?</a>
+                                    <div class="text-center">
+                                        <hr>
+                                        <a class="small" href="forgot-password.php">Forgot Password?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="register.php">Don't have an account?
+                                                                             Register</a>
                                     </div>
                                 </div>
                             </div>

@@ -42,8 +42,9 @@
                                     <div class="text-center">
                                         <hr>
                                         <a class="small" href="register.php">Create an Account!</a></div>
-                                    <div class="text-center"><a class="small" href="login.php">Already have an account?
-                                                                                               Login!</a></div>
+                                    <div class="text-center">
+                                        <a class="small" href="login.php">Already have an account? Login!</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
