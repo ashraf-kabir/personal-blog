@@ -7,12 +7,14 @@ if (strlen($_SESSION['alogin']) == 0) {
     if (isset($_POST['submit'])) {
         $title = $_POST['title'];
         $cat = $_POST['selectcat'];
+        $grabber = $_POST['grabber'];
         $description = $_POST['description'];
 
-        $sql = "INSERT INTO posts(title,category,description) VALUES(:title,:cat,:description)";
+        $sql = "INSERT INTO posts(title,category,grabber,description) VALUES(:title,:cat,:grabber,:description)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
+        $query->bindParam(':grabber', $grabber, PDO::PARAM_STR);
         $query->bindParam(':description', $description, PDO::PARAM_STR);
 
         $query->execute();
@@ -95,6 +97,16 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                         <?php }
                                                                     } ?>
                                                                 </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <div class="col-md-8 col-lg-6 col-xl-6">
+                                                            <div class="form-group">
+                                                                <label for="grabber"><strong>Grabber</strong></label>
+                                                                <input class="form-control" id="grabber" type="text"
+                                                                       placeholder="Enter Grabber" name="grabber" required>
                                                             </div>
                                                         </div>
                                                     </div>
