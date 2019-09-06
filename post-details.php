@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     //Verifying CSRF Token
     if (!empty($_POST['csrftoken'])) {
         if (hash_equals($_SESSION['token'], $_POST['csrftoken'])) {
-            $name = $_SESSION['login'];
+            $email = $_SESSION['login'];
 
             $email = $_POST['email'];
 
@@ -106,9 +106,10 @@ if (isset($_POST['submit'])) {
                                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
                                                 if ($query->rowCount() > 0) {
                                                     foreach ($results as $result2) {
+                                                        $name = $result2->fname." ".$result2->lname;
                                                         ?>
                                                         <input type="text" name="name"
-                                                               value="<?php echo htmlentities($result2->fname." ".$result2->lname);?>"
+                                                               value="<?php echo htmlentities($name);?>"
                                                                class="form-control" placeholder="Enter your fullname"
                                                                required>
                                                     <?php }
