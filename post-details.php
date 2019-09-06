@@ -4,25 +4,37 @@ include('includes/config.php');
 error_reporting(0);
 $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
 
+if (empty($_SESSION['token'])) {
+    $_SESSION['token'] = bin2hex(random_bytes(32));
+}
+
 if (isset($_POST['submit'])) {
     //Verifying CSRF Token
     if (!empty($_POST['csrftoken'])) {
         if (hash_equals($_SESSION['token'], $_POST['csrftoken'])) {
-            $name = $_SESSION['userlogin'];
+            $name = $_SESSION['login'];
 
             $email = $_POST['email'];
 
             $comment = $_POST['comment'];
-            $postid = intval($_GET['nid']);
+            $postid = intval($_GET['id']);
             $st1 = '0';
-            $query = mysqli_query($con, "insert into tblcomments(postId,name,email,comment,status) values('$postid','$name','$email','$comment','$st1')");
-            if ($query):
-                echo "<script>alert('Your comment has successfully submitted. It will be display after admin review.');</script>";
+            //$sql = mysqli_query($con, "insert into comments(postid,name,email,comment,status) values('$postid','$name','$email','$comment','$st1')");
+            $sql = "INSERT INTO comments(postid,name,email,comment,status) VALUES(:postid,:name,:email,:comment,:st1)";
+            $query = $dbh->prepare($sql);
+            $query->bindParam(':postid', $postid, PDO::PARAM_STR);
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->bindParam(':comment', $comment, PDO::PARAM_STR);
+            $query->execute();
+            $lastInsertId = $dbh->lastInsertId();
+            if ($lastInsertId) {
+                echo "<script>alert('Comment posted successfully')</script>";
                 unset($_SESSION['token']);
-            else :
-                echo "<script>alert('Something went wrong! Please try again.');</script>";
+            } else {
+                echo "<script>alert('Something went wrong')</script>";
+            }
 
-            endif;
+            //endif;
         }
     }
 }
@@ -86,12 +98,22 @@ if (isset($_POST['submit'])) {
                                                value="<?php echo htmlentities($_SESSION['token']); ?>"/>
                                         <div class="form-group">
                                             <?php if ($_SESSION['login']) {
-                                                ?>
-                                                <input type="text" name="name"
-                                                       value="<?php echo $_SESSION['userlogin']; ?>"
-                                                       class="form-control" placeholder="Enter your fullname"
-                                                       required>
-                                            <?php } else { ?>
+                                                $email = $_SESSION['login'];
+                                                $sql = "SELECT fname,lname FROM users WHERE email=:email ";
+                                                $query = $dbh->prepare($sql);
+                                                $query->bindParam(':email', $email, PDO::PARAM_STR);
+                                                $query->execute();
+                                                $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                                if ($query->rowCount() > 0) {
+                                                    foreach ($results as $result2) {
+                                                        ?>
+                                                        <input type="text" name="name"
+                                                               value="<?php echo htmlentities($result2->fname." ".$result2->lname);?>"
+                                                               class="form-control" placeholder="Enter your fullname"
+                                                               required>
+                                                    <?php }
+                                                }
+                                            } else { ?>
                                                 <input type="text" name="name"
                                                        value=""
                                                        class="form-control" placeholder="Enter your fullname"
@@ -103,7 +125,7 @@ if (isset($_POST['submit'])) {
                                             <?php if ($_SESSION['login']) {
                                                 ?>
                                                 <input type="email" name="email"
-                                                       value="<?php echo $_SESSION['useremail']; ?>"
+                                                       value="<?php echo $_SESSION['login']; ?>"
                                                        class="form-control"
                                                        placeholder="Enter your Valid email" required>
                                             <?php } else { ?>
@@ -123,8 +145,9 @@ if (isset($_POST['submit'])) {
                                             ?>
                                             <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                                         <?php } else { ?>
-                                            <button type="submit" class="btn btn-primary" name="submit">Log in &
-                                                                                                        Comment
+                                            <button type="submit" class="btn btn-primary" name="submit"><a
+                                                        href="login.php">Log in &
+                                                                         Comment</a>
                                             </button>
                                         <?php } ?>
                                     </form>

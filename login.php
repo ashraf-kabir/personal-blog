@@ -5,7 +5,7 @@ include('includes/config.php');
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
-    $sql = "SELECT username,email,password FROM users WHERE email=:email AND password=:password";
+    $sql = "SELECT email,password FROM users WHERE email=:email AND password=:password";
     $query = $dbh->prepare($sql);
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
 
     if ($query->rowCount() > 0) {
         $_SESSION['login'] = $_POST['email'];
-        //$_SESSION['name'] = $results->username;
+        //$_SESSION['name'] = $results->fname;
         $currentpage = $_SESSION['redirectURL'];
         echo "<script type='text/javascript'> document.location = '$currentpage'; </script>";
     } else {
