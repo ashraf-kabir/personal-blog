@@ -140,13 +140,16 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-10 col-lg-8 mx-auto">
+                            <br>
+                        </div>
 
                         <!--Display Comments-->
                         <div class="col-md-10 col-lg-8 mx-auto">
                             <?php
-                            $sts = 1;
-                            $pid = intval($_GET['id']);
-                            $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=:pid AND status=:sts";
+                            //$sts = 1;
+                            //$pid = intval($_GET['id']);
+                            $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=1 AND status=1";
                             $query->bindParam(':sts', $sts, PDO::PARAM_STR);
                             $query->bindParam(':pid', $pid, PDO::PARAM_STR);
                             $query = $dbh->prepare($sql3);
@@ -157,10 +160,10 @@ if (isset($_POST['submit'])) {
                                 foreach ($results3 as $result3) {
                                     ?>
                                         <div class="media-body">
-                                            <h5 class="mt-0"><?php echo htmlentities($result3->name); ?> <br/>
-                                                <span style="font-size:11px;"><b>at</b> <?php echo htmlentities($result3->postingdate); ?></span>
-                                            </h5>
-                                            <?php echo htmlentities($result3->comment); ?>
+                                            <h6><?php echo htmlentities($result3->name); ?> <br/>
+                                                <span style="font-size:11px;"><b>commented at</b> <?php echo htmlentities($result3->postingdate); ?></span>
+                                            </h6>
+                                            <div style="font-size: 18px;">Comment: <?php echo htmlentities($result3->comment); ?></div>
                                         </div>
                                 <?php $cnt++;
                                 }
