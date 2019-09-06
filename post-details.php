@@ -25,7 +25,6 @@ if (isset($_POST['submit'])) {
         echo "<script>alert('Something went wrong')</script>";
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -153,9 +152,9 @@ if (isset($_POST['submit'])) {
                         <div class="card-body">
                             <?php
                             //$sts = 1;
-                            $pid = intval($_GET['id']);;
-                            $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=:pid AND status=1";
-                            $query->bindParam(':pid', $pid, PDO::PARAM_STR);
+                            //$pid = intval($_GET['id']);;
+                            $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=1 AND status=1";
+                            $query->bindParam(':id', $id, PDO::PARAM_STR);
                             $query = $dbh->prepare($sql3);
                             $query->execute();
                             $results3 = $query->fetchAll(PDO::FETCH_OBJ);
