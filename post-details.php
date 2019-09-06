@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
 
     <?php
     $id = intval($_GET['id']);
-    $sql1 = "SELECT posts.*,categories.catname,categories.id AS cid FROM posts JOIN categories ON categories.id=posts.category where posts.id=:id";
+    $sql1 = "SELECT posts.*,categories.catname,categories.id AS cid FROM posts JOIN categories ON categories.id=posts.category WHERE posts.id=:id";
     $query = $dbh->prepare($sql1);
     $query->bindParam(':id', $id, PDO::PARAM_STR);
     $query->execute();
