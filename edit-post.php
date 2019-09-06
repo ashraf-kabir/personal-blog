@@ -7,9 +7,11 @@ if (strlen($_SESSION['login']) == 0) {
     if (isset($_POST['submit'])) {
         $title = $_POST['title'];
         $cat = $_POST['selectcat'];
+        $grabber = $_POST['grabber'];
         $description = $_POST['description'];
+        $id = intval($_GET['id']);
 
-        $sql = "INSERT INTO posts(title,category,description) VALUES(:title,:cat,:description)";
+        $sql = "UPDATE `posts` SET title=:title,category=:cat,grabber=:grabber,description=:description WHERE id=:id ";
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
