@@ -145,10 +145,10 @@ if (isset($_POST['submit'])) {
                         <div class="col-md-10 col-lg-8 mx-auto">
                             <?php
                             $sts = 1;
-                            $id = 2;
-                            $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=:id AND status=:sts";
+                            $pid = intval($_GET['id']);
+                            $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=:pid AND status=:sts";
                             $query->bindParam(':sts', $sts, PDO::PARAM_STR);
-                            $query->bindParam(':id', $id, PDO::PARAM_STR);
+                            $query->bindParam(':pid', $pid, PDO::PARAM_STR);
                             $query = $dbh->prepare($sql3);
                             $query->execute();
                             $results3 = $query->fetchAll(PDO::FETCH_OBJ);
