@@ -76,7 +76,6 @@ if (isset($_POST['submit'])) {
                     } ?>
                 </div>
 
-
                 <div class="col-md-10 col-lg-8 mx-auto">
                     <div class="card my-4">
                         <h5 class="card-header">Leave a Comment:</h5>
@@ -124,8 +123,7 @@ if (isset($_POST['submit'])) {
                                                placeholder="Enter your Valid email" required>
                                     <?php } ?>
                                 </div>
-
-
+                                
                                 <div class="form-group">
                                             <textarea class="form-control" name="comment" rows="3" placeholder="Comment"
                                                       required></textarea>
@@ -174,7 +172,6 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                 </div>
-
 
             </div>
     </article>
