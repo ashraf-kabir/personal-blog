@@ -70,7 +70,7 @@ if (isset($_POST['signup'])) {
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-flex">
                         <div class="flex-grow-1 bg-register-image"
-                             style="background-image: url(&quot;assets/img/daffy.jpg&quot;);"></div>
+                             style="background-image: url(&quot;assets/img/bugsbunny02.jpg&quot;);"></div>
                     </div>
                     <div class="col-lg-7">
                         <div class="p-5">
