@@ -73,4 +73,3 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
 </body>
 
 </html>
-}
