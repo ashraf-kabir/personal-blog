@@ -1,3 +1,34 @@
+<?php
+//error_reporting(0);
+if (isset($_POST['signup'])) {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+    $passwordrepeat = md5($_POST['passwordrepeat']);
+
+    if ($password == $passwordrepeat) {
+        $sql = "INSERT INTO users(`fname`,`lname`,`email`,`password`,`phone`) VALUES(:fname,:lname,:email,:password)";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':fname', $fname, PDO::PARAM_STR);
+        $query->bindParam(':lname', $lname, PDO::PARAM_STR);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->bindParam(':password', $password, PDO::PARAM_STR);
+
+        $query->execute();
+        $lastInsertId = $dbh->lastInsertId();
+        if ($lastInsertId) {
+            echo "<script>alert('Registration successful');</script>";
+        } else {
+            echo "<script>alert('Something went wrong');</script>";
+        }
+    } else {
+        echo "<script>alert('Password didn\'t match');</script>";
+    }
+
+
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -30,10 +61,10 @@
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"
                                                                               type="text" id="exampleFirstName"
                                                                               placeholder="First Name"
-                                                                              name="first_name"></div>
+                                                                              name="fname"></div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="text"
                                                                  id="exampleFirstName" placeholder="Last Name"
-                                                                 name="last_name"></div>
+                                                                 name="lname"></div>
                                 </div>
                                 <div class="form-group"><input class="form-control form-control-user" type="email"
                                                                id="exampleInputEmail" aria-describedby="emailHelp"
@@ -45,10 +76,10 @@
                                     </div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="password"
                                                                  id="exampleRepeatPasswordInput"
-                                                                 placeholder="Repeat Password" name="password_repeat">
+                                                                 placeholder="Repeat Password" name="passwordrepeat">
                                     </div>
                                 </div>
-                                <button class="btn btn-primary btn-block text-white btn-user" type="submit">Register
+                                <button class="btn btn-primary btn-block text-white btn-user" type="submit" name="signup">Register
                                                                                                             Account
                                 </button>
                                 <hr>
