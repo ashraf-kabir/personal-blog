@@ -1,7 +1,6 @@
 <?php
 session_start();
 include('includes/config.php');
-
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
@@ -22,7 +21,6 @@ if (isset($_POST['login'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 
