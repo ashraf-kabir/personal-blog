@@ -16,8 +16,9 @@
                 <?php } else { ?>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#">loggedin</a></li>
                 <?php } ?>
-                <?php if (strlen($_SESSION['login']) != 0) {
+                <?php if (strlen($_SESSION['login']) == 0) {
                     ?>
+                <?php } else { ?>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Log out</a></li>
                 <?php } ?>
             </ul>
