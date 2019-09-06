@@ -135,7 +135,6 @@ if (isset($_POST['submit'])) {
                                             <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                                         <?php } else { ?>
                                             <a href="login.php" class="btn btn-primary">Log in & Comment</a>
-
                                         <?php } ?>
                                     </form>
                                 </div>
