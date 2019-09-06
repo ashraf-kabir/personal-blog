@@ -13,6 +13,7 @@ if (strlen($_SESSION['login']) == 0) {
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
+        $query->bindParam(':grabber', $grabber, PDO::PARAM_STR);
         $query->bindParam(':description', $description, PDO::PARAM_STR);
 
         $query->execute();
