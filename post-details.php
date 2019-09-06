@@ -3,6 +3,30 @@ session_start();
 include('includes/config.php');
 error_reporting(0);
 $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
+
+if (isset($_POST['submit'])) {
+    //Verifying CSRF Token
+    if (!empty($_POST['csrftoken'])) {
+        if (hash_equals($_SESSION['token'], $_POST['csrftoken'])) {
+            $name = $_SESSION['userlogin'];
+
+            $email = $_POST['email'];
+
+            $comment = $_POST['comment'];
+            $postid = intval($_GET['nid']);
+            $st1 = '0';
+            $query = mysqli_query($con, "insert into tblcomments(postId,name,email,comment,status) values('$postid','$name','$email','$comment','$st1')");
+            if ($query):
+                echo "<script>alert('Your comment has successfully submitted. It will be display after admin review.');</script>";
+                unset($_SESSION['token']);
+            else :
+                echo "<script>alert('Something went wrong! Please try again.');</script>";
+
+            endif;
+        }
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,15 +66,72 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
                         <div class="col-md-10 col-lg-8 mx-auto">
                             <div class="post-preview">
                                 <h2 class="post-title"><?php echo htmlentities($result->title); ?></h2>
-                                <p class="post-meta">Category: <a href="#"><?php echo htmlentities($result->catname); ?></a>
+                                <p class="post-meta">Category: <a
+                                            href="#"><?php echo htmlentities($result->catname); ?></a>
                                 </p>
                                 <p><?php echo htmlentities($result->description); ?></p>
-                                <p class="post-meta">Posted by&nbsp;<a href="#">Admin on <?php echo htmlentities($result->creationdate); ?></a>
+                                <p class="post-meta">Posted by&nbsp;<a href="#">Admin
+                                                                                on <?php echo htmlentities($result->creationdate); ?></a>
                                 </p>
                             </div>
                         </div>
+
+
+                        <div class="col-md-10 col-lg-8 mx-auto">
+                            <div class="card my-4">
+                                <h5 class="card-header">Leave a Comment:</h5>
+                                <div class="card-body">
+                                    <form name="Comment" method="post">
+                                        <input type="hidden" name="csrftoken"
+                                               value="<?php echo htmlentities($_SESSION['token']); ?>"/>
+                                        <div class="form-group">
+                                            <?php if ($_SESSION['login']) {
+                                                ?>
+                                                <input type="text" name="name"
+                                                       value="<?php echo $_SESSION['userlogin']; ?>"
+                                                       class="form-control" placeholder="Enter your fullname"
+                                                       required>
+                                            <?php } else { ?>
+                                                <input type="text" name="name"
+                                                       value=""
+                                                       class="form-control" placeholder="Enter your fullname"
+                                                       required>
+                                            <?php } ?>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php if ($_SESSION['login']) {
+                                                ?>
+                                                <input type="email" name="email"
+                                                       value="<?php echo $_SESSION['useremail']; ?>"
+                                                       class="form-control"
+                                                       placeholder="Enter your Valid email" required>
+                                            <?php } else { ?>
+                                                <input type="email" name="email"
+                                                       value=""
+                                                       class="form-control"
+                                                       placeholder="Enter your Valid email" required>
+                                            <?php } ?>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <textarea class="form-control" name="comment" rows="3" placeholder="Comment"
+                                                      required></textarea>
+                                        </div>
+                                        <?php if ($_SESSION['login']) {
+                                            ?>
+                                            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                                        <?php } else { ?>
+                                            <button type="submit" class="btn btn-primary" name="submit">Log in &
+                                                                                                        Comment
+                                            </button>
+                                        <?php } ?>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
             </article>
 
         <?php }
