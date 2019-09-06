@@ -7,16 +7,16 @@ if (strlen($_SESSION['alogin']) == 0) {
     if (isset($_POST['submit'])) {
         $title = $_POST['title'];
         $cat = $_POST['selectcat'];
-        $description = $_POST['desc'];
         $grabber = $_POST['grabber'];
+        $description = $_POST['desc'];
         $id = intval($_GET['id']);
 
         $sql = "UPDATE `posts` SET title=:title,category=:cat,description=:description,grabber=:grabber WHERE id=:id ";
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
-        $query->bindParam(':description', $description, PDO::PARAM_STR);
         $query->bindParam(':grabber', $grabber, PDO::PARAM_STR);
+        $query->bindParam(':description', $description, PDO::PARAM_STR);
         $query->bindParam(':id', $id, PDO::PARAM_STR);
         $query->execute();
 
@@ -115,6 +115,18 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                         }
                                                                     } ?>
                                                                 </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <div class="col-md-8 col-lg-6 col-xl-6">
+                                                            <div class="form-group">
+                                                                <label for="grabber"><strong>Grabber</strong></label>
+                                                                <input class="form-control" id="grabber" type="text"
+                                                                       name="grabber"
+                                                                       value="<?php echo htmlentities($result->grabber); ?>"
+                                                                       required>
                                                             </div>
                                                         </div>
                                                     </div>
