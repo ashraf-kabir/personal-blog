@@ -34,6 +34,23 @@ if (isset($_POST['signup'])) {
           href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="admin/assets/fonts/fontawesome-all.min.css">
 
+    <script>
+        function checkAvailability() {
+            $("#loaderIcon").show();
+            jQuery.ajax({
+                url: "check-availability.php",
+                data: 'email=' + $("#email").val(),
+                type: "POST",
+                success: function (data) {
+                    $("#user-availability-status").html(data);
+                    $("#loaderIcon").hide();
+                },
+                error: function () {
+                }
+            });
+        }
+    </script>
+
     <script type="text/javascript">
         function valid() {
             if (document.signup.password.value != document.signup.passwordrepeat.value) {
@@ -68,11 +85,14 @@ if (isset($_POST['signup'])) {
                                                                               name="fname"></div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="text"
                                                                  id="exampleFirstName" placeholder="Last Name"
-                                                                 name="lname"></div>
+                                                                 name="lname">
+                                    </div>
                                 </div>
                                 <div class="form-group"><input class="form-control form-control-user" type="email"
-                                                               id="exampleInputEmail" aria-describedby="emailHelp"
-                                                               placeholder="Email Address" name="email"></div>
+                                                               id="email" aria-describedby="emailHelp"
+                                                               placeholder="Email Address" name="email" onBlur="checkAvailability()">
+                                    <span id="user-availability-status" style="font-size:12px;"></span>
+                                </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"
                                                                               type="password" id="examplePasswordInput"
