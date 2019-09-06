@@ -37,7 +37,7 @@ if (isset($_POST['signup'])) {
     <script type="text/javascript">
         function valid() {
             if (document.signup.password.value != document.signup.passwordrepeat.value) {
-                alert("Password and Repeat Password Field do not match  !!");
+                alert("Password and Repeat Password field didn\'t match!!");
                 document.signup.passwordrepeat.focus();
                 return false;
             }
@@ -53,7 +53,7 @@ if (isset($_POST['signup'])) {
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-flex">
                         <div class="flex-grow-1 bg-register-image"
-                             style="background-image: url(&quot;admin/assets/img/sample/image2.jpeg&quot;);"></div>
+                             style="background-image: url(&quot;assets/img/daffy.jpg&quot;);"></div>
                     </div>
                     <div class="col-lg-7">
                         <div class="p-5">
