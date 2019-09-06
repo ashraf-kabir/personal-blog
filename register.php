@@ -104,8 +104,7 @@ if (isset($_POST['signup'])) {
                                     </div>
                                 </div>
                                 <button class="btn btn-primary btn-block text-white btn-user" type="submit"
-                                        name="signup" id="submit">Register
-                                                      Account
+                                        name="signup" id="submit">Register Account
                                 </button>
                                 <hr>
                             </form>
