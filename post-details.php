@@ -44,7 +44,6 @@ if (isset($_POST['submit'])) {
     <!-- Header -->
     <?php include 'includes/header.php'; ?>
 
-
     <article>
         <div class="container">
             <div class="row">
@@ -179,7 +178,6 @@ if (isset($_POST['submit'])) {
 
             </div>
     </article>
-
 
     <!-- Footer -->
     <?php include 'includes/footer.php'; ?>
