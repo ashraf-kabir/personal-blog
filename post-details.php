@@ -4,39 +4,31 @@ include('includes/config.php');
 error_reporting(0);
 $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
 
-if (empty($_SESSION['token'])) {
-    $_SESSION['token'] = bin2hex(random_bytes(32));
-}
-
 if (isset($_POST['submit'])) {
-    //Verifying CSRF Token
-    if (!empty($_POST['csrftoken'])) {
-        if (hash_equals($_SESSION['token'], $_POST['csrftoken'])) {
-            $email = $_SESSION['login'];
-
-            $email = $_POST['email'];
-
-            $comment = $_POST['comment'];
-            $postid = intval($_GET['id']);
-            $st1 = '0';
-            //$sql = mysqli_query($con, "insert into comments(postid,name,email,comment,status) values('$postid','$name','$email','$comment','$st1')");
-            $sql = "INSERT INTO comments(postid,name,email,comment,status) VALUES(:postid,:name,:email,:comment,:st1)";
-            $query = $dbh->prepare($sql);
-            $query->bindParam(':postid', $postid, PDO::PARAM_STR);
-            $query->bindParam(':email', $email, PDO::PARAM_STR);
-            $query->bindParam(':comment', $comment, PDO::PARAM_STR);
-            $query->execute();
-            $lastInsertId = $dbh->lastInsertId();
-            if ($lastInsertId) {
-                echo "<script>alert('Comment posted successfully')</script>";
-                unset($_SESSION['token']);
-            } else {
-                echo "<script>alert('Something went wrong')</script>";
-            }
-
-            //endif;
-        }
+    $name2 = $_POST['name'];
+    $email = $_POST['email'];
+    $comment = $_POST['comment'];
+    $postid = intval($_GET['id']);
+    $st1 = '0';
+    //$sql = mysqli_query($con, "insert into comments(postid,name,email,comment,status) values('$postid','$name','$email','$comment','$st1')");
+    $sql = "INSERT INTO comments(postid,name,email,comment,status) VALUES(:postid,:name2,:email,:comment,:st1)";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':postid', $postid, PDO::PARAM_STR);
+    $query->bindParam(':name2', $name2, PDO::PARAM_STR);
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
+    $query->bindParam(':comment', $comment, PDO::PARAM_STR);
+    $query->bindParam(':st1', $st1, PDO::PARAM_STR);
+    $query->execute();
+    $lastInsertId = $dbh->lastInsertId();
+    if ($lastInsertId) {
+        echo "<script>alert('Comment posted successfully')</script>";
+        unset($_SESSION['token']);
+    } else {
+        echo "<script>alert('Something went wrong')</script>";
     }
+
+    //endif;
+
 }
 
 ?>
@@ -106,10 +98,10 @@ if (isset($_POST['submit'])) {
                                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
                                                 if ($query->rowCount() > 0) {
                                                     foreach ($results as $result2) {
-                                                        $name = $result2->fname." ".$result2->lname;
+                                                        $name = $result2->fname . " " . $result2->lname;
                                                         ?>
                                                         <input type="text" name="name"
-                                                               value="<?php echo htmlentities($name);?>"
+                                                               value="<?php echo htmlentities($name); ?>"
                                                                class="form-control" placeholder="Enter your fullname"
                                                                required>
                                                     <?php }
