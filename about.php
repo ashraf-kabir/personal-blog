@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('includes/config.php');
+$_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
 ?>
 <!DOCTYPE html>
 <html>
