@@ -52,11 +52,6 @@
                                                                                                             Account
                                 </button>
                                 <hr>
-                                <a class="btn btn-primary btn-block text-white btn-google btn-user" role="button"><i
-                                            class="fab fa-google"></i>&nbsp; Register with Google</a><a
-                                        class="btn btn-primary btn-block text-white btn-facebook btn-user"
-                                        role="button"><i class="fab fa-facebook-f"></i>&nbsp; Register with Facebook</a>
-                                <hr>
                             </form>
                             <div class="text-center"><a class="small" href="forgot-password.php">Forgot Password?</a>
                             </div>
