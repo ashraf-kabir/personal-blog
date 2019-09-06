@@ -11,7 +11,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $description = $_POST['desc'];
         $id = intval($_GET['id']);
 
-        $sql = "UPDATE `posts` SET title=:title,category=:cat,description=:description,grabber=:grabber WHERE id=:id ";
+        $sql = "UPDATE `posts` SET title=:title,category=:cat,grabber=:grabber,description=:description WHERE id=:id ";
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
