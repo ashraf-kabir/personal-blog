@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-flex">
                         <div class="flex-grow-1 bg-register-image"
-                             style="background-image: url(&quot;assets/img/dogs/image2.jpeg&quot;);"></div>
+                             style="background-image: url(&quot;assets/img/sample/image2.jpeg&quot;);"></div>
                     </div>
                     <div class="col-lg-7">
                         <div class="p-5">
