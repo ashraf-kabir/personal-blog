@@ -15,15 +15,12 @@ if (strlen($_SESSION['login']) == 0) {
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
+        $query->bindParam(':grabber', $grabber, PDO::PARAM_STR);
         $query->bindParam(':description', $description, PDO::PARAM_STR);
-
+        $query->bindParam(':id', $id, PDO::PARAM_STR);
         $query->execute();
-        $lastInsertId = $dbh->lastInsertId();
-        if ($lastInsertId) {
-            echo "<script>alert('Blog posted successfully')</script>";
-        } else {
-            echo "<script>alert('Something went wrong')</script>";
-        }
+
+        echo "<script>alert('Post has updated successfully');</script>";
     }
     ?>
     <!DOCTYPE html>
@@ -32,7 +29,7 @@ if (strlen($_SESSION['login']) == 0) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Add Post</title>
+        <title>Edit Post</title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
@@ -47,7 +44,7 @@ if (strlen($_SESSION['login']) == 0) {
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto">
-                    <h2 class="post-title">Add a post</h2>
+                    <h2 class="post-title">Edit a post</h2>
                     <form id="contactForm" name="sentMessage" novalidate="novalidate" method="post">
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls"><label for="title">Title</label><input
