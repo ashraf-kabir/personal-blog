@@ -7,6 +7,7 @@ if (strlen($_SESSION['login']) == 0) {
     if (isset($_POST['submit'])) {
         $title = $_POST['title'];
         $cat = $_POST['selectcat'];
+        $grabber = $_POST['grabber'];
         $description = $_POST['description'];
 
         $sql = "INSERT INTO posts(title,category,grabber,description) VALUES(:title,:cat,:grabber,:description)";
