@@ -10,7 +10,6 @@ if (isset($_POST['submit'])) {
     $comment = $_POST['comment'];
     $postid = intval($_GET['id']);
     $st1 = '0';
-    //$sql = mysqli_query($con, "insert into comments(postid,name,email,comment,status) values('$postid','$name','$email','$comment','$st1')");
     $sql = "INSERT INTO comments(postid,name,email,comment,status) VALUES(:postid,:name2,:email,:comment,:st1)";
     $query = $dbh->prepare($sql);
     $query->bindParam(':postid', $postid, PDO::PARAM_STR);
@@ -26,9 +25,6 @@ if (isset($_POST['submit'])) {
     } else {
         echo "<script>alert('Something went wrong')</script>";
     }
-
-    //endif;
-
 }
 
 ?>
@@ -138,10 +134,8 @@ if (isset($_POST['submit'])) {
                                             ?>
                                             <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                                         <?php } else { ?>
-                                            <button type="submit" class="btn btn-primary" name="submit"><a
-                                                        href="login.php">Log in &
-                                                                         Comment</a>
-                                            </button>
+                                            <a href="login.php" class="btn btn-primary">Log in & Comment</a>
+
                                         <?php } ?>
                                     </form>
                                 </div>
