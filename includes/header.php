@@ -10,6 +10,16 @@
                 <li class="nav-item" role="presentation"><a class="nav-link" href="about.php">About us</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contact.php">Contact us</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="post.php">Blog Post</a></li>
+                <?php if (strlen($_SESSION['login']) == 0) {
+                    ?>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Log in</a></li>
+                <?php } else { ?>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">loggedin</a></li>
+                <?php } ?>
+                <?php if (strlen($_SESSION['login']) != 0) {
+                    ?>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Log out</a></li>
+                <?php } ?>
             </ul>
         </div>
     </div>
