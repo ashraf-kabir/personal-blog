@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex">
                                 <div class="flex-grow-1 bg-password-image"
-                                     style="background-image: url(&quot;assets/img/dogs/image1.jpeg&quot;);"></div>
+                                     style="background-image: url(&quot;assets/img/sample/image1.jpeg&quot;);"></div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
