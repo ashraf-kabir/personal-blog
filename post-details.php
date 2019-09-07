@@ -108,7 +108,6 @@ if (isset($_POST['submit'])) {
                 </div>
                 <!--Display Comments-->
 
-
                 <!--Post comment-->
                 <div class="col-md-10 col-lg-8 mx-auto">
                     <div class="card my-4">
