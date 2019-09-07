@@ -69,7 +69,7 @@ if (isset($_POST['login'])) {
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h4 class="text-dark mb-4"><strong>Welcome</strong></h4>
+                                        <h3 class="text-dark mb-4"><strong>Welcome</strong></h3>
                                     </div>
                                     <br>
                                     <form class="user" method="post" id="loginform">
