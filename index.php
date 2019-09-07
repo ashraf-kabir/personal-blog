@@ -56,7 +56,7 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
         <div class="row">
             <div class="col-md-10 col-lg-8">
                 <div class="clearfix">
-                    <a href="post.php">
+                    <a href="view-posts.php">
                         <button class="btn btn-primary float-right" type="button">Older Posts&nbsp;⇒</button>
                     </a>
                 </div>
