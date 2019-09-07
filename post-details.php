@@ -76,6 +76,40 @@ if (isset($_POST['submit'])) {
                     } ?>
                 </div>
 
+                <!--Display Comments-->
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <div class="card my-4">
+                        <h5 class="card-header">Comments</h5>
+                        <div class="card-body">
+                            <?php
+                            //$sts = 1;
+                            //$pid = intval($_GET['id']);;
+                            $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=1 AND status=1";
+                            $query->bindParam(':id', $id, PDO::PARAM_STR);
+                            $query = $dbh->prepare($sql3);
+                            $query->execute();
+                            $results3 = $query->fetchAll(PDO::FETCH_OBJ);
+                            $cnt = 1;
+                            if ($query->rowCount() > 0) {
+                                foreach ($results3 as $result3) {
+                                    ?>
+                                    <div class="media-body">
+                                        <h6><?php echo htmlentities($result3->name); ?> <br/>
+                                            <span style="font-size:11px;"><b>commented at</b> <?php echo htmlentities($result3->postingdate); ?></span>
+                                        </h6>
+                                        <div style="font-size: 18px;">
+                                            Comment: <?php echo htmlentities($result3->comment); ?></div>
+                                    </div>
+                                    <?php $cnt++;
+                                }
+                            } ?>
+                        </div>
+                    </div>
+                </div>
+                <!--Display Comments-->
+
+
+                <!--Post comment-->
                 <div class="col-md-10 col-lg-8 mx-auto">
                     <div class="card my-4">
                         <h5 class="card-header">Leave a Comment:</h5>
@@ -141,37 +175,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-md-10 col-lg-8 mx-auto">
                     <br>
                 </div>
-
-                <!--Display Comments-->
-                <div class="col-md-10 col-lg-8 mx-auto">
-                    <div class="card my-4">
-                        <h5 class="card-header">Comments</h5>
-                        <div class="card-body">
-                            <?php
-                            //$sts = 1;
-                            //$pid = intval($_GET['id']);;
-                            $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=1 AND status=1";
-                            $query->bindParam(':id', $id, PDO::PARAM_STR);
-                            $query = $dbh->prepare($sql3);
-                            $query->execute();
-                            $results3 = $query->fetchAll(PDO::FETCH_OBJ);
-                            $cnt = 1;
-                            if ($query->rowCount() > 0) {
-                                foreach ($results3 as $result3) {
-                                    ?>
-                                    <div class="media-body">
-                                        <h6><?php echo htmlentities($result3->name); ?> <br/>
-                                            <span style="font-size:11px;"><b>commented at</b> <?php echo htmlentities($result3->postingdate); ?></span>
-                                        </h6>
-                                        <div style="font-size: 18px;">
-                                            Comment: <?php echo htmlentities($result3->comment); ?></div>
-                                    </div>
-                                    <?php $cnt++;
-                                }
-                            } ?>
-                        </div>
-                    </div>
-                </div>
+                <!--Post comment-->
 
             </div>
     </article>
