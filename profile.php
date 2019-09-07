@@ -40,6 +40,7 @@ if (strlen($_SESSION['login']) == 0) {
         <?php include 'includes/header.php'; ?>
 
         <div class="container">
+
             <div class="row">
                 <div class="col-md-10 col-lg-8">
                     <div class="clearfix">
@@ -60,23 +61,31 @@ if (strlen($_SESSION['login']) == 0) {
                         <form method="post">
                             <div class="form-group">
                                 <label for="fname">First Name</label>
-                                <input type="text" class="form-control" id="fname" name="fname" value="<?php echo htmlentities($result->fname); ?>">
+                                <input type="text" class="form-control" id="fname" name="fname"
+                                       value="<?php echo htmlentities($result->fname); ?>">
                             </div>
                             <div class="form-group">
                                 <label for="lname">Last Name</label>
-                                <input type="text" class="form-control" id="lname" name="lname" value="<?php echo htmlentities($result->lname); ?>">
+                                <input type="text" class="form-control" id="lname" name="lname"
+                                       value="<?php echo htmlentities($result->lname); ?>">
                             </div>
                             <div class="form-group">
                                 <label for="email1">Email address</label>
-                                <input type="email" class="form-control" id="email1" name="email" value="<?php echo htmlentities($result->email); ?>" disabled>
-                                <small id="emailHelp" class="form-text text-muted">To change email address contact admin</small>
+                                <input type="email" class="form-control" id="email1" name="email"
+                                       value="<?php echo htmlentities($result->email); ?>" disabled>
+                                <small id="emailHelp" class="form-text text-muted">To change email address contact
+                                                                                   admin</small>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo htmlentities($result->phone); ?>">
+                                <input type="tel" class="form-control" id="phone" name="phone"
+                                       value="<?php echo htmlentities($result->phone); ?>">
                             </div>
                             <?php }
                             } ?>
+                            <div class="form-group">
+                                <a href="update-password.php" style="text-decoration: none;" class="btn btn-danger float-right">Update Password</a>
+                            </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary" name="submit">Update</button>
                             </div>
