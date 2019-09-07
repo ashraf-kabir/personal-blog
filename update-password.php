@@ -101,11 +101,7 @@ if (isset($_POST['submit'])) {
                                     <label class="col-md-4 control-label">&nbsp;</label>
                                     <div class="col-md-4">
 
-                                        <button type="submit"
-                                                class="btn btn-primary"
-                                                name="submit">
-                                            Submit
-                                        </button>
+                                        <button type="submit" class="btn btn-danger" name="submit">Submit</button>
                                     </div>
                                 </div>
 
