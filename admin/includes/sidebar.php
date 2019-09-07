@@ -15,6 +15,8 @@
                         class="fas fa-table"></i><span>Table</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="forgot-password.php"><i
                         class="fas fa-key"></i><span>Forgotten Password</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="manage-users.php"><i
+                            class="fas fa-window-maximize"></i><span>Manage Users</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="manage-posts.php"><i
                             class="fas fa-window-maximize"></i><span>Manage Posts</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="add-post.php"><i
