@@ -82,11 +82,12 @@ if (isset($_POST['submit'])) {
                         <h5 class="card-header">Comments</h5>
                         <div class="card-body">
                             <?php
-                            //$sts = 1;
-                            //$pid = intval($_GET['id']);;
-                            $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=1 AND status=1";
-                            $query->bindParam(':id', $id, PDO::PARAM_STR);
+                            $pid = intval($_GET['id']);
+                            $sts = 1;
+                            $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=:pid AND status=:sts";
                             $query = $dbh->prepare($sql3);
+                            $query->bindParam(':pid', $pid, PDO::PARAM_STR);
+                            $query->bindParam(':sts', $sts, PDO::PARAM_STR);
                             $query->execute();
                             $results3 = $query->fetchAll(PDO::FETCH_OBJ);
                             $cnt = 1;
