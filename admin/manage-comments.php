@@ -4,20 +4,23 @@ include('includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
     header('location: login.php');
 } else {
-    if (isset($_REQUEST['del'])) {
-        $delid = intval($_GET['del']);
-        $sql1 = "DELETE FROM comments WHERE id=:delid";
-        $query = $dbh->prepare($sql1);
-        $query->bindParam(':delid', $delid, PDO::PARAM_STR);
+    if (isset($_REQUEST['did'])) {
+        $did = intval($_GET['did']);
+        $sts3 = 3;
+        $sql3 = "UPDATE comments SET status=:sts3";
+        $query = $dbh->prepare($sql3);
+        $query->bindParam(':did', $did, PDO::PARAM_STR);
+        $query->bindParam(':sts3', $sts3, PDO::PARAM_STR);
+
         $query->execute();
-        echo "<script>alert('Comment has deleted successfully')</script>";
+        echo "<script>alert('Comment declined')</script>";
     } elseif (isset($_REQUEST['aid'])) {
         $aid = intval($_GET['aid']);
-        $sts = 1;
+        $sts2 = 2;
         $sql2 = "UPDATE comments SET status=:sts1";
         $query = $dbh->prepare($sql2);
         $query->bindParam(':aid', $aid, PDO::PARAM_STR);
-        $query->bindParam(':sts1', $sts1, PDO::PARAM_STR);
+        $query->bindParam(':sts2', $sts2, PDO::PARAM_STR);
         $query->execute();
         echo "<script>alert('Comment approved')</script>";
     }
@@ -88,10 +91,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         <tbody>
 
                                         <?php
-                                        $sts = 2;
-                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,posts.id AS pid,posts.title FROM comments jOIN posts ON posts.id=comments.id WHERE comments.status=2";
+                                        $sts1 = 2;
+                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,comments.status,posts.id AS pid,posts.title FROM comments jOIN posts ON posts.id=comments.id WHERE comments.status=:sts1";
                                         $query = $dbh->prepare($sql);
-                                        $query->bindParam(':sts', $sts, PDO::PARAM_STR);
+                                        $query->bindParam(':sts1', $sts1, PDO::PARAM_STR);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
                                         $cnt = 1;
@@ -103,18 +106,20 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <td><?php echo htmlentities($result->email); ?></td>
                                                     <td><?php echo htmlentities($result->comment); ?></td>
                                                     <?php
-                                                    $sts2 = htmlentities($result->status);
-                                                    if ($sts2 == 0) { ?>
+                                                    $sts4 = htmlentities($result->status);
+                                                    if ($sts4 == 3) { ?>
                                                         <td>Unapproved</td>
-                                                    <?php } else { ?>
+                                                    <?php } elseif ($sts4 == 2) { ?>
                                                         <td>Approved</td>
+                                                    <?php } elseif ($sts4 == 1) { ?>
+                                                        <td>Pending</td>
                                                     <?php } ?>
                                                     <td><?php echo htmlentities($result->title); ?></td>
                                                     <td><?php echo htmlentities($result->postingdate); ?></td>
                                                     <td><a href="manage-comments.php?aid=<?php echo $result->id; ?>"
                                                            onclick="return confirm('Do you want to approve this comment?');">Approve</a>
-                                                    <td><a href="manage-comments.php?del=<?php echo $result->id; ?>"
-                                                           onclick="return confirm('Do you want to delete this comment?');">Decline</a>
+                                                    <td><a href="manage-comments.php?did=<?php echo $result->id; ?>"
+                                                           onclick="return confirm('Do you want to decline this comment?');">Decline</a>
                                                     </td>
                                                 </tr>
                                                 <?php $cnt = $cnt + 1;
