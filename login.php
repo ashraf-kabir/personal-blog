@@ -13,7 +13,6 @@ if (isset($_POST['login'])) {
 
     if ($query->rowCount() > 0) {
         $_SESSION['login'] = $_POST['email'];
-        //$_SESSION['name'] = $results->fname;
         $currentpage = $_SESSION['redirectURL'];
         echo "<script type='text/javascript'> document.location = '$currentpage'; </script>";
     } else {
