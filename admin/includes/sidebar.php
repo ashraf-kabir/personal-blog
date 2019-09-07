@@ -13,8 +13,6 @@
                         class="fas fa-user"></i><span>Profile</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="table.php"><i
                         class="fas fa-table"></i><span>Table</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="register.php"><i
-                        class="fas fa-user-circle"></i><span>Register</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="forgot-password.php"><i
                         class="fas fa-key"></i><span>Forgotten Password</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="manage-posts.php"><i
