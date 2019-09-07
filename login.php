@@ -35,6 +35,18 @@ if (isset($_POST['login'])) {
 
     <script src="admin/assets/js/jquery.min.js"></script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function disablePrev() {
+                window.history.forward()
+            }
+            window.onload = disablePrev();
+            window.onpageshow = function (evt) {
+                if (evt.persisted) disableBack()
+            }
+        });
+    </script>
+
 </head>
 
 <body class="bg-gradient-primary" style="background-color: #071e22;">
