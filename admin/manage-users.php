@@ -73,7 +73,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         </thead>
                                         <tbody>
 
-                                        <?php $sql = "SELECT users.* FROM users.";
+                                        <?php $sql = "SELECT users.* FROM users";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
