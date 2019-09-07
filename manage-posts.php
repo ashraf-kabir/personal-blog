@@ -41,6 +41,8 @@ if (isset($_REQUEST['del'])) {
                     <div class="card-header py-3">
                         <p class="text-primary m-0 font-weight-bold">Posts</p>
                     </div>
+                    <a href="add-post.php" class="btn btn-primary">Add a post</a>
+                    <br>
                     <div class="card-body">
                         <div class="table-responsive table mt-2" id="dataTable" role="grid"
                              aria-describedby="dataTable_info">
