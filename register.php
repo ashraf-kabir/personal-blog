@@ -104,11 +104,16 @@ if (isset($_POST['signup'])) {
                                                                  placeholder="Repeat Password" name="passwordrepeat">
                                     </div>
                                 </div>
-                                <button class="btn btn-primary btn-block text-white btn-user" type="submit"
+                                <button class="btn btn-danger btn-block text-white btn-user" type="submit"
                                         name="signup" id="submit">Register Account
                                 </button>
                                 <hr>
                             </form>
+                            <div class="text-center">
+                                <a href="index.php"
+                                   class="btn btn-primary btn-block text-white btn-user">Home</a>
+                                <hr>
+                            </div>
                             <div class="text-center">
                                 <a href="forgot-password.php"
                                    class="btn btn-warning btn-block text-black-50 btn-user disabled">Forgot
