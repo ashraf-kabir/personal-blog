@@ -18,9 +18,9 @@ if (isset($_POST['send'])) {
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
-        echo "<script>alert('Form successfully submitted. We\'ll contact you soon.')</script>";
+        echo "<script>alert('Form successfully submitted. We\'ll contact you soon')</script>";
     } else {
-        echo "<script>alert('An error occurred. Try again.')</script>";
+        echo "<script>alert('An error occurred. Try again')</script>";
     }
 }
 ?>
