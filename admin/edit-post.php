@@ -122,18 +122,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
                                                             <div class="form-group">
-                                                                <label for="grabber"><strong>Grabber</strong></label>
-                                                                <input class="form-control" id="grabber" type="text"
-                                                                       name="grabber"
-                                                                       value="<?php echo htmlentities($result->grabber); ?>"
-                                                                       required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row">
-                                                        <div class="col-md-8 col-lg-6 col-xl-6">
-                                                            <div class="form-group">
                                                                 <label for="insertimage1"><strong>Insert an
                                                                                                   image</strong></label>
                                                                 <input type="file" class="form-control-file"
