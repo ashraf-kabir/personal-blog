@@ -7,7 +7,7 @@ if (strlen($_SESSION['alogin']) == 0) {
     if (isset($_REQUEST['did'])) {
         $did = intval($_GET['did']);
         $sts3 = 3;
-        $sql3 = "UPDATE comments SET status=:sts3";
+        $sql3 = "UPDATE comments SET status=:sts3 WHERE id=:did";
         $query = $dbh->prepare($sql3);
         $query->bindParam(':did', $did, PDO::PARAM_STR);
         $query->bindParam(':sts3', $sts3, PDO::PARAM_STR);
@@ -17,7 +17,7 @@ if (strlen($_SESSION['alogin']) == 0) {
     } elseif (isset($_REQUEST['aid'])) {
         $aid = intval($_GET['aid']);
         $sts2 = 2;
-        $sql2 = "UPDATE comments SET status=:sts2";
+        $sql2 = "UPDATE comments SET status=:sts2 WHERE id=:aid";
         $query = $dbh->prepare($sql2);
         $query->bindParam(':aid', $aid, PDO::PARAM_STR);
         $query->bindParam(':sts2', $sts2, PDO::PARAM_STR);
