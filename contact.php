@@ -47,7 +47,7 @@ if (isset($_POST['send'])) {
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto">
                 <h2 class="post-title">Contact Us</h2>
-                <form id="contactForm" name="sentMessage" novalidate="novalidate" method="post">
+                <form id="contactForm" name="sentMessage" method="post">
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls"><label for="name">Name</label><input
                                     class="form-control" type="text" id="name" required="" placeholder="Name" name="uname"><small
