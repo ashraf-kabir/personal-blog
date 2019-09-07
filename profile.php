@@ -7,19 +7,17 @@ if (strlen($_SESSION['login']) == 0) {
     if (isset($_POST['submit'])) {
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
-        $email = $_POST['email'];
         $phone = $_POST['phone'];
-        $id = intval($_GET['id']);
+        $email = $_SESSION['login'];
 
-        $sql1 = "UPDATE `users` SET fname=:fname,lname=:lname,email=:email,phone=:phone WHERE id=:id ";
+        $sql1 = "UPDATE `users` SET fname=:fname,lname=:lname,email=:email,phone=:phone WHERE email=:email";
         $query = $dbh->prepare($sql1);
         $query->bindParam(':fname', $fname, PDO::PARAM_STR);
         $query->bindParam(':lname', $lname, PDO::PARAM_STR);
-        $query->bindParam(':email', $email, PDO::PARAM_STR);
         $query->bindParam(':phone', $phone, PDO::PARAM_STR);
-        $query->bindParam(':id', $id, PDO::PARAM_STR);
-        $query->execute();
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
 
+        $query->execute();
         echo "<script>alert('User updated');</script>";
     }
     ?>
@@ -70,7 +68,8 @@ if (strlen($_SESSION['login']) == 0) {
                             </div>
                             <div class="form-group">
                                 <label for="email1">Email address</label>
-                                <input type="email" class="form-control" id="email1" name="email" value="<?php echo htmlentities($result->email); ?>">
+                                <input type="email" class="form-control" id="email1" name="email" value="<?php echo htmlentities($result->email); ?>" disabled>
+                                <small id="emailHelp" class="form-text text-muted">To change email address contact admin</small>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
