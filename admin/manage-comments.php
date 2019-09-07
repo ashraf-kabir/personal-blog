@@ -92,7 +92,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                         <?php
                                         $sts1 = 2;
-                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,comments.status,posts.id AS pid,posts.title FROM comments jOIN posts ON posts.id=comments.id WHERE comments.status=:sts1";
+                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,comments.status,posts.id AS pid,posts.title FROM comments JOIN posts ON posts.id=comments.id WHERE comments.status=:sts1";
                                         $query = $dbh->prepare($sql);
                                         $query->bindParam(':sts1', $sts1, PDO::PARAM_STR);
                                         $query->execute();
