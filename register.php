@@ -75,7 +75,9 @@ if (isset($_POST['signup'])) {
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h4 class="text-dark mb-4"><strog>Create an Account!</strog></h4>
+                                <h4 class="text-dark mb-4">
+                                    <strog>Create an Account!</strog>
+                                </h4>
                             </div>
                             <form class="user" method="post" name="signup" onSubmit="return valid();">
                                 <div class="form-group row">
@@ -115,13 +117,17 @@ if (isset($_POST['signup'])) {
                                 <hr>
                             </div>
                             <div class="text-center">
-                                <a href="forgot-password.php"
+                                <a href="#"
                                    class="btn btn-warning btn-block text-black-50 btn-user disabled">Forgot
                                                                                                      Password?</a>
                                 <hr>
                             </div>
                             <div class="text-center"><a href="login.php"
-                                                        class="btn btn-success btn-block text-white btn-user">Already have an account? Login!</a></div>
+                                                        class="btn btn-success btn-block text-white btn-user">Already
+                                                                                                              have an
+                                                                                                              account?
+                                                                                                              Login!</a>
+                            </div>
                         </div>
                     </div>
                 </div>
