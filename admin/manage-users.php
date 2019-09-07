@@ -84,7 +84,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                 <tr>
                                                     <td><?php echo htmlentities($cnt); ?></td>
                                                     <td><?php echo htmlentities($name); ?></td>
-                                                    <td><?php echo htmlentities($result->catname); ?></td>
+                                                    <td><?php echo htmlentities($result->email); ?></td>
                                                     <td><a href="manage-posts.php?del=<?php echo $result->id; ?>"
                                                            onclick="return confirm('Do you want to delete?');">delete</a>
                                                     </td>
