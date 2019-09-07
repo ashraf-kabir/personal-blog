@@ -75,8 +75,6 @@ if (isset($_POST['submit'])) {
 
                 <!--Display Comments-->
                 <div class="col-md-10 col-lg-8 mx-auto">
-
-
                     <?php
                     $pid = intval($_GET['id']);
                     $sts = 2;
