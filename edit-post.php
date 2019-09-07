@@ -45,52 +45,77 @@ if (strlen($_SESSION['login']) == 0) {
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto">
                     <h2 class="post-title">Edit a post</h2>
+                    <br>
+                    <?php
+                    $id = intval($_GET['id']);
+                    $sql = "SELECT posts.*,categories.catname,categories.id AS cid FROM posts JOIN categories ON categories.id=posts.category WHERE posts.id=:id";
+                    $query = $dbh->prepare($sql);
+                    $query->bindParam(':id', $id, PDO::PARAM_STR);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                    $cnt = 1;
+                    if ($query->rowCount() > 0) {
+                    foreach ($results
+
+                    as $result) { ?>
                     <form id="contactForm" name="sentMessage" novalidate="novalidate" method="post">
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls"><label for="title">Title</label><input
-                                    class="form-control" type="text" id="title" required="" placeholder="Title" name="title"><small
-                                    class="form-text text-danger help-block"></small></div>
+                            <label for="title"><strong>Title</strong></label>
+                            <div class="form-group floating-label-form-group controls"><input
+                                        class="form-control" type="text" id="title" required="" placeholder="Title"
+                                        name="title" value="<?php echo htmlentities($result->title); ?>"><small
+                                        class="form-text text-danger help-block"></small></div>
                         </div>
 
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls"><label for="select1"><strong>Select
-                                                                                                                    Category</strong></label>
+                            <label for="select1"><strong>Select Category</strong></label>
+                            <div class="form-group floating-label-form-group controls">
                                 <select class="form-control" id="select1"
                                         name="selectcat" required>
-                                    <option value="">-- Select --</option>
+                                    <option value="<?php echo htmlentities($result->cid); ?>"><?php echo htmlentities($cname = $result->catname); ?></option>
                                     <?php $ret = "SELECT `id`,`catname` FROM `categories`";
                                     $query = $dbh->prepare($ret);
                                     //$query->bindParam(':id',$id, PDO::PARAM_STR);
                                     $query->execute();
-                                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                    $resultss = $query->fetchAll(PDO::FETCH_OBJ);
                                     if ($query->rowCount() > 0) {
-                                        foreach ($results as $result) {
-                                            ?>
-                                            <option value="<?php echo htmlentities($result->id); ?>">
-                                                <?php echo htmlentities($result->catname); ?>
-                                            </option>
-                                        <?php }
+                                        foreach ($resultss as $results) {
+                                            if ($results->catname == $cname) {
+                                                continue;
+                                            } else {
+                                                ?>
+                                                <option value="<?php echo htmlentities($results->id); ?>">
+                                                    <?php echo htmlentities($results->catname); ?>
+                                                </option>
+                                            <?php }
+                                        }
                                     } ?>
                                 </select><small class="form-text text-danger help-block"></small>
                             </div>
                         </div>
 
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls"><label for="grabber">Grabber</label><input
-                                    class="form-control" type="text" id="grabber" required="" placeholder="Grabber" name="grabber"><small
-                                    class="form-text text-danger help-block"></small></div>
+                            <label for="grabber"><strong>Grabber</strong></label>
+                            <div class="form-group floating-label-form-group controls"><input
+                                        class="form-control" type="text" id="grabber" required="" placeholder="Grabber"
+                                        name="grabber" value="<?php echo htmlentities($result->grabber); ?>"><small
+                                        class="form-text text-danger help-block"></small></div>
                         </div>
 
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-3"><label for="desc">Description</label><textarea
-                                    class="form-control" id="desc"
-                                    data-validation-required-message="Description" required=""
-                                    placeholder="Description" rows="5" name="description"></textarea><small
-                                    class="form-text text-danger help-block"></small></div>
+                            <label for="desc"><strong>Description</strong></label>
+                            <div class="form-group floating-label-form-group controls mb-3"><textarea
+                                        class="form-control" id="desc"
+                                        data-validation-required-message="Description" required=""
+                                        placeholder="Description" rows="5" name="description"><?php echo htmlentities($result->description); ?></textarea><small
+                                        class="form-text text-danger help-block"></small></div>
                         </div>
+                        <?php }
+                        } ?>
                         <div id="success"></div>
                         <div class="form-group">
-                            <button class="btn btn-primary" id="sendMessageButton" type="submit" name="submit">Post</button>
+                            <button class="btn btn-primary" id="sendMessageButton" type="submit" name="submit">Update
+                            </button>
                         </div>
                     </form>
                 </div>
