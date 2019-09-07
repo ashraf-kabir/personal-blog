@@ -9,13 +9,15 @@ if (strlen($_SESSION['login']) == 0) {
         $cat = $_POST['selectcat'];
         $grabber = $_POST['grabber'];
         $description = $_POST['description'];
+        $username = $_POST['name'];
 
-        $sql = "INSERT INTO posts(title,category,grabber,description) VALUES(:title,:cat,:grabber,:description)";
+        $sql = "INSERT INTO posts(title,category,grabber,description,username) VALUES(:title,:cat,:grabber,:description,:username)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
         $query->bindParam(':grabber', $grabber, PDO::PARAM_STR);
         $query->bindParam(':description', $description, PDO::PARAM_STR);
+        $query->bindParam(':username', $username, PDO::PARAM_STR);
 
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
@@ -50,9 +52,11 @@ if (strlen($_SESSION['login']) == 0) {
                     <h2 class="post-title">Add a post</h2>
                     <form id="contactForm" name="sentMessage" novalidate="novalidate" method="post">
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls"><label for="title">Title</label><input
-                                    class="form-control" type="text" id="title" required="" placeholder="Title" name="title"><small
-                                    class="form-text text-danger help-block"></small></div>
+                            <div class="form-group floating-label-form-group controls"><label
+                                        for="title">Title</label><input
+                                        class="form-control" type="text" id="title" required="" placeholder="Title"
+                                        name="title"><small
+                                        class="form-text text-danger help-block"></small></div>
                         </div>
 
                         <div class="control-group">
@@ -79,21 +83,48 @@ if (strlen($_SESSION['login']) == 0) {
                         </div>
 
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls"><label for="grabber">Grabber</label><input
-                                    class="form-control" type="text" id="grabber" required="" placeholder="Grabber" name="grabber"><small
-                                    class="form-text text-danger help-block"></small></div>
+                            <div class="form-group floating-label-form-group controls"><label
+                                        for="grabber">Grabber</label><input
+                                        class="form-control" type="text" id="grabber" required="" placeholder="Grabber"
+                                        name="grabber"><small
+                                        class="form-text text-danger help-block"></small></div>
                         </div>
 
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-3"><label for="desc">Description</label><textarea
-                                    class="form-control" id="desc"
-                                    data-validation-required-message="Description" required=""
-                                    placeholder="Description" rows="5" name="description"></textarea><small
-                                    class="form-text text-danger help-block"></small></div>
+                                        class="form-control" id="desc"
+                                        data-validation-required-message="Description" required=""
+                                        placeholder="Description" rows="5" name="description"></textarea><small
+                                        class="form-text text-danger help-block"></small></div>
                         </div>
+
+                        <?php
+                        $email = $_SESSION['login'];
+                        $sql2 = "SELECT fname,lname FROM users WHERE email=:email ";
+                        $query = $dbh->prepare($sql2);
+                        $query->bindParam(':email', $email, PDO::PARAM_STR);
+                        $query->execute();
+                        $results = $query->fetchAll(PDO::FETCH_OBJ);
+                        if ($query->rowCount() > 0) {
+                            foreach ($results as $result2) {
+                                $name = $result2->fname . " " . $result2->lname;
+                                ?>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls"><label
+                                                for="name">Username</label><input
+                                                class="form-control" type="text" id="name" required="" placeholder=""
+                                                name="name" value="<?php echo htmlentities($name); ?>"><small
+                                                class="form-text text-danger help-block">Username</small></div>
+                                </div>
+                            <?php }
+                        }
+                        ?>
+
+                        <br>
                         <div id="success"></div>
                         <div class="form-group">
-                            <button class="btn btn-primary" id="sendMessageButton" type="submit" name="submit">Post</button>
+                            <button class="btn btn-primary" id="sendMessageButton" type="submit" name="submit">Post
+                            </button>
                         </div>
                     </form>
                 </div>
