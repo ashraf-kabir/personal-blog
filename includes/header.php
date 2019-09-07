@@ -23,7 +23,7 @@
                     if ($query->rowCount() > 0) {
                         foreach ($results as $result2) {
                             ?>
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="#"><?php echo htmlentities($result2->fname." ".$result2->lname); ?></a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="profile.php"><?php echo htmlentities($result2->fname." ".$result2->lname); ?></a></li>
                         <?php }
                     }
                 } ?>
