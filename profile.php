@@ -25,7 +25,7 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
     <div class="container">
         <div class="row">
 
-            
+
 
         </div>
 
@@ -49,4 +49,3 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
 </body>
 
 </html>
-}
