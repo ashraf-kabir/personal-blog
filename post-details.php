@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $comment = $_POST['comment'];
     $postid = intval($_GET['id']);
-    $st1 = '0';
+    $st1 = '1';
     $sql = "INSERT INTO comments(postid,name,email,comment,status) VALUES(:postid,:name2,:email,:comment,:st1)";
     $query = $dbh->prepare($sql);
     $query->bindParam(':postid', $postid, PDO::PARAM_STR);
@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
                         <div class="card-body">
                             <?php
                             $pid = intval($_GET['id']);
-                            $sts = 1;
+                            $sts = 2;
                             $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=:pid AND status=:sts";
                             $query = $dbh->prepare($sql3);
                             $query->bindParam(':pid', $pid, PDO::PARAM_STR);
