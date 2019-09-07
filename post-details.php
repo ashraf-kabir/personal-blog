@@ -57,10 +57,7 @@ if (isset($_POST['submit'])) {
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
                     $cnt = 1;
                     if ($query->rowCount() > 0) {
-                        foreach ($results
-
-                                 as $result) {
-                            //$_SESSION['brndid'] = $result->bid;
+                        foreach ($results as $result) {
                             ?>
                             <div class="post-preview">
                                 <h2 class="post-title"><?php echo htmlentities($result->title); ?></h2>
