@@ -10,6 +10,10 @@
                 <li class="nav-item" role="presentation"><a class="nav-link" href="about.php">About us</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contact.php">Contact us</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="view-posts.php">View Posts</a></li>
+                <?php if (strlen($_SESSION['login']) != 0) {
+                    ?>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="manage-posts.php">Manage Posts</a></li>
+                <?php } else { }?>
                 <?php if (strlen($_SESSION['login']) == 0) {
                     ?>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Log in</a></li>
@@ -27,9 +31,9 @@
                         <?php }
                     }
                 } ?>
-                <?php if (strlen($_SESSION['login']) != 0) {
+                <?php if (strlen($_SESSION['login']) == 0) {
                 ?>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="manage-posts.php">Manage Posts</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="register.php">Register</a></li>
                 <?php } else { }?>
                 <?php if (strlen($_SESSION['login']) == 0) {
                     ?>
