@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
         <div class="row">
             <div class="col-sm-12">
                 <div class="card-box">
-                    <h4 class="m-t-0 header-title"><b>Change Password</b></h4>
+                    <h4 class="m-t-0 header-title"><b>Update Password</b></h4>
                     <hr/>
 
                     <div class="row">
