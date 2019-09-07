@@ -17,7 +17,7 @@ if (strlen($_SESSION['alogin']) == 0) {
     } elseif (isset($_REQUEST['aid'])) {
         $aid = intval($_GET['aid']);
         $sts2 = 2;
-        $sql2 = "UPDATE comments SET status=:sts1";
+        $sql2 = "UPDATE comments SET status=:sts2";
         $query = $dbh->prepare($sql2);
         $query->bindParam(':aid', $aid, PDO::PARAM_STR);
         $query->bindParam(':sts2', $sts2, PDO::PARAM_STR);
@@ -91,10 +91,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         <tbody>
 
                                         <?php
-                                        $sts1 = 2;
-                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,comments.status,posts.id AS pid,posts.title FROM comments JOIN posts ON posts.id=comments.id WHERE comments.status=:sts1";
+                                        $sts = 1;
+                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,comments.status,posts.id AS pid,posts.title FROM comments JOIN posts ON posts.id=comments.postid WHERE comments.status=:sts";
                                         $query = $dbh->prepare($sql);
-                                        $query->bindParam(':sts1', $sts1, PDO::PARAM_STR);
+                                        $query->bindParam(':sts', $sts, PDO::PARAM_STR);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
                                         $cnt = 1;
