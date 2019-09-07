@@ -128,7 +128,7 @@ if (isset($_POST['submit'])) {
                                                 ?>
                                                 <input type="text" name="name"
                                                        value="<?php echo htmlentities($name); ?>"
-                                                       class="form-control" placeholder="Enter your fullname"
+                                                       class="form-control" placeholder=""
                                                        required>
                                             <?php }
                                         }
