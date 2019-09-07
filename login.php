@@ -34,29 +34,29 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="/admin/assets/fonts/fontawesome-all.min.css">
 
     <script src="admin/assets/js/jquery.min.js"></script>
-    
+
     <?php if (strlen($_SESSION['login']) == 0) { ?>
 
-    <?php } else {?>
+    <?php } else { ?>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            function disablePrev() {
-                window.history.forward()
-            }
-            window.onload = disablePrev();
-            window.onpageshow = function (evt) {
-                if (evt.persisted) disableBack()
-            }
-        });
-    </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                function disablePrev() {
+                    window.history.forward()
+                }
+
+                window.onload = disablePrev();
+                window.onpageshow = function (evt) {
+                    if (evt.persisted) disableBack()
+                }
+            });
+        </script>
     <?php } ?>
 
 </head>
 
 <body class="bg-gradient-primary" style="background-color: #071e22;">
     <div class="container">
-        <br><br><br>
         <div class="row justify-content-center">
             <div class="col-md-9 col-lg-12 col-xl-10">
                 <div class="card shadow-lg o-hidden border-0 my-5">
@@ -69,10 +69,7 @@ if (isset($_POST['login'])) {
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h4 class="text-dark mb-4">Welcome Back!</h4>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <a href="index.php" class="btn btn-primary btn-block text-white btn-user">Home</a>
+                                        <h4 class="text-dark mb-4"><strong>Welcome</strong></h4>
                                     </div>
                                     <br>
                                     <form class="user" method="post" id="loginform">
@@ -93,16 +90,28 @@ if (isset($_POST['login'])) {
                                                             for="formCheck-1">Remember Me</label></div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary btn-block text-white btn-user" type="submit"
+                                        <button class="btn btn-success btn-block text-white btn-user" type="submit"
                                                 name="login">Login
                                         </button>
+                                        <hr>
+                                        <br>
                                     </form>
                                     <div class="text-center">
-                                        <hr>
-                                        <a class="small" href="forgot-password.php">Forgot Password?</a>
+                                    <a href="index.php"
+                                       class="btn btn-primary btn-block text-white btn-user">Home</a>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                    <a href="view-posts.php" class="btn btn-info btn-block text-white btn-user">View
+                                                                                                                Posts</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="register.php">Don't have an account?
+                                        <hr>
+                                        <a href="forgot-password.php" class="btn btn-info btn-block text-white btn-user">Forgot Password?</a>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a href="register.php" class="btn btn-danger btn-block text-white btn-user">Don't have an account?
                                                                              Register</a>
                                     </div>
                                 </div>
