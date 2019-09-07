@@ -39,10 +39,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                     <?php include 'includes/header.php'; ?>
 
                     <div class="container-fluid">
-                        <h3 class="text-dark mb-4">Posts</h3>
+                        <h3 class="text-dark mb-4">Users</h3>
                         <div class="card shadow">
                             <div class="card-header py-3">
-                                <p class="text-primary m-0 font-weight-bold">Posts</p>
+                                <p class="text-primary m-0 font-weight-bold">Users</p>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -66,26 +66,25 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Title</th>
-                                            <th>Category</th>
-                                            <th>Edit</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
                                             <th>Delete</th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
-                                        <?php $sql = "SELECT posts.title,categories.catname,posts.id from posts join categories on categories.id=posts.category";
+                                        <?php $sql = "SELECT users.* FROM users.";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
                                         $cnt = 1;
                                         if ($query->rowCount() > 0) {
-                                            foreach ($results as $result) { ?>
+                                            foreach ($results as $result) {
+                                                $name = htmlentities($result->fname." ".$result->lname);?>
                                                 <tr>
                                                     <td><?php echo htmlentities($cnt); ?></td>
-                                                    <td><?php echo htmlentities($result->title); ?></td>
+                                                    <td><?php echo htmlentities($name); ?></td>
                                                     <td><?php echo htmlentities($result->catname); ?></td>
-                                                    <td><a href="edit-post.php?id=<?php echo $result->id; ?>">edit</a>
                                                     <td><a href="manage-posts.php?del=<?php echo $result->id; ?>"
                                                            onclick="return confirm('Do you want to delete?');">delete</a>
                                                     </td>
@@ -95,15 +94,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         } ?>
 
                                         </tbody>
-                                        <tfoot>
-                                        <tr>
-                                            <td><strong>#</strong></td>
-                                            <td><strong>Title</strong></td>
-                                            <td><strong>Category</strong></td>
-                                            <td><strong>Edit</strong></td>
-                                            <td><strong>Delete</strong></td>
-                                        </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                                 <div class="row">
