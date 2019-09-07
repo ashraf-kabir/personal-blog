@@ -58,15 +58,15 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     <div class="col-md-6 text-nowrap">
                                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
                                             <label>Show&nbsp;<select
-                                                    class="form-control form-control-sm custom-select custom-select-sm">
+                                                        class="form-control form-control-sm custom-select custom-select-sm">
                                                     <option value="5" selected="">5</option>
                                                     <option value="10">10</option>
                                                 </select>&nbsp;</label></div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input
-                                                    type="search" class="form-control form-control-sm"
-                                                    aria-controls="dataTable" placeholder="Search"></label></div>
+                                                        type="search" class="form-control form-control-sm"
+                                                        aria-controls="dataTable" placeholder="Search"></label></div>
                                     </div>
                                 </div>
                                 <div class="table-responsive table mt-2" id="dataTable" role="grid"
@@ -88,8 +88,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         <tbody>
 
                                         <?php
-                                        $sts = 1;
-                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,posts.id AS pid,posts.title FROM comments jOIN posts ON posts.id=comments.id WHERE comments.status=:sts";
+                                        $sts = 2;
+                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,posts.id AS pid,posts.title FROM comments jOIN posts ON posts.id=comments.id WHERE comments.status=2";
                                         $query = $dbh->prepare($sql);
                                         $query->bindParam(':sts', $sts, PDO::PARAM_STR);
                                         $query->execute();
@@ -102,7 +102,13 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <td><?php echo htmlentities($result->name); ?></td>
                                                     <td><?php echo htmlentities($result->email); ?></td>
                                                     <td><?php echo htmlentities($result->comment); ?></td>
-                                                    <td><?php echo htmlentities($result->status); ?></td>
+                                                    <?php
+                                                    $sts2 = htmlentities($result->status);
+                                                    if ($sts2 == 0) { ?>
+                                                        <td>Unapproved</td>
+                                                    <?php } else { ?>
+                                                        <td>Approved</td>
+                                                    <?php } ?>
                                                     <td><?php echo htmlentities($result->title); ?></td>
                                                     <td><?php echo htmlentities($result->postingdate); ?></td>
                                                     <td><a href="manage-comments.php?aid=<?php echo $result->id; ?>"
@@ -128,13 +134,13 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <ul class="pagination">
                                                 <li class="page-item disabled"><a class="page-link" href="#"
                                                                                   aria-label="Previous"><span
-                                                            aria-hidden="true">«</span></a></li>
+                                                                aria-hidden="true">«</span></a></li>
                                                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                                 <li class="page-item"><a class="page-link" href="#"
                                                                          aria-label="Next"><span
-                                                            aria-hidden="true">»</span></a></li>
+                                                                aria-hidden="true">»</span></a></li>
                                             </ul>
                                         </nav>
                                     </div>
