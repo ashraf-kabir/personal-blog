@@ -72,27 +72,27 @@ if (isset($_POST['submit'])) {
                                   onSubmit="return valid();">
 
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label">Current Password</label>
+                                    <label for="cp" class="col-md-4 control-label">Current Password</label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" value="" name="password"
+                                        <input id="cp" type="text" class="form-control" value="" name="password"
                                                required>
                                     </div>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label">New Password</label>
+                                    <label for="np" class="col-md-4 control-label">New Password</label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" value=""
+                                        <input id="np" type="text" class="form-control" value=""
                                                name="newpassword" required>
                                     </div>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label">Confirm Password</label>
+                                    <label for="cpd" class="col-md-4 control-label">Confirm Password</label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" value=""
+                                        <input id="cpd" type="text" class="form-control" value=""
                                                name="confirmpassword" required>
                                     </div>
                                 </div>
