@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 include('includes/config.php');
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -33,6 +34,9 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="/admin/assets/fonts/fontawesome-all.min.css">
 
     <script src="admin/assets/js/jquery.min.js"></script>
+    <?php if (strlen($_SESSION['login']) == 0) { ?>
+
+    <?php } else {?>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -45,11 +49,13 @@ if (isset($_POST['login'])) {
             }
         });
     </script>
+    <?php } ?>
 
 </head>
 
 <body class="bg-gradient-primary" style="background-color: #071e22;">
     <div class="container">
+        <br><br><br>
         <div class="row justify-content-center">
             <div class="col-md-9 col-lg-12 col-xl-10">
                 <div class="card shadow-lg o-hidden border-0 my-5">
@@ -64,6 +70,10 @@ if (isset($_POST['login'])) {
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Welcome Back!</h4>
                                     </div>
+                                    <div class="col-lg-4">
+                                        <a href="index.php" class="btn btn-primary btn-block text-white btn-user">Home</a>
+                                    </div>
+                                    <br>
                                     <form class="user" method="post" id="loginform">
                                         <div class="form-group"><input class="form-control form-control-user"
                                                                        type="email" id="exampleInputEmail"
@@ -83,8 +93,7 @@ if (isset($_POST['login'])) {
                                             </div>
                                         </div>
                                         <button class="btn btn-primary btn-block text-white btn-user" type="submit"
-                                                name="login">
-                                            Login
+                                                name="login">Login
                                         </button>
                                     </form>
                                     <div class="text-center">
