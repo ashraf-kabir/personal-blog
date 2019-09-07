@@ -75,7 +75,7 @@ if (isset($_POST['signup'])) {
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h4 class="text-dark mb-4">Create an Account!</h4>
+                                <h4 class="text-dark mb-4"><strog>Create an Account!</strog></h4>
                             </div>
                             <form class="user" method="post" name="signup" onSubmit="return valid();">
                                 <div class="form-group row">
@@ -90,7 +90,8 @@ if (isset($_POST['signup'])) {
                                 </div>
                                 <div class="form-group"><input class="form-control form-control-user" type="email"
                                                                id="email" aria-describedby="emailHelp"
-                                                               placeholder="Email Address" name="email" onBlur="checkAvailability()">
+                                                               placeholder="Email Address" name="email"
+                                                               onBlur="checkAvailability()">
                                     <span id="user-availability-status" style="font-size:12px;"></span>
                                 </div>
                                 <div class="form-group row">
@@ -108,10 +109,14 @@ if (isset($_POST['signup'])) {
                                 </button>
                                 <hr>
                             </form>
-                            <div class="text-center"><a class="small" href="forgot-password.php">Forgot Password?</a>
+                            <div class="text-center">
+                                <a href="forgot-password.php"
+                                   class="btn btn-warning btn-block text-black-50 btn-user disabled">Forgot
+                                                                                                     Password?</a>
+                                <hr>
                             </div>
-                            <div class="text-center"><a class="small" href="login.php">Already have an account?
-                                                                                       Login!</a></div>
+                            <div class="text-center"><a href="login.php"
+                                                        class="btn btn-success btn-block text-white btn-user">Already have an account? Login!</a></div>
                         </div>
                     </div>
                 </div>
