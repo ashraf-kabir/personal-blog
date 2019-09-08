@@ -67,7 +67,7 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls"><label
                                         for="title">Title</label><input
-                                        class="form-control" type="text" id="title" required="" placeholder="Title"
+                                        class="form-control" type="text" id="title" required placeholder="Title"
                                         name="title"><small
                                         class="form-text text-danger help-block"></small></div>
                         </div>
@@ -98,7 +98,7 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls"><label
                                         for="grabber">Grabber</label><input
-                                        class="form-control" type="text" id="grabber" required="" placeholder="Grabber"
+                                        class="form-control" type="text" id="grabber" required placeholder="Grabber"
                                         name="grabber"><small
                                         class="form-text text-danger help-block"></small></div>
                         </div>
@@ -106,7 +106,7 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-3"><label for="desc">Description</label><textarea
                                         class="form-control" id="desc"
-                                        data-validation-required-message="Description" required=""
+                                        data-validation-required-message="Description" required
                                         placeholder="Description" rows="5" name="description"></textarea><small
                                         class="form-text text-danger help-block"></small></div>
                         </div>
@@ -125,7 +125,7 @@ if (strlen($_SESSION['login']) == 0) {
                                 <div class="control-group">
                                     <div class="form-group floating-label-form-group controls"><label
                                                 for="name">Username</label><input
-                                                class="form-control" type="text" id="name" required="" placeholder=""
+                                                class="form-control" type="text" id="name" required
                                                 name="name" value="<?php echo htmlentities($name); ?>"><small
                                                 class="form-text text-danger help-block">Username</small></div>
                                 </div>
