@@ -22,6 +22,19 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
     <!-- Header -->
     <?php include 'includes/header.php'; ?>
 
+    <header class="masthead" style="background-image:url('assets/img/home-bg.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <div class="site-heading">
+                        <h1>Kabir's Blog</h1><span class="subheading">An Informative Blog</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header -->
+
     <article>
         <div class="container">
             <div class="row">
