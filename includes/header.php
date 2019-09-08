@@ -27,15 +27,7 @@
                     if ($query->rowCount() > 0) {
                         foreach ($results as $result2) {
                             ?>
-                            <li class="nav-item dropdown" role="presentation">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo htmlentities($result2->fname." ".$result2->lname); ?></a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="profile.php">Update Profile</a>
-                                    <a class="dropdown-item" href="update-password">Update Password</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="profile.php"><?php echo htmlentities($result2->fname." ".$result2->lname); ?></a></li>
                         <?php }
                     }
                 } ?>
