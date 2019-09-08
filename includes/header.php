@@ -19,7 +19,7 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Log in</a></li>
                 <?php } else {
                     $email = $_SESSION['login'];
-                    $sql = "SELECT fname,lname FROM users WHERE email=:email ";
+                    $sql = "SELECT fname,lname FROM users WHERE email=:email";
                     $query = $dbh->prepare($sql);
                     $query->bindParam(':email', $email, PDO::PARAM_STR);
                     $query->execute();
