@@ -38,7 +38,7 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
     <article>
         <div class="container">
             <div class="row">
-                <?php $sql = "SELECT posts.* FROM posts JOIN categories ON categories.id=posts.category ORDER BY posts.id DESC";
+                <?php $sql = "SELECT posts.*,categories.catname FROM posts JOIN categories ON categories.id=posts.category ORDER BY posts.id DESC";
                 $query = $dbh->prepare($sql);
                 $query->execute();
                 $results = $query->fetchAll(PDO::FETCH_OBJ);
