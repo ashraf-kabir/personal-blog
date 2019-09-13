@@ -82,8 +82,11 @@ if (isset($_POST['submit'])) {
                                     href="#"><?php echo htmlentities($result->catname); ?></a>
                         </p>
                         <p style="font-weight: bold;"><?php echo htmlentities($result->grabber); ?></p>
-                        <p><img src="assets/img/postimages/<?php echo htmlentities($result->image1); ?>"
-                                width="auto" height="auto" style="border:solid 1px #000"></p>
+                        <?php if (htmlentities($result->image1) == null) {
+                        } else { ?>
+                            <p><img src="assets/img/postimages/<?php echo htmlentities($result->image1); ?>"
+                                    width="auto" height="auto" style="border:solid 1px #000"></p>
+                        <?php } ?>
                         <p><?php echo htmlentities($result->description); ?></p>
                         <p class="post-meta">Posted by&nbsp;<?php echo htmlentities($result->username); ?> on <a
                                     href="#"> <?php echo htmlentities($result->creationdate); ?></a>
