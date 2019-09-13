@@ -24,7 +24,7 @@ if (strlen($_SESSION['login']) == 0) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Update Image1</title>
+        <title>Update Header Image</title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
@@ -52,11 +52,11 @@ if (strlen($_SESSION['login']) == 0) {
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto">
-                    <h2 class="post-title">Edit a post</h2>
+                    <h2 class="post-title">Update Header Image</h2>
                     <br>
                     <?php
-                    $id = intval($_GET['id']);
-                    $sql = "SELECT posts.*,categories.catname,categories.id AS cid FROM posts JOIN categories ON categories.id=posts.category WHERE posts.id=:id";
+                    $id = intval($_GET['imgid']);
+                    $sql = "SELECT image1 FROM posts WHERE posts.id=:id";
                     $query = $dbh->prepare($sql);
                     $query->bindParam(':id', $id, PDO::PARAM_STR);
                     $query->execute();
@@ -67,62 +67,26 @@ if (strlen($_SESSION['login']) == 0) {
 
                     as $result) { ?>
                     <form id="contactForm" method="post" enctype="multipart/form-data">
-                        <div class="control-group">
-                            <label for="title"><strong>Title</strong></label>
-                            <div class="form-group floating-label-form-group controls"><input
-                                    class="form-control" type="text" id="title" required="" placeholder="Title"
-                                    name="title" value="<?php echo htmlentities($result->title); ?>"><small
-                                    class="form-text text-danger help-block"></small></div>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="select1"><strong>Select Category</strong></label>
-                            <div class="form-group floating-label-form-group controls">
-                                <select class="form-control" id="select1"
-                                        name="selectcat" required>
-                                    <option value="<?php echo htmlentities($result->cid); ?>"><?php echo htmlentities($cname = $result->catname); ?></option>
-                                    <?php $ret = "SELECT `id`,`catname` FROM `categories`";
-                                    $query = $dbh->prepare($ret);
-                                    //$query->bindParam(':id',$id, PDO::PARAM_STR);
-                                    $query->execute();
-                                    $resultss = $query->fetchAll(PDO::FETCH_OBJ);
-                                    if ($query->rowCount() > 0) {
-                                        foreach ($resultss as $results) {
-                                            if ($results->catname == $cname) {
-                                                continue;
-                                            } else {
-                                                ?>
-                                                <option value="<?php echo htmlentities($results->id); ?>">
-                                                    <?php echo htmlentities($results->catname); ?>
-                                                </option>
-                                            <?php }
-                                        }
-                                    } ?>
-                                </select><small class="form-text text-danger help-block"></small>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="grabber"><strong>Grabber</strong></label>
-                            <div class="form-group floating-label-form-group controls"><input
-                                    class="form-control" type="text" id="grabber" required="" placeholder="Grabber"
-                                    name="grabber" value="<?php echo htmlentities($result->grabber); ?>"><small
-                                    class="form-text text-danger help-block"></small></div>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="desc"><strong>Description</strong></label>
-                            <div class="form-group floating-label-form-group controls mb-3"><textarea
-                                    class="form-control" id="desc"
-                                    data-validation-required-message="Description" required=""
-                                    placeholder="Description" rows="5" name="description"><?php echo htmlentities($result->description); ?></textarea><small
-                                    class="form-text text-danger help-block"></small></div>
+                        <div class="col-sm-8">
+                            <img src="assets/img/postimages/<?php echo htmlentities($result->image1); ?>"
+                                 width="300" height="200"
+                                 style="border:solid 1px #000">
                         </div>
                         <?php }
                         } ?>
+
+                        <br>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Upload New Header Image 1<span
+                                    style="color:red">*</span></label>
+                            <div class="col-sm-8">
+                                <input type="file" name="img1" required>
+                            </div>
+                        </div>
+                        <div class="hr-dashed"></div>
                         <div id="success"></div>
                         <div class="form-group">
-                            <button class="btn btn-primary" id="sendMessageButton" type="submit" name="submit">Update
+                            <button class="btn btn-primary" id="sendMessageButton" type="submit" name="update">Update
                             </button>
                         </div>
                     </form>

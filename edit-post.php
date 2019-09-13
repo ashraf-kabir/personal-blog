@@ -117,11 +117,22 @@ if (strlen($_SESSION['login']) == 0) {
                         </div>
 
                         <div class="control-group">
+                            <label for="image1"><strong>Header Image</strong></label>
+                            <div class="form-group floating-label-form-group controls"><img
+                                        src="assets/img/postimages/<?php echo htmlentities($result->image1); ?>"
+                                        width="300" height="200" style="border:solid 1px #000"><br><br>
+                                <a href="changeimage1.php?imgid=<?php echo htmlentities($result->id) ?>">Change
+                                                                                                         Header Image</a>
+                                <small class="form-text text-danger help-block"></small></div>
+                        </div>
+
+                        <div class="control-group">
                             <label for="desc"><strong>Description</strong></label>
                             <div class="form-group floating-label-form-group controls mb-3"><textarea
                                         class="form-control" id="desc"
                                         data-validation-required-message="Description" required=""
-                                        placeholder="Description" rows="5" name="description"><?php echo htmlentities($result->description); ?></textarea><small
+                                        placeholder="Description" rows="5"
+                                        name="description"><?php echo htmlentities($result->description); ?></textarea><small
                                         class="form-text text-danger help-block"></small></div>
                         </div>
                         <?php }
