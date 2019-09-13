@@ -97,7 +97,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                         <?php
                                         $sts = 0;
-                                        $sql = "SELECT posts.title,categories.catname,posts.id FROM posts JOIN categories ON categories.id=posts.category WHERE posts.status=:sts";
+                                        $sql = "SELECT posts.title,categories.catname,posts.id FROM posts JOIN categories ON categories.id=posts.category";
                                         $query = $dbh->prepare($sql);
                                         $query->bindParam(':sts', $sts, PDO::PARAM_STR);
                                         $query->execute();
