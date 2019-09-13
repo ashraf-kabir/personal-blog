@@ -9,8 +9,8 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $comment = $_POST['comment'];
     $postid = intval($_GET['id']);
-    $st1 = '1';
-    $sql = "INSERT INTO comments(postid,name,email,comment,status) VALUES(:postid,:name2,:email,:comment,:st1)";
+    $st1 = '0';
+    $sql = "INSERT INTO comments(`postid`,`name`,`email`,`comment`,`status`) VALUES(:postid,:name2,:email,:comment,:st1)";
     $query = $dbh->prepare($sql);
     $query->bindParam(':postid', $postid, PDO::PARAM_STR);
     $query->bindParam(':name2', $name2, PDO::PARAM_STR);
@@ -151,7 +151,7 @@ if (isset($_POST['submit'])) {
                                     <div class="form-group">
                                         <?php if ($_SESSION['login']) {
                                             $email = $_SESSION['login'];
-                                            $sql2 = "SELECT fname,lname FROM users WHERE email=:email ";
+                                            $sql2 = "SELECT fname,lname FROM users WHERE email=:email";
                                             $query = $dbh->prepare($sql2);
                                             $query->bindParam(':email', $email, PDO::PARAM_STR);
                                             $query->execute();
@@ -162,8 +162,7 @@ if (isset($_POST['submit'])) {
                                                     ?>
                                                     <input type="text" name="name"
                                                            value="<?php echo htmlentities($name); ?>"
-                                                           class="form-control" placeholder=""
-                                                           required>
+                                                           class="form-control" required>
                                                 <?php }
                                             }
                                         } else { ?>
