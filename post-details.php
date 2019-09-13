@@ -86,15 +86,19 @@ if (isset($_POST['submit'])) {
                         <div class="post-preview">
                             <h2 class="post-title"><?php echo htmlentities($result->title); ?></h2>
                             <p class="post-meta">Category: <a
-                                        href="#"><?php echo htmlentities($result->catname); ?></a>
+                                        href="#"><?php echo htmlentities($result->catname); ?></a><br>
+                                                 Posted
+                                                 by&nbsp;<b><?php echo htmlentities($result->username); ?></b>
+                                                 on <?php echo htmlentities($result->creationdate); ?>
                             </p>
                             <p style="font-weight: bold;"><?php echo htmlentities($result->grabber); ?></p>
                             <?php if (htmlentities($result->image1) == null) {
                             } else { ?>
-                                <p><img class="img-fluid" src="assets/img/postimages/<?php echo htmlentities($result->image1); ?>"
+                                <p><img class="img-fluid"
+                                        src="assets/img/postimages/<?php echo htmlentities($result->image1); ?>"
                                         width="auto" height="auto" style="border:solid 1px #000"></p>
                             <?php } ?>
-                            <p><?php echo htmlentities($result->description); ?></p>
+                            <p style="text-align: justify;"><?php echo htmlentities($result->description); ?></p>
                             <p class="post-meta">Posted by&nbsp;<?php echo htmlentities($result->username); ?> on <a
                                         href="#"> <?php echo htmlentities($result->creationdate); ?></a>
                             </p>
