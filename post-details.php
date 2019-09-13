@@ -57,8 +57,13 @@ if (isset($_POST['submit'])) {
 
              as $result) {
     ?>
+    <?php if (htmlentities($result->image1) == null) { ?>
+    <header class="masthead"
+            style="background-image:url('assets/img/home-bg.jpg');">
+    <?php } else { ?>
     <header class="masthead"
             style="background-image:url('assets/img/postimages/<?php echo htmlentities($result->image1); ?>');">
+        <?php } ?>
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
