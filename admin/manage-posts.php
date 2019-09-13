@@ -11,12 +11,12 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->bindParam(':delid', $delid, PDO::PARAM_STR);
         $query->execute();
         echo "<script>alert('Post has deleted successfully')</script>";
-    } elseif (isset($_REQUEST['did'])) {
-        $did = intval($_GET['did']);
-        $sts3 = 3;
-        $sql3 = "UPDATE posts SET status=:sts3 WHERE id=:did";
+    } elseif (isset($_REQUEST['uid'])) {
+        $did = intval($_GET['uid']);
+        $sts3 = 2;
+        $sql3 = "UPDATE posts SET status=:sts3 WHERE id=:uid";
         $query = $dbh->prepare($sql3);
-        $query->bindParam(':did', $did, PDO::PARAM_STR);
+        $query->bindParam(':uid', $uid, PDO::PARAM_STR);
         $query->bindParam(':sts3', $sts3, PDO::PARAM_STR);
         $query->execute();
         echo "<script>alert('Post Unpublished')</script>";
@@ -97,7 +97,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                         <?php
                                         $sts = 0;
-                                        $sql = "SELECT posts.title,categories.catname,posts.id from posts join categories on categories.id=posts.category WHERE posts.status=:sts";
+                                        $sql = "SELECT posts.title,categories.catname,posts.id FROM posts JOIN categories ON categories.id=posts.category WHERE posts.status=:sts";
                                         $query = $dbh->prepare($sql);
                                         $query->bindParam(':sts', $sts, PDO::PARAM_STR);
                                         $query->execute();
@@ -112,17 +112,17 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <td><a href="edit-post.php?id=<?php echo $result->id; ?>">edit</a>
                                                         <?php
                                                         $sts4 = htmlentities($result->status);
-                                                        if ($sts4 == 2) { ?>
-                                                    <td>Unpublished</td>
+                                                        if ($sts4 == 0) { ?>
+                                                    <td>Pending</td>
                                                     <?php } elseif ($sts4 == 1) { ?>
-                                                        <td>Approved</td>
-                                                    <?php } elseif ($sts4 == 0) { ?>
-                                                        <td>Pending</td>
+                                                        <td>Published</td>
+                                                    <?php } elseif ($sts4 == 2) { ?>
+                                                        <td>Unpublished</td>
                                                     <?php } ?>
                                                     <td><a href="manage-posts.php?aid=<?php echo $result->id; ?>"
                                                            onclick="return confirm('Do you want to approve this post?');">Approve</a>
                                                     </td>
-                                                    <td><a href="manage-posts.php?did=<?php echo $result->id; ?>"
+                                                    <td><a href="manage-posts.php?uid=<?php echo $result->id; ?>"
                                                            onclick="return confirm('Do you want to unpublish this post?');">Decline</a>
                                                     </td>
                                                     <td><a href="manage-posts.php?del=<?php echo $result->id; ?>"
