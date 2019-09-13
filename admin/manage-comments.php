@@ -50,10 +50,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                     <?php include 'includes/header.php'; ?>
 
                     <div class="container-fluid">
-                        <h3 class="text-dark mb-4">Posts</h3>
+                        <h3 class="text-dark mb-4">Manage Comments</h3>
                         <div class="card shadow">
                             <div class="card-header py-3">
-                                <p class="text-primary m-0 font-weight-bold">Posts</p>
+                                <p class="text-primary m-0 font-weight-bold">Comments</p>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -90,7 +90,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         <tbody>
 
                                         <?php
-                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,comments.status,posts.id AS pid,posts.title FROM comments JOIN posts ON posts.id=comments.postid";
+                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,comments.status,posts.id AS pid,posts.title FROM comments JOIN posts ON posts.id=comments.postid ORDER BY comments.id DESC";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
