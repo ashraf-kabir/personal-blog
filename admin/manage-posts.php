@@ -11,6 +11,24 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->bindParam(':delid', $delid, PDO::PARAM_STR);
         $query->execute();
         echo "<script>alert('Post has deleted successfully')</script>";
+    } elseif (isset($_REQUEST['did'])) {
+        $did = intval($_GET['did']);
+        $sts3 = 3;
+        $sql3 = "UPDATE posts SET status=:sts3 WHERE id=:did";
+        $query = $dbh->prepare($sql3);
+        $query->bindParam(':did', $did, PDO::PARAM_STR);
+        $query->bindParam(':sts3', $sts3, PDO::PARAM_STR);
+        $query->execute();
+        echo "<script>alert('Post Unpublished')</script>";
+    } elseif (isset($_REQUEST['aid'])) {
+        $aid = intval($_GET['aid']);
+        $sts2 = 1;
+        $sql2 = "UPDATE posts SET status=:sts2 WHERE id=:aid";
+        $query = $dbh->prepare($sql2);
+        $query->bindParam(':aid', $aid, PDO::PARAM_STR);
+        $query->bindParam(':sts2', $sts2, PDO::PARAM_STR);
+        $query->execute();
+        echo "<script>alert('Post approved')</script>";
     }
     ?>
     <!DOCTYPE html>
@@ -69,6 +87,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <th>Title</th>
                                             <th>Category</th>
                                             <th>Edit</th>
+                                            <td>Approve</td>
+                                            <td>Decline</td>
                                             <th>Delete</th>
                                         </tr>
                                         </thead>
@@ -86,6 +106,12 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <td><?php echo htmlentities($result->title); ?></td>
                                                     <td><?php echo htmlentities($result->catname); ?></td>
                                                     <td><a href="edit-post.php?id=<?php echo $result->id; ?>">edit</a>
+                                                    <td><a href="manage-posts.php?aid=<?php echo $result->id; ?>"
+                                                           onclick="return confirm('Do you want to approve this post?');">Approve</a>
+                                                    </td>
+                                                    <td><a href="manage-posts.php?did=<?php echo $result->id; ?>"
+                                                           onclick="return confirm('Do you want to unpublish this post?');">Decline</a>
+                                                    </td>
                                                     <td><a href="manage-posts.php?del=<?php echo $result->id; ?>"
                                                            onclick="return confirm('Do you want to delete?');">delete</a>
                                                     </td>
@@ -101,6 +127,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <td><strong>Title</strong></td>
                                             <td><strong>Category</strong></td>
                                             <td><strong>Edit</strong></td>
+                                            <td><strong>Approve</strong></td>
+                                            <td><strong>Decline</strong></td>
                                             <td><strong>Delete</strong></td>
                                         </tr>
                                         </tfoot>
