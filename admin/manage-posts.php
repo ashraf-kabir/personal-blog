@@ -57,7 +57,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                     <?php include 'includes/header.php'; ?>
 
                     <div class="container-fluid">
-                        <h3 class="text-dark mb-4">Posts</h3>
+                        <h3 class="text-dark mb-4">Manage Posts</h3>
                         <div class="card shadow">
                             <div class="card-header py-3">
                                 <p class="text-primary m-0 font-weight-bold">Posts</p>
