@@ -88,8 +88,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <th>Category</th>
                                             <th>Edit</th>
                                             <th>Status</th>
-                                            <td>Approve</td>
-                                            <td>Decline</td>
+                                            <th>Publish</th>
+                                            <th>Unpublish</th>
                                             <th>Delete</th>
                                         </tr>
                                         </thead>
@@ -97,7 +97,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                         <?php
                                         $sts = 0;
-                                        $sql = "SELECT posts.title,categories.catname,posts.id FROM posts JOIN categories ON categories.id=posts.category";
+                                        $sql = "SELECT posts.*,categories.catname FROM posts JOIN categories ON categories.id=posts.category";
                                         $query = $dbh->prepare($sql);
                                         $query->bindParam(':sts', $sts, PDO::PARAM_STR);
                                         $query->execute();
@@ -121,13 +121,13 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         <td>Unpublished</td>
                                                     <?php } ?>
                                                     <td><a href="manage-posts.php?aid=<?php echo $result->id; ?>"
-                                                           onclick="return confirm('Do you want to approve this post?');">Approve</a>
+                                                           onclick="return confirm('Do you want to approve this post?');">Publish</a>
                                                     </td>
                                                     <td><a href="manage-posts.php?uid=<?php echo $result->id; ?>"
-                                                           onclick="return confirm('Do you want to unpublish this post?');">Decline</a>
+                                                           onclick="return confirm('Do you want to unpublish this post?');">Unpublish</a>
                                                     </td>
                                                     <td><a href="manage-posts.php?del=<?php echo $result->id; ?>"
-                                                           onclick="return confirm('Do you want to delete?');">delete</a>
+                                                           onclick="return confirm('Do you want to delete?');">Delete</a>
                                                     </td>
                                                 </tr>
                                                 <?php $cnt = $cnt + 1;
