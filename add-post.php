@@ -10,14 +10,18 @@ if (strlen($_SESSION['login']) == 0) {
         $grabber = $_POST['grabber'];
         $description = $_POST['description'];
         $username = $_POST['name'];
+        $image1 = $_FILES["img1"]["name"];
 
-        $sql = "INSERT INTO posts(title,category,grabber,description,username) VALUES(:title,:cat,:grabber,:description,:username)";
+        move_uploaded_file($_FILES["img1"]["tmp_name"], "img/postimages/" . $_FILES["img1"]["name"]);
+
+        $sql = "INSERT INTO posts(title,category,grabber,description,username,image1) VALUES(:title,:cat,:grabber,:description,:username,:image1)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
         $query->bindParam(':grabber', $grabber, PDO::PARAM_STR);
         $query->bindParam(':description', $description, PDO::PARAM_STR);
         $query->bindParam(':username', $username, PDO::PARAM_STR);
+        $query->bindParam(':image1', $image1, PDO::PARAM_STR);
 
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
@@ -100,6 +104,13 @@ if (strlen($_SESSION['login']) == 0) {
                                         for="grabber">Grabber</label><input
                                         class="form-control" type="text" id="grabber" required placeholder="Grabber"
                                         name="grabber"><small
+                                        class="form-text text-danger help-block"></small></div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls"><label
+                                        for="file1">Add an image</label>
+                                <input type="file" class="form-control-file" id="file1" name="img1" required><small
                                         class="form-text text-danger help-block"></small></div>
                         </div>
 
