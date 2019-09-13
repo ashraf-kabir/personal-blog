@@ -5,23 +5,17 @@ include('includes/config.php');
 if (strlen($_SESSION['login']) == 0) {
     header('location: login.php');
 } else {
-    if (isset($_POST['submit'])) {
-        $title = $_POST['title'];
-        $cat = $_POST['selectcat'];
-        $grabber = $_POST['grabber'];
-        $description = $_POST['description'];
-        $id = intval($_GET['id']);
-
-        $sql = "UPDATE `posts` SET title=:title,category=:cat,grabber=:grabber,description=:description WHERE id=:id ";
+    if (isset($_POST['update'])) {
+        $image1 = $_FILES["img1"]["name"];
+        $id = intval($_GET['imgid']);
+        move_uploaded_file($_FILES["img1"]["tmp_name"], "assets/img/postimages/" . $_FILES["img1"]["name"]);
+        $sql = "UPDATE posts SET image1=:image1 WHERE id=:id";
         $query = $dbh->prepare($sql);
-        $query->bindParam(':title', $title, PDO::PARAM_STR);
-        $query->bindParam(':cat', $cat, PDO::PARAM_STR);
-        $query->bindParam(':grabber', $grabber, PDO::PARAM_STR);
-        $query->bindParam(':description', $description, PDO::PARAM_STR);
+        $query->bindParam(':vimage1', $vimage1, PDO::PARAM_STR);
         $query->bindParam(':id', $id, PDO::PARAM_STR);
         $query->execute();
 
-        echo "<script>alert('Post has updated successfully');</script>";
+        echo "<script>alert('Image updated successfully');</script>";
     }
     ?>
     <!DOCTYPE html>
