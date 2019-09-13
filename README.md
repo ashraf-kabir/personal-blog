@@ -9,6 +9,7 @@
  (PDO style followed which is secured than mysqli commands)
  
  
+ 
  User Panel:
  1. Register
  2. Log in
