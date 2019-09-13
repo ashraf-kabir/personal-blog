@@ -110,10 +110,11 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <td><?php echo htmlentities($result->title); ?></td>
                                                     <td><?php echo htmlentities($result->catname); ?></td>
                                                     <td><a href="edit-post.php?id=<?php echo $result->id; ?>">edit</a>
-                                                        <?php
-                                                        $sts4 = htmlentities($result->status);
-                                                        if ($sts4 == 0) { ?>
-                                                    <td>Pending</td>
+                                                    </td>
+                                                    <?php
+                                                    $sts4 = htmlentities($result->status);
+                                                    if ($sts4 == 0) { ?>
+                                                        <td>Pending</td>
                                                     <?php } elseif ($sts4 == 1) { ?>
                                                         <td>Published</td>
                                                     <?php } elseif ($sts4 == 2) { ?>
