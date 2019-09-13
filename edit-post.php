@@ -71,7 +71,7 @@ if (strlen($_SESSION['login']) == 0) {
                     foreach ($results
 
                     as $result) { ?>
-                    <form id="contactForm" name="sentMessage" method="post">
+                    <form id="contactForm" method="post" enctype="multipart/form-data">
                         <div class="control-group">
                             <label for="title"><strong>Title</strong></label>
                             <div class="form-group floating-label-form-group controls"><input
