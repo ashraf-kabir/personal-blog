@@ -107,7 +107,7 @@ if (isset($_POST['submit'])) {
                     <div class="col-md-10 col-lg-8 mx-auto">
                         <?php
                         $pid = intval($_GET['id']);
-                        $sts = 2;
+                        $sts = 1;
                         $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=:pid AND status=:sts";
                         $query = $dbh->prepare($sql3);
                         $query->bindParam(':pid', $pid, PDO::PARAM_STR);
