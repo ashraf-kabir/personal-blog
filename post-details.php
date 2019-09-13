@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
                             <p style="font-weight: bold;"><?php echo htmlentities($result->grabber); ?></p>
                             <?php if (htmlentities($result->image1) == null) {
                             } else { ?>
-                                <p><img src="assets/img/postimages/<?php echo htmlentities($result->image1); ?>"
+                                <p><img class="img-fluid" src="assets/img/postimages/<?php echo htmlentities($result->image1); ?>"
                                         width="auto" height="auto" style="border:solid 1px #000"></p>
                             <?php } ?>
                             <p><?php echo htmlentities($result->description); ?></p>
