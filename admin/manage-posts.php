@@ -87,6 +87,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <th>Title</th>
                                             <th>Category</th>
                                             <th>Edit</th>
+                                            <th>Status</th>
                                             <td>Approve</td>
                                             <td>Decline</td>
                                             <th>Delete</th>
@@ -94,8 +95,11 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         </thead>
                                         <tbody>
 
-                                        <?php $sql = "SELECT posts.title,categories.catname,posts.id from posts join categories on categories.id=posts.category";
+                                        <?php
+                                        $sts = 0;
+                                        $sql = "SELECT posts.title,categories.catname,posts.id from posts join categories on categories.id=posts.category WHERE posts.status=:sts";
                                         $query = $dbh->prepare($sql);
+                                        $query->bindParam(':sts', $sts, PDO::PARAM_STR);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
                                         $cnt = 1;
@@ -106,6 +110,15 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <td><?php echo htmlentities($result->title); ?></td>
                                                     <td><?php echo htmlentities($result->catname); ?></td>
                                                     <td><a href="edit-post.php?id=<?php echo $result->id; ?>">edit</a>
+                                                        <?php
+                                                        $sts4 = htmlentities($result->status);
+                                                        if ($sts4 == 2) { ?>
+                                                    <td>Unpublished</td>
+                                                    <?php } elseif ($sts4 == 1) { ?>
+                                                        <td>Approved</td>
+                                                    <?php } elseif ($sts4 == 0) { ?>
+                                                        <td>Pending</td>
+                                                    <?php } ?>
                                                     <td><a href="manage-posts.php?aid=<?php echo $result->id; ?>"
                                                            onclick="return confirm('Do you want to approve this post?');">Approve</a>
                                                     </td>
@@ -121,17 +134,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         } ?>
 
                                         </tbody>
-                                        <tfoot>
-                                        <tr>
-                                            <td><strong>#</strong></td>
-                                            <td><strong>Title</strong></td>
-                                            <td><strong>Category</strong></td>
-                                            <td><strong>Edit</strong></td>
-                                            <td><strong>Approve</strong></td>
-                                            <td><strong>Decline</strong></td>
-                                            <td><strong>Delete</strong></td>
-                                        </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                                 <div class="row">
