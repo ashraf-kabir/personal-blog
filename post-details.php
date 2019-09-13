@@ -55,166 +55,166 @@ if (isset($_POST['submit'])) {
     if ($query->rowCount() > 0) {
     foreach ($results
 
-             as $result) {
+    as $result) {
     ?>
     <?php if (htmlentities($result->image1) == null) { ?>
     <header class="masthead"
             style="background-image:url('assets/img/home-bg.jpg');">
-    <?php } else { ?>
-    <header class="masthead"
-            style="background-image:url('assets/img/postimages/<?php echo htmlentities($result->image1); ?>');">
-        <?php } ?>
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-lg-8 mx-auto">
-                    <div class="site-heading">
-                        <h1>Kabir's Blog</h1><span class="subheading">An Informative Blog</span></div>
+        <?php } else { ?>
+        <header class="masthead"
+                style="background-image:url('assets/img/postimages/<?php echo htmlentities($result->image1); ?>');">
+            <?php } ?>
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-lg-8 mx-auto">
+                        <div class="site-heading">
+                            <h1>Kabir's Blog</h1><span class="subheading">An Informative Blog</span></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-<!-- Header -->
+        </header>
+        <!-- Header -->
 
-    <article>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-lg-8 mx-auto">
+        <article>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-lg-8 mx-auto">
 
-                    <div class="post-preview">
-                        <h2 class="post-title"><?php echo htmlentities($result->title); ?></h2>
-                        <p class="post-meta">Category: <a
-                                    href="#"><?php echo htmlentities($result->catname); ?></a>
-                        </p>
-                        <p style="font-weight: bold;"><?php echo htmlentities($result->grabber); ?></p>
-                        <?php if (htmlentities($result->image1) == null) {
-                        } else { ?>
-                            <p><img src="assets/img/postimages/<?php echo htmlentities($result->image1); ?>"
-                                    width="auto" height="auto" style="border:solid 1px #000"></p>
-                        <?php } ?>
-                        <p><?php echo htmlentities($result->description); ?></p>
-                        <p class="post-meta">Posted by&nbsp;<?php echo htmlentities($result->username); ?> on <a
-                                    href="#"> <?php echo htmlentities($result->creationdate); ?></a>
-                        </p>
+                        <div class="post-preview">
+                            <h2 class="post-title"><?php echo htmlentities($result->title); ?></h2>
+                            <p class="post-meta">Category: <a
+                                        href="#"><?php echo htmlentities($result->catname); ?></a>
+                            </p>
+                            <p style="font-weight: bold;"><?php echo htmlentities($result->grabber); ?></p>
+                            <?php if (htmlentities($result->image1) == null) {
+                            } else { ?>
+                                <p><img src="assets/img/postimages/<?php echo htmlentities($result->image1); ?>"
+                                        width="auto" height="auto" style="border:solid 1px #000"></p>
+                            <?php } ?>
+                            <p><?php echo htmlentities($result->description); ?></p>
+                            <p class="post-meta">Posted by&nbsp;<?php echo htmlentities($result->username); ?> on <a
+                                        href="#"> <?php echo htmlentities($result->creationdate); ?></a>
+                            </p>
+                        </div>
+                        <?php }
+                        } ?>
                     </div>
-                    <?php }
-                    } ?>
-                </div>
 
-                <!--Display Comments-->
-                <div class="col-md-10 col-lg-8 mx-auto">
-                    <?php
-                    $pid = intval($_GET['id']);
-                    $sts = 2;
-                    $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=:pid AND status=:sts";
-                    $query = $dbh->prepare($sql3);
-                    $query->bindParam(':pid', $pid, PDO::PARAM_STR);
-                    $query->bindParam(':sts', $sts, PDO::PARAM_STR);
-                    $query->execute();
-                    $results3 = $query->fetchAll(PDO::FETCH_OBJ);
-                    $cnt = 1;
-                    if ($query->rowCount() > 0) {
-                        foreach ($results3
+                    <!--Display Comments-->
+                    <div class="col-md-10 col-lg-8 mx-auto">
+                        <?php
+                        $pid = intval($_GET['id']);
+                        $sts = 2;
+                        $sql3 = "SELECT `name`,`comment`,`postingdate` FROM comments WHERE postid=:pid AND status=:sts";
+                        $query = $dbh->prepare($sql3);
+                        $query->bindParam(':pid', $pid, PDO::PARAM_STR);
+                        $query->bindParam(':sts', $sts, PDO::PARAM_STR);
+                        $query->execute();
+                        $results3 = $query->fetchAll(PDO::FETCH_OBJ);
+                        $cnt = 1;
+                        if ($query->rowCount() > 0) {
+                            foreach ($results3
 
-                                 as $result3) {
-                            ?>
-                            <div class="card my-4">
-                                <h5 class="card-header">Comments</h5>
-                                <div class="card-body">
-                                    <div class="media-body">
-                                        <h6><?php echo htmlentities($result3->name); ?> <br/>
-                                            <span style="font-size:11px;"><b>commented at</b> <?php echo htmlentities($result3->postingdate); ?></span>
-                                        </h6>
-                                        <div style="font-size: 18px;">
-                                            Comment: <?php echo htmlentities($result3->comment); ?></div>
+                                     as $result3) {
+                                ?>
+                                <div class="card my-4">
+                                    <h5 class="card-header">Comments</h5>
+                                    <div class="card-body">
+                                        <div class="media-body">
+                                            <h6><?php echo htmlentities($result3->name); ?> <br/>
+                                                <span style="font-size:11px;"><b>commented at</b> <?php echo htmlentities($result3->postingdate); ?></span>
+                                            </h6>
+                                            <div style="font-size: 18px;">
+                                                Comment: <?php echo htmlentities($result3->comment); ?></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <?php
+                                $cnt++;
+                            }
+                        } ?>
+                    </div>
+                    <!--Display Comments-->
+
+                    <!--Post comment-->
+                    <div class="col-md-10 col-lg-8 mx-auto">
+                        <div class="card my-4">
+                            <h5 class="card-header">Leave a Comment:</h5>
+                            <div class="card-body">
+                                <form name="Comment" method="post">
+                                    <input type="hidden" name="csrftoken"
+                                           value="<?php echo htmlentities($_SESSION['token']); ?>"/>
+                                    <div class="form-group">
+                                        <?php if ($_SESSION['login']) {
+                                            $email = $_SESSION['login'];
+                                            $sql2 = "SELECT fname,lname FROM users WHERE email=:email ";
+                                            $query = $dbh->prepare($sql2);
+                                            $query->bindParam(':email', $email, PDO::PARAM_STR);
+                                            $query->execute();
+                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                            if ($query->rowCount() > 0) {
+                                                foreach ($results as $result2) {
+                                                    $name = $result2->fname . " " . $result2->lname;
+                                                    ?>
+                                                    <input type="text" name="name"
+                                                           value="<?php echo htmlentities($name); ?>"
+                                                           class="form-control" placeholder=""
+                                                           required>
+                                                <?php }
+                                            }
+                                        } else { ?>
+                                            <input type="text" name="name"
+                                                   value=""
+                                                   class="form-control" placeholder="Enter your fullname"
+                                                   required>
+                                        <?php } ?>
                                     </div>
 
-                                </div>
-                            </div>
-                            <?php
-                            $cnt++;
-                        }
-                    } ?>
-                </div>
-                <!--Display Comments-->
+                                    <div class="form-group">
+                                        <?php if ($_SESSION['login']) {
+                                            ?>
+                                            <input type="email" name="email"
+                                                   value="<?php echo $_SESSION['login']; ?>"
+                                                   class="form-control"
+                                                   placeholder="Enter your Valid email" required>
+                                        <?php } else { ?>
+                                            <input type="email" name="email"
+                                                   value=""
+                                                   class="form-control"
+                                                   placeholder="Enter your Valid email" required>
+                                        <?php } ?>
+                                    </div>
 
-                <!--Post comment-->
-                <div class="col-md-10 col-lg-8 mx-auto">
-                    <div class="card my-4">
-                        <h5 class="card-header">Leave a Comment:</h5>
-                        <div class="card-body">
-                            <form name="Comment" method="post">
-                                <input type="hidden" name="csrftoken"
-                                       value="<?php echo htmlentities($_SESSION['token']); ?>"/>
-                                <div class="form-group">
-                                    <?php if ($_SESSION['login']) {
-                                        $email = $_SESSION['login'];
-                                        $sql2 = "SELECT fname,lname FROM users WHERE email=:email ";
-                                        $query = $dbh->prepare($sql2);
-                                        $query->bindParam(':email', $email, PDO::PARAM_STR);
-                                        $query->execute();
-                                        $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                        if ($query->rowCount() > 0) {
-                                            foreach ($results as $result2) {
-                                                $name = $result2->fname . " " . $result2->lname;
-                                                ?>
-                                                <input type="text" name="name"
-                                                       value="<?php echo htmlentities($name); ?>"
-                                                       class="form-control" placeholder=""
-                                                       required>
-                                            <?php }
-                                        }
-                                    } else { ?>
-                                        <input type="text" name="name"
-                                               value=""
-                                               class="form-control" placeholder="Enter your fullname"
-                                               required>
-                                    <?php } ?>
-                                </div>
-
-                                <div class="form-group">
-                                    <?php if ($_SESSION['login']) {
-                                        ?>
-                                        <input type="email" name="email"
-                                               value="<?php echo $_SESSION['login']; ?>"
-                                               class="form-control"
-                                               placeholder="Enter your Valid email" required>
-                                    <?php } else { ?>
-                                        <input type="email" name="email"
-                                               value=""
-                                               class="form-control"
-                                               placeholder="Enter your Valid email" required>
-                                    <?php } ?>
-                                </div>
-
-                                <div class="form-group">
+                                    <div class="form-group">
                                             <textarea class="form-control" name="comment" rows="3" placeholder="Comment"
                                                       required></textarea>
-                                </div>
-                                <?php if ($_SESSION['login']) {
-                                    ?>
-                                    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-                                <?php } else { ?>
-                                    <a href="login.php" class="btn btn-primary">Log in & Comment</a>
-                                <?php } ?>
-                            </form>
+                                    </div>
+                                    <?php if ($_SESSION['login']) {
+                                        ?>
+                                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                                    <?php } else { ?>
+                                        <a href="login.php" class="btn btn-primary">Log in & Comment</a>
+                                    <?php } ?>
+                                </form>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-md-10 col-lg-8 mx-auto">
+                        <br>
+                    </div>
+                    <!--Post comment-->
+
                 </div>
-                <div class="col-md-10 col-lg-8 mx-auto">
-                    <br>
-                </div>
-                <!--Post comment-->
+        </article>
 
-            </div>
-    </article>
+        <!-- Footer -->
+        <?php include 'includes/footer.php'; ?>
 
-    <!-- Footer -->
-    <?php include 'includes/footer.php'; ?>
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/clean-blog.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/clean-blog.js"></script>
 </body>
 
 </html>
