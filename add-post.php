@@ -12,7 +12,7 @@ if (strlen($_SESSION['login']) == 0) {
         $username = $_POST['name'];
         $image1 = $_FILES["img1"]["name"];
 
-        move_uploaded_file($_FILES["img1"]["tmp_name"], "img/postimages/" . $_FILES["img1"]["name"]);
+        move_uploaded_file($_FILES["img1"]["tmp_name"], "assets/img/postimages/" . $_FILES["img1"]["name"]);
 
         $sql = "INSERT INTO posts(title,category,grabber,description,username,image1) VALUES(:title,:cat,:grabber,:description,:username,:image1)";
         $query = $dbh->prepare($sql);

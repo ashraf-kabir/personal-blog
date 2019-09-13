@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
 
              as $result) {
     ?>
-    <header class="masthead" style="background-image:url('assets/img/home-bg.jpg');">
+    <header class="masthead" style="background-image:url('assets/img/postimages/<?php echo htmlentities($result->image1); ?>');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
     </header>
-<!-- Header -->
+    <!-- Header -->
 
     <article>
         <div class="container">
