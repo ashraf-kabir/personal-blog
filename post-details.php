@@ -44,6 +44,19 @@ if (isset($_POST['submit'])) {
     <!-- Header -->
     <?php include 'includes/header.php'; ?>
 
+    <?php
+    $id = intval($_GET['id']);
+    $sql1 = "SELECT posts.*,categories.catname,categories.id AS cid FROM posts JOIN categories ON categories.id=posts.category WHERE posts.id=:id";
+    $query = $dbh->prepare($sql1);
+    $query->bindParam(':id', $id, PDO::PARAM_STR);
+    $query->execute();
+    $results = $query->fetchAll(PDO::FETCH_OBJ);
+    $cnt = 1;
+    if ($query->rowCount() > 0) {
+    foreach ($results
+
+             as $result) {
+    ?>
     <header class="masthead" style="background-image:url('assets/img/home-bg.jpg');">
         <div class="overlay"></div>
         <div class="container">
@@ -55,34 +68,24 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
     </header>
-    <!-- Header -->
+<!-- Header -->
 
     <article>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto">
-                    <?php
-                    $id = intval($_GET['id']);
-                    $sql1 = "SELECT posts.*,categories.catname,categories.id AS cid FROM posts JOIN categories ON categories.id=posts.category WHERE posts.id=:id";
-                    $query = $dbh->prepare($sql1);
-                    $query->bindParam(':id', $id, PDO::PARAM_STR);
-                    $query->execute();
-                    $results = $query->fetchAll(PDO::FETCH_OBJ);
-                    $cnt = 1;
-                    if ($query->rowCount() > 0) {
-                        foreach ($results as $result) {
-                            ?>
-                            <div class="post-preview">
-                                <h2 class="post-title"><?php echo htmlentities($result->title); ?></h2>
-                                <p class="post-meta">Category: <a
-                                            href="#"><?php echo htmlentities($result->catname); ?></a>
-                                </p>
-                                <p><?php echo htmlentities($result->description); ?></p>
-                                <p class="post-meta">Posted by&nbsp;<?php echo htmlentities($result->username); ?> on <a
-                                            href="#"> <?php echo htmlentities($result->creationdate); ?></a>
-                                </p>
-                            </div>
-                        <?php }
+
+                    <div class="post-preview">
+                        <h2 class="post-title"><?php echo htmlentities($result->title); ?></h2>
+                        <p class="post-meta">Category: <a
+                                    href="#"><?php echo htmlentities($result->catname); ?></a>
+                        </p>
+                        <p><?php echo htmlentities($result->description); ?></p>
+                        <p class="post-meta">Posted by&nbsp;<?php echo htmlentities($result->username); ?> on <a
+                                    href="#"> <?php echo htmlentities($result->creationdate); ?></a>
+                        </p>
+                    </div>
+                    <?php }
                     } ?>
                 </div>
 
