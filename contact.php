@@ -49,7 +49,7 @@ if (isset($_POST['send'])) {
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto">
                     <div class="site-heading">
-                        <h1>Kabir's Blog</h1><span class="subheading">An Informative Blog</span></div>
+                        <h1>Kabir's Blog</h1><span class="subheading">Contact Us</span></div>
                 </div>
             </div>
         </div>
