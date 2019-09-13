@@ -67,7 +67,7 @@ if (strlen($_SESSION['login']) == 0) {
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto">
                     <h2 class="post-title">Add a post</h2>
-                    <form id="contactForm" name="sentMessage" method="post">
+                    <form id="contactForm" method="post" enctype="multipart/form-data">
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls"><label
                                         for="title">Title</label><input
