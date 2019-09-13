@@ -57,7 +57,8 @@ if (isset($_POST['submit'])) {
 
              as $result) {
     ?>
-    <header class="masthead" style="background-image:url('assets/img/postimages/<?php echo htmlentities($result->image1); ?>');">
+    <header class="masthead"
+            style="background-image:url('assets/img/postimages/<?php echo htmlentities($result->image1); ?>');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -68,7 +69,7 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
     </header>
-    <!-- Header -->
+<!-- Header -->
 
     <article>
         <div class="container">
@@ -80,6 +81,9 @@ if (isset($_POST['submit'])) {
                         <p class="post-meta">Category: <a
                                     href="#"><?php echo htmlentities($result->catname); ?></a>
                         </p>
+                        <p style="font-weight: bold;"><?php echo htmlentities($result->grabber); ?></p>
+                        <p><img src="assets/img/postimages/<?php echo htmlentities($result->image1); ?>"
+                                width="auto" height="auto" style="border:solid 1px #000"></p>
                         <p><?php echo htmlentities($result->description); ?></p>
                         <p class="post-meta">Posted by&nbsp;<?php echo htmlentities($result->username); ?> on <a
                                     href="#"> <?php echo htmlentities($result->creationdate); ?></a>
