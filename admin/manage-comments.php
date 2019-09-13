@@ -6,17 +6,16 @@ if (strlen($_SESSION['alogin']) == 0) {
 } else {
     if (isset($_REQUEST['did'])) {
         $did = intval($_GET['did']);
-        $sts3 = 3;
+        $sts3 = 2;
         $sql3 = "UPDATE comments SET status=:sts3 WHERE id=:did";
         $query = $dbh->prepare($sql3);
         $query->bindParam(':did', $did, PDO::PARAM_STR);
         $query->bindParam(':sts3', $sts3, PDO::PARAM_STR);
-
         $query->execute();
         echo "<script>alert('Comment declined')</script>";
     } elseif (isset($_REQUEST['aid'])) {
         $aid = intval($_GET['aid']);
-        $sts2 = 2;
+        $sts2 = 1;
         $sql2 = "UPDATE comments SET status=:sts2 WHERE id=:aid";
         $query = $dbh->prepare($sql2);
         $query->bindParam(':aid', $aid, PDO::PARAM_STR);
@@ -91,10 +90,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         <tbody>
 
                                         <?php
-                                        $sts = 1;
-                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,comments.status,posts.id AS pid,posts.title FROM comments JOIN posts ON posts.id=comments.postid WHERE comments.status=:sts";
+                                        $sql = "SELECT comments.id,comments.name,comments.email,comments.postingdate,comments.comment,comments.status,posts.id AS pid,posts.title FROM comments JOIN posts ON posts.id=comments.postid";
                                         $query = $dbh->prepare($sql);
-                                        $query->bindParam(':sts', $sts, PDO::PARAM_STR);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
                                         $cnt = 1;
@@ -107,12 +104,14 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <td><?php echo htmlentities($result->comment); ?></td>
                                                     <?php
                                                     $sts4 = htmlentities($result->status);
-                                                    if ($sts4 == 3) { ?>
-                                                        <td>Unapproved</td>
-                                                    <?php } elseif ($sts4 == 2) { ?>
-                                                        <td>Approved</td>
-                                                    <?php } elseif ($sts4 == 1) { ?>
+                                                    if ($sts4 == 0) { ?>
                                                         <td>Pending</td>
+                                                    <?php } elseif ($sts4 == 1) { ?>
+                                                        <td>Approved</td>
+                                                    <?php } elseif ($sts4 == 2) { ?>
+                                                        <td>Unapproved</td>
+                                                    <?php } else { ?>
+                                                        <td>Unknown</td>
                                                     <?php } ?>
                                                     <td><?php echo htmlentities($result->title); ?></td>
                                                     <td><?php echo htmlentities($result->postingdate); ?></td>
