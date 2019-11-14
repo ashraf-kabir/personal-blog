@@ -87,7 +87,7 @@ if (isset($_POST['send'])) {
                     </div>
                     <div id="success"></div>
                     <div class="form-group">
-                        <button class="btn btn-primary" id="sendMessageButton" type="submit" name="send">Send</button>
+                        <button class="btn btn-primary float-right" id="sendMessageButton" type="submit" name="send">Send</button>
                     </div>
                 </form>
             </div>
