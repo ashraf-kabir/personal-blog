@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
-        echo "<script>alert('Comment posted successfully')</script>";
+        echo "<script>alert('Comment submitted, wait for approval')</script>";
     } else {
         echo "<script>alert('Something went wrong')</script>";
     }
