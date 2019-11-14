@@ -5,10 +5,12 @@ include('includes/config.php');
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
-    $sql = "SELECT email,password FROM users WHERE email=:email AND password=:password";
+    $status = 1;
+    $sql = "SELECT email,password FROM users WHERE email=:email AND password=:password AND status=:status";
     $query = $dbh->prepare($sql);
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
+    $query->bindParam(':status', $status, PDO::PARAM_STR);
     $query->execute();
     $results = $query->fetchAll(PDO::FETCH_OBJ);
 
@@ -97,13 +99,13 @@ if (isset($_POST['login'])) {
                                         <br>
                                     </form>
                                     <div class="text-center">
-                                    <a href="index.php"
-                                       class="btn btn-primary btn-block text-white btn-user">Home</a>
+                                        <a href="index.php"
+                                           class="btn btn-primary btn-block text-white btn-user">Home</a>
                                     </div>
                                     <hr>
                                     <div class="text-center">
-                                    <a href="view-posts.php" class="btn btn-info btn-block text-white btn-user">View
-                                                                                                                Posts</a>
+                                        <a href="view-posts.php" class="btn btn-info btn-block text-white btn-user">View
+                                                                                                                    Posts</a>
                                     </div>
                                     <div class="text-center">
                                         <hr>
@@ -112,7 +114,7 @@ if (isset($_POST['login'])) {
                                     <hr>
                                     <div class="text-center">
                                         <a href="register.php" class="btn btn-danger btn-block text-white btn-user">Don't have an account?
-                                                                             Register</a>
+                                                                                                                    Register</a>
                                     </div>
                                 </div>
                             </div>
