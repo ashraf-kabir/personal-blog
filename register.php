@@ -18,7 +18,7 @@ if (isset($_POST['signup'])) {
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
-        echo "<script>alert('Registration successful, wait for approval');</script>";
+        echo "<script>alert('Registration successful, wait for approval');document.location = 'login.php'</script>";
     } else {
         echo "<script>alert('Something went wrong');</script>";
     }
