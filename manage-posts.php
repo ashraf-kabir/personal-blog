@@ -72,7 +72,7 @@ if (isset($_REQUEST['del'])) {
                                 </thead>
                                 <tbody>
 
-                                <?php $sql = "SELECT posts.title,categories.catname,posts.id from posts join categories on categories.id=posts.category";
+                                <?php $sql = "SELECT posts.title,categories.catname,posts.id FROM posts JOIN categories ON categories.id=posts.category";
                                 $query = $dbh->prepare($sql);
                                 $query->execute();
                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
