@@ -11,7 +11,7 @@ if (strlen($_SESSION['login']) == 0) {
         $query = $dbh->prepare($sql);
         $query->bindParam(':delid', $delid, PDO::PARAM_STR);
         $query->execute();
-        echo "<script>alert('Post has deleted successfully');</script>";
+        echo "<script>alert('Post has deleted successfully');document.location = 'manage-posts.php';</script>";
     }
     ?>
 
@@ -87,7 +87,7 @@ if (strlen($_SESSION['login']) == 0) {
                                         }
                                     }
 
-                                    $sql = "SELECT title,catname FROM posts p, categories c, users u WHERE c.id=p.category AND p.userid=:uid";
+                                    $sql = "SELECT title,p.id,catname FROM posts p, categories c, users u WHERE c.id=p.category AND p.userid=:uid";
                                     $query = $dbh->prepare($sql);
                                     $query->bindParam(':uid', $uid, PDO::PARAM_STR);
                                     $query->execute();
