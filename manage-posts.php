@@ -87,9 +87,11 @@ if (strlen($_SESSION['login']) == 0) {
                                         }
                                     }
 
-                                    $sql = "SELECT title,p.id,catname FROM posts p, categories c, users u WHERE c.id=p.category AND p.userid=:uid";
+                                    $status = 1;
+                                    $sql = "SELECT title,p.id,catname FROM posts p, categories c, users u WHERE c.id=p.category AND p.userid=:uid AND p.status=:status";
                                     $query = $dbh->prepare($sql);
                                     $query->bindParam(':uid', $uid, PDO::PARAM_STR);
+                                    $query->bindParam(':status', $status, PDO::PARAM_STR);
                                     $query->execute();
                                     $results = $query->fetchAll(PDO::FETCH_OBJ);
                                     $cnt = 1;
