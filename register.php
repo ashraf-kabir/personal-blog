@@ -1,6 +1,10 @@
 <?php
-//error_reporting(0);
+session_start();
+error_reporting(0);
 include('includes/config.php');
+if (!empty($_SESSION['login'])) {
+    header("location: index.php");
+} else {
 if (isset($_POST['signup'])) {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
@@ -279,3 +283,4 @@ if (isset($_POST['signup'])) {
 </body>
 
 </html>
+<?php } ?>
