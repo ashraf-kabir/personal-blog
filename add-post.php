@@ -12,12 +12,26 @@ if (strlen($_SESSION['login']) == 0) {
         $grabber = $_POST['grabber'];
         $description = $_POST['description'];
         $username = $_POST['name'];
+
+        $email3 = $_SESSION['login'];
+
+        $sql3 = "SELECT `id` FROM `users` WHERE `email`=:email3";
+        $query3 = $dbh->prepare($sql3);
+        $query3->bindParam(':email3', $email3, PDO::PARAM_STR);
+        $query3->execute();
+        $results3 = $query3->fetchAll(PDO::FETCH_OBJ);
+        if ($query3->rowCount() > 0) {
+            foreach ($results3 as $result3) {
+                $uid = $result3->id;
+            }
+        }
+
         $image1 = $_FILES["img1"]["name"];
         $status = 0;
 
         move_uploaded_file($_FILES["img1"]["tmp_name"], "assets/img/postimages/" . $_FILES["img1"]["name"]);
 
-        $sql = "INSERT INTO posts(title,category,grabber,description,username,image1,status) VALUES(:title,:cat,:grabber,:description,:username,:image1,:status)";
+        $sql = "INSERT INTO posts(title,category,grabber,description,username,image1,userid,status) VALUES(:title,:cat,:grabber,:description,:username,:image1,:uid,:status)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':title', $title, PDO::PARAM_STR);
         $query->bindParam(':cat', $cat, PDO::PARAM_STR);
@@ -25,6 +39,7 @@ if (strlen($_SESSION['login']) == 0) {
         $query->bindParam(':description', $description, PDO::PARAM_STR);
         $query->bindParam(':username', $username, PDO::PARAM_STR);
         $query->bindParam(':image1', $image1, PDO::PARAM_STR);
+        $query->bindParam(':uid', $uid, PDO::PARAM_STR);
         $query->bindParam(':status', $status, PDO::PARAM_STR);
 
         $query->execute();
@@ -128,7 +143,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                         <?php
                         $email = $_SESSION['login'];
-                        $sql2 = "SELECT fname,lname FROM users WHERE email=:email ";
+                        $sql2 = "SELECT fname,lname,id FROM users WHERE email=:email ";
                         $query = $dbh->prepare($sql2);
                         $query->bindParam(':email', $email, PDO::PARAM_STR);
                         $query->execute();
@@ -151,7 +166,7 @@ if (strlen($_SESSION['login']) == 0) {
                         <br>
                         <div id="success"></div>
                         <div class="form-group">
-                            <button class="btn btn-primary" id="sendMessageButton" type="submit" name="submit">Post
+                            <button class="btn btn-primary float-right" id="sendMessageButton" type="submit" name="submit">Post
                             </button>
                         </div>
                     </form>
