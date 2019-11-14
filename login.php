@@ -40,6 +40,42 @@ if (!empty($_SESSION['login'])) {
 
         <script src="admin/assets/js/jquery.min.js"></script>
 
+        <script type="text/javascript">
+            function validate() {
+                let email = document.userlogin.email.value;
+                let pass = document.userlogin.password.value;
+                if (email === "" || email === null && pass === "" || pass === null) {
+                    //alert("Please provide your email and password");
+                    document.getElementById('emailcheck').innerHTML = 'Enter your email address';
+                    document.getElementById('passwordcheck').innerHTML = 'Enter your password';
+                    //document.userlogin.password.focus() ;
+                    return false;
+                }
+                if (email === "" || email === null) {
+                    //alert("Please provide your email");
+                    document.getElementById('emailcheck').innerHTML = 'Enter your email address';
+                    document.userlogin.email.focus();
+                    return false;
+                } else {
+                    var mailformat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    if (email.match(mailformat)) {
+                        if (pass === "" || pass === null) {
+                            //alert("Please provide your password");
+                            document.getElementById('passwordcheck').innerHTML = 'Enter your password';
+                            document.userlogin.password.focus();
+                            return false;
+                        }
+                        return true;
+                        // when password field is not empty
+                    } else {
+                        document.getElementById('emailcheck').innerHTML = 'Enter a correct email address';
+                        document.userlogin.email.focus();
+                        return false;
+                    }
+                }
+            }
+        </script>
+
     </head>
 
     <body class="bg-gradient-primary" style="background-color: #071e22;">
@@ -59,22 +95,28 @@ if (!empty($_SESSION['login'])) {
                                             <h3 class="text-dark mb-4"><strong>Welcome</strong></h3>
                                         </div>
                                         <br>
-                                        <form class="user" method="post" id="loginform">
-                                            <div class="form-group"><input class="form-control form-control-user"
-                                                                           type="email" id="exampleInputEmail"
-                                                                           aria-describedby="emailHelp"
-                                                                           placeholder="Enter Email Address"
-                                                                           name="email"></div>
-                                            <div class="form-group"><input class="form-control form-control-user"
-                                                                           type="password" id="exampleInputPassword"
-                                                                           placeholder="Password" name="password"></div>
+                                        <form class="user" method="post" id="userform" name="userlogin"
+                                              onsubmit="return validate();" novalidate>
+                                            <div class="form-group">
+                                                <input class="form-control form-control-user"
+                                                       type="email" id="email" aria-describedby="emailHelp"
+                                                       placeholder="Enter Email Address" name="email" autocomplete="on">
+                                                <span id="emailcheck" style="font-size: 12px; color: red;"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control form-control-user" type="password"
+                                                       id="password" placeholder="Password" name="password"
+                                                       autocomplete="off">
+                                                <span id="passwordcheck" style="font-size: 12px; color: red;"></span>
+                                            </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">
-                                                    <div class="form-check"><input
-                                                                class="form-check-input custom-control-input"
-                                                                type="checkbox" id="formCheck-1"><label
-                                                                class="form-check-label custom-control-label"
-                                                                for="formCheck-1">Remember Me</label></div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input custom-control-input"
+                                                               type="checkbox" id="formCheck-1">
+                                                        <label class="form-check-label custom-control-label"
+                                                               for="formCheck-1">Remember Me</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <button class="btn btn-success btn-block text-white btn-user" type="submit"
