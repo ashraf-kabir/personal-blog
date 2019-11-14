@@ -139,7 +139,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     <div class="form-group">
                                         <label for="pass" class="col-md-4 control-label">Current Password</label>
                                         <div class="col-md-4">
-                                            <input id="pass" type="text" class="form-control" name="password"
+                                            <input id="pass" type="password" class="form-control" name="password"
                                                    autocomplete="off" required>
                                             <span id="passmsg" style="font-size: 12px;"></span>
                                         </div>
@@ -149,7 +149,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     <div class="form-group">
                                         <label for="newpass" class="col-md-4 control-label">New Password</label>
                                         <div class="col-md-4">
-                                            <input id="newpass" type="text" class="form-control" name="newpassword"
+                                            <input id="newpass" type="password" class="form-control" name="newpassword"
                                                    autocomplete="off" onkeyup="checkPass();" required>
                                             <span id="newpassmsg" style="font-size: 12px;"></span>
                                         </div>
@@ -159,7 +159,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     <div class="form-group">
                                         <label for="confirmpass" class="col-md-4 control-label">Confirm Password</label>
                                         <div class="col-md-4">
-                                            <input id="confirmpass" type="text" class="form-control"
+                                            <input id="confirmpass" type="password" class="form-control"
                                                    autocomplete="off" name="confirmpassword" onkeyup="checkPass();" required>
                                             <span id="confirmpassmsg" style="font-size: 12px;"></span>
                                         </div>
