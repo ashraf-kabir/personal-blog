@@ -48,7 +48,7 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
             if ($query->rowCount() > 0) {
                 foreach ($results as $result) {
                     ?>
-                    <div class="col-md-10 col-lg-8">
+                    <div class="col-md-10 col-lg-12">
                         <div class="post-preview">
                             <a href="post-details.php?id=<?php echo htmlentities($result->id); ?>">
                                 <h2 class="post-title"><?php echo htmlentities($result->title); ?>,
@@ -69,7 +69,7 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
         </div>
 
         <div class="row">
-            <div class="col-md-10 col-lg-8">
+            <div class="col-md-10 col-lg-12">
                 <div class="clearfix">
                     <a href="view-posts.php">
                         <button class="btn btn-primary float-right" type="button">Older Posts&nbsp;⇒</button>
