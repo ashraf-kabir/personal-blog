@@ -6,17 +6,19 @@ if (isset($_POST['signup'])) {
     $lname = $_POST['lname'];
     $email = $_POST['email'];
     $password = md5($_POST['password']);
+    $status = 0;
 
-    $sql = "INSERT INTO users(`fname`,`lname`,`email`,`password`) VALUES(:fname,:lname,:email,:password)";
+    $sql = "INSERT INTO users(`fname`,`lname`,`email`,`password`,`status`) VALUES(:fname,:lname,:email,:password,:status)";
     $query = $dbh->prepare($sql);
     $query->bindParam(':fname', $fname, PDO::PARAM_STR);
     $query->bindParam(':lname', $lname, PDO::PARAM_STR);
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
+    $query->bindParam(':status', $status, PDO::PARAM_STR);
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
-        echo "<script>alert('Registration successful');</script>";
+        echo "<script>alert('Registration successful, wait for approval');</script>";
     } else {
         echo "<script>alert('Something went wrong');</script>";
     }
@@ -53,7 +55,7 @@ if (isset($_POST['signup'])) {
 
     <script type="text/javascript">
         function valid() {
-            if (document.signup.password.value != document.signup.passwordrepeat.value) {
+            if (document.signup.password.value !== document.signup.passwordrepeat.value) {
                 alert("Password and Repeat Password field didn\'t match!!");
                 document.signup.passwordrepeat.focus();
                 return false;
