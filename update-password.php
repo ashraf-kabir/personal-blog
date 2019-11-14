@@ -43,14 +43,65 @@ if (strlen($_SESSION['login']) == 0) {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
         <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 
-        <script type="text/javascript">
-            function valid() {
-                if (document.chngpwd.newpassword.value != document.chngpwd.confirmpassword.value) {
-                    alert("New password and Confirm password field didn\'t match!!");
-                    document.chngpwd.confirmpassword.focus();
+        <!--        <script type="text/javascript">-->
+        <!--            function valid() {-->
+        <!--                if (document.chngpwd.newpassword.value != document.chngpwd.confirmpassword.value) {-->
+        <!--                    alert("New password and Confirm password field didn\'t match!!");-->
+        <!--                    document.chngpwd.confirmpassword.focus();-->
+        <!--                    return false;-->
+        <!--                }-->
+        <!--                return true;-->
+        <!--            }-->
+        <!--        </script>-->
+
+        <script>
+            var checkPass = function () {
+                var password = document.getElementById('newpass').value;
+                var repassword = document.getElementById('confirmpass').value;
+                var regexpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,12}$/;
+                if (password !== "" || password !== null) {
+                    if (password.match(regexpass)) {
+                        document.getElementById('newpassmsg').innerHTML = '';
+                        document.getElementById('submit').disabled = false;
+                        if (password === repassword) {
+                            document.getElementById('confirmpassmsg').style.color = 'green';
+                            document.getElementById('confirmpassmsg').innerHTML = 'password matched';
+                            document.getElementById('submit').disabled = false;
+                        } else {
+                            document.getElementById('confirmpassmsg').style.color = 'red';
+                            document.getElementById('confirmpassmsg').innerHTML = 'password not matching';
+                            document.getElementById('submit').disabled = true;
+                        }
+                    } else {
+                        document.getElementById('newpassmsg').innerHTML = 'Minimum len 8 & max len 12 where 1 uppercase & 1 digit mandatory';
+                        document.getElementById('submit').disabled = true;
+                    }
+                } else {
+                    document.getElementById('newpassmsg').innerHTML = 'Empty password';
+                    document.getElementById('submit').disabled = true;
+                }
+            };
+        </script>
+
+        <script>
+            function validate() {
+                var currentpass = document.chngpwd.password.value;
+                var newpass = document.chngpwd.newpassword.value;
+                var confirmpass = document.chngpwd.confirmpassword.value;
+
+                if (currentpass === "" || currentpass === null) {
+                    document.getElementById('passmsg').style.color = 'red';
+                    document.getElementById('passmsg').innerHTML = 'Invalid current password';
                     return false;
                 }
-                return true;
+                if (newpass === "" || newpass === null) {
+                    document.getElementById('newpassmsg').innerHTML = 'Invalid new password';
+                    return false;
+                }
+                if (confirmpass === "" || confirmpass === null) {
+                    document.getElementById('confirmpassmsg').innerHTML = 'Invalid confirm password';
+                    return false;
+                }
             }
         </script>
     </head>
@@ -81,37 +132,41 @@ if (strlen($_SESSION['login']) == 0) {
 
                         <div class="row">
                             <div class="col-md-10">
-                                <form class="form-horizontal" name="chngpwd" method="post" onSubmit="return valid();">
+                                <form class="form-horizontal" name="chngpwd" method="post" onSubmit="return validate();"
+                                      novalidate>
 
                                     <div class="form-group">
-                                        <label for="cp" class="col-md-4 control-label">Current Password</label>
+                                        <label for="pass" class="col-md-4 control-label">Current Password</label>
                                         <div class="col-md-4">
-                                            <input id="cp" type="text" class="form-control" value="" name="password"
-                                                   required>
+                                            <input id="pass" type="text" class="form-control" name="password"
+                                                   autocomplete="off" required>
+                                            <span id="passmsg" style="font-size: 12px;"></span>
                                         </div>
                                     </div>
 
 
                                     <div class="form-group">
-                                        <label for="np" class="col-md-4 control-label">New Password</label>
+                                        <label for="newpass" class="col-md-4 control-label">New Password</label>
                                         <div class="col-md-4">
-                                            <input id="np" type="text" class="form-control" value=""
-                                                   name="newpassword" required>
+                                            <input id="newpass" type="text" class="form-control" name="newpassword"
+                                                   autocomplete="off" onkeyup="checkPass();" required>
+                                            <span id="newpassmsg" style="font-size: 12px;"></span>
                                         </div>
                                     </div>
 
 
                                     <div class="form-group">
-                                        <label for="cpd" class="col-md-4 control-label">Confirm Password</label>
+                                        <label for="confirmpass" class="col-md-4 control-label">Confirm Password</label>
                                         <div class="col-md-4">
-                                            <input id="cpd" type="text" class="form-control" value=""
-                                                   name="confirmpassword" required>
+                                            <input id="confirmpass" type="text" class="form-control"
+                                                   autocomplete="off" name="confirmpassword" onkeyup="checkPass();" required>
+                                            <span id="confirmpassmsg" style="font-size: 12px;"></span>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-md-4">
-                                            <button type="submit" class="btn btn-danger" name="submit">Submit</button>
+                                            <button type="submit" id="submit" class="btn btn-danger float-right" name="submit">Submit</button>
                                         </div>
                                     </div>
 
