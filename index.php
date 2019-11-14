@@ -55,8 +55,8 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
                                     <i><?php echo htmlentities($result->catname); ?></i></h2>
                                 <h3 class="post-subtitle"><?php echo htmlentities($result->grabber); ?></h3>
                             </a>
-                            <p class="post-meta">Posted by&nbsp;<?php echo htmlentities($result->username); ?> on <a
-                                        href="#"> <?php echo htmlentities($result->creationdate); ?></a>
+                            <p class="post-meta">Posted by&nbsp;<?php echo htmlentities($result->username); ?>
+                                                 on <?php echo htmlentities($result->creationdate); ?>
                             </p>
                         </div>
                         <hr>
