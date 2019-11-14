@@ -29,7 +29,7 @@ if (strlen($_SESSION['login']) == 0) {
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
         if ($lastInsertId) {
-            echo "<script>alert('Blog posted successfully')</script>";
+            echo "<script>alert('Blog submitted successfully, wait for approval.')</script>";
         } else {
             echo "<script>alert('Something went wrong')</script>";
         }
