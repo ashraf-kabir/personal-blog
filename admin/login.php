@@ -1,7 +1,9 @@
 <?php
 session_start();
 include('includes/config.php');
-
+if (!empty($_SESSION['alogin'])) {
+    header("location: index.php");
+} else {
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
@@ -34,18 +36,6 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
 
     <script src="assets/js/jquery.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            function disablePrev() {
-                window.history.forward()
-            }
-            window.onload = disablePrev();
-            window.onpageshow = function (evt) {
-                if (evt.persisted) disableBack()
-            }
-        });
-    </script>
 
 </head>
 
@@ -108,3 +98,4 @@ if (isset($_POST['login'])) {
 </body>
 
 </html>
+<?php } ?>
