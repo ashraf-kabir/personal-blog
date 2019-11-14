@@ -11,7 +11,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query = $dbh->prepare($sql);
         $query->bindParam(':delid', $delid, PDO::PARAM_STR);
         $query->execute();
-        echo "<script>alert('User deleted');</script>";
+        echo "<script>alert('User deleted');document.location = 'manage-users.php';</script>";
     }
 
     if (isset($_REQUEST['uaid'])) {
@@ -20,7 +20,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query = $dbh->prepare($sql);
         $query->bindParam(':uaid', $uaid, PDO::PARAM_STR);
         $query->execute();
-        echo "<script>alert('User APPROVED successfully');</script>";
+        echo "<script>alert('User APPROVED successfully');document.location = 'manage-users.php';</script>";
     }
 
 
