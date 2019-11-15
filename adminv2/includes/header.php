@@ -173,7 +173,22 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <!-- showing username at header -->
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                    <?php
+                    $email = $_SESSION['alogin'];
+                    $sql2 = "SELECT `username` FROM `admin` WHERE `email`=:email;";
+                    $query = $dbh->prepare($sql2);
+                    $query->bindParam(':email', $email, PDO::PARAM_STR);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+
+                    if ($query->rowCount() > 0) {
+                        foreach ($results as $result) {
+                            echo $result->username;
+                        }
+                    }
+                    ?></span>
                 <img class="img-profile rounded-circle"
                      src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
             </a>
