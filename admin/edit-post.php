@@ -21,7 +21,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->bindParam(':id', $id, PDO::PARAM_STR);
         $query->execute();
 
-        echo "<script>alert('Post has updated successfully');</script>";
+        echo "<script>alert('Post has updated successfully');document.location = 'manage-posts.php';</script>";
     }
     ?>
     <!DOCTYPE html>
