@@ -35,7 +35,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Add Post</title>
+        <title>Edit Post</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
