@@ -1,169 +1,220 @@
-<nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-    <div class="container-fluid">
-        <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button">
-            <i class="fas fa-bars"></i></button>
-        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group"><input class="bg-light form-control border-0 small" type="text"
-                                            placeholder="Search for ...">
-                <div class="input-group-append">
-                    <button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i>
-                    </button>
-                </div>
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+    <!-- Sidebar Toggle (Topbar) -->
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Topbar Search -->
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                   aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
             </div>
-        </form>
-        <ul class="nav navbar-nav flex-nowrap ml-auto">
-            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
-                                                                data-toggle="dropdown"
-                                                                aria-expanded="false" href="#"><i
-                            class="fas fa-search"></i></a>
-                <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu"
-                     aria-labelledby="searchDropdown">
-                    <form class="form-inline mr-auto navbar-search w-100">
-                        <div class="input-group"><input class="bg-light form-control border-0 small"
-                                                        type="text" placeholder="Search for ...">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary py-0" type="button"><i
-                                            class="fas fa-search"></i></button>
-                            </div>
+        </div>
+    </form>
+
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+
+        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+        <li class="nav-item dropdown no-arrow d-sm-none">
+            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+            </a>
+            <!-- Dropdown - Messages -->
+            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                 aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small"
+                               placeholder="Search for..." aria-label="Search"
+                               aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
                         </div>
-                    </form>
-                </div>
-            </li>
-            <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-            <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
-                                                      data-toggle="dropdown" aria-expanded="false"
-                                                      href="#"><span
-                            class="badge badge-danger badge-counter">3+</span><i
-                            class="fas fa-bell fa-fw"></i></a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
-                     role="menu">
-                    <h6 class="dropdown-header">alerts center</h6>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                        <div class="mr-3">
-                            <div class="bg-primary icon-circle"><i
-                                        class="fas fa-file-alt text-white"></i></div>
+                    </div>
+                </form>
+            </div>
+        </li>
+
+        <!-- Nav Item - Alerts -->
+        <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+            </a>
+            <!-- Dropdown - Alerts -->
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                 aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                    Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="mr-3">
+                        <div class="icon-circle bg-primary">
+                            <i class="fas fa-file-alt text-white"></i>
                         </div>
-                        <div><span class="small text-gray-500">December 12, 2019</span>
-                            <p>A new monthly report is ready to download!</p>
+                    </div>
+                    <div>
+                        <div class="small text-gray-500">December 12, 2019</div>
+                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="mr-3">
+                        <div class="icon-circle bg-success">
+                            <i class="fas fa-donate text-white"></i>
                         </div>
-                    </a>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                        <div class="mr-3">
-                            <div class="bg-success icon-circle"><i class="fas fa-donate text-white"></i>
-                            </div>
+                    </div>
+                    <div>
+                        <div class="small text-gray-500">December 7, 2019</div>
+                        $290.29 has been deposited into your account!
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="mr-3">
+                        <div class="icon-circle bg-warning">
+                            <i class="fas fa-exclamation-triangle text-white"></i>
                         </div>
-                        <div><span class="small text-gray-500">December 7, 2019</span>
-                            <p>$290.29 has been deposited into your account!</p>
+                    </div>
+                    <div>
+                        <div class="small text-gray-500">December 2, 2019</div>
+                        Spending Alert: We've noticed unusually high spending for your account.
+                    </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            </div>
+        </li>
+
+        <!-- Nav Item - Messages -->
+        <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+            </a>
+            <!-- Dropdown - Messages -->
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                 aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                    Message Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60"
+                             alt="">
+                        <div class="status-indicator bg-success"></div>
+                    </div>
+                    <div class="font-weight-bold">
+                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                                   problem I've been having.
                         </div>
-                    </a>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                        <div class="mr-3">
-                            <div class="bg-warning icon-circle"><i
-                                        class="fas fa-exclamation-triangle text-white"></i></div>
+                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60"
+                             alt="">
+                        <div class="status-indicator"></div>
+                    </div>
+                    <div>
+                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                                   would you like them sent to you?
                         </div>
-                        <div><span class="small text-gray-500">December 2, 2019</span>
-                            <p>Spending Alert: We've noticed unusually high spending for your
-                               account.</p>
+                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60"
+                             alt="">
+                        <div class="status-indicator bg-warning"></div>
+                    </div>
+                    <div>
+                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                                   the progress so far, keep up the good work!
                         </div>
-                    </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All
-                                                                                          Alerts</a>
-                </div>
-            </li>
-            </li>
-            <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-            <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
-                                                      data-toggle="dropdown" aria-expanded="false"
-                                                      href="#"><i
-                            class="fas fa-envelope fa-fw"></i><span
-                            class="badge badge-danger badge-counter">7</span></a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
-                     role="menu">
-                    <h6 class="dropdown-header">alerts center</h6>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                        <div class="dropdown-list-image mr-3"><img class="rounded-circle"
-                                                                   src="assets/img/avatars/avatar4.jpeg">
-                            <div class="bg-success status-indicator"></div>
+                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                             alt="">
+                        <div class="status-indicator bg-success"></div>
+                    </div>
+                    <div>
+                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                                   told me that people say this to all dogs, even if
+                                                   they aren't good...
                         </div>
-                        <div class="font-weight-bold">
-                            <div class="text-truncate"><span>Hi there! I am wondering if you can help me with a problem I've been having.</span>
-                            </div>
-                            <p class="small text-gray-500 mb-0">Emily Fowler - 58m</p>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                        <div class="dropdown-list-image mr-3"><img class="rounded-circle"
-                                                                   src="assets/img/avatars/avatar2.jpeg">
-                            <div class="status-indicator"></div>
-                        </div>
-                        <div class="font-weight-bold">
-                            <div class="text-truncate"><span>I have the photos that you ordered last month!</span>
-                            </div>
-                            <p class="small text-gray-500 mb-0">Jae Chun - 1d</p>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                        <div class="dropdown-list-image mr-3"><img class="rounded-circle"
-                                                                   src="assets/img/avatars/avatar3.jpeg">
-                            <div class="bg-warning status-indicator"></div>
-                        </div>
-                        <div class="font-weight-bold">
-                            <div class="text-truncate"><span>Last month's report looks great, I am very happy with the progress so far, keep up the good work!</span>
-                            </div>
-                            <p class="small text-gray-500 mb-0">Morgan Alvarez - 2d</p>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                        <div class="dropdown-list-image mr-3"><img class="rounded-circle"
-                                                                   src="assets/img/avatars/avatar5.jpeg">
-                            <div class="bg-success status-indicator"></div>
-                        </div>
-                        <div class="font-weight-bold">
-                            <div class="text-truncate"><span>Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</span>
-                            </div>
-                            <p class="small text-gray-500 mb-0">Chicken the Dog · 2w</p>
-                        </div>
-                    </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All
-                                                                                          Alerts</a>
-                </div>
-            </li>
-            <div class="shadow dropdown-list dropdown-menu dropdown-menu-right"
-                 aria-labelledby="alertsDropdown"></div>
-            </li>
-            <div class="d-none d-sm-block topbar-divider"></div>
-            <li class="nav-item dropdown no-arrow" role="presentation">
-            <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
-                                                      data-toggle="dropdown" aria-expanded="false"
-                                                      href="#"><span
-                            class="d-none d-lg-inline mr-2 text-gray-600 small">
-                        <?php
-                        $email = $_SESSION['alogin'];
-                        $sql = "SELECT `username` FROM `admin` WHERE email=:email";
-                        $query = $dbh->prepare($sql);
-                        $query->bindParam(':email', $email, PDO::PARAM_STR);
-                        $query->execute();
-                        $results = $query->fetchAll(PDO::FETCH_OBJ);
-                        if ($query->rowCount() > 0) {
-                            foreach ($results as $result) {
-                                echo htmlentities($result->username);
-                            }
-                        } ?>
-                    </span><img
-                            class="border rounded-circle img-profile"
-                            src="assets/img/avatars/avatar1.jpeg"></a>
-                <div
-                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
-                    <a class="dropdown-item" role="presentation" href="profile.php"><i
-                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a
-                            class="dropdown-item" role="presentation" href="#"><i
-                                class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
-                    <a class="dropdown-item" role="presentation" href="update-password.php"><i
-                                class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp; Update Password</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" role="presentation" href="logout.php"><i
-                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
-                </div>
-            </li>
-            </li>
-        </ul>
-    </div>
+                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                    </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+            </div>
+        </li>
+
+        <div class="topbar-divider d-none d-sm-block"></div>
+
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!-- showing username at header -->
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                    <?php
+                    $email = $_SESSION['alogin'];
+                    $sql2 = "SELECT `username` FROM `admin` WHERE `email`=:email;";
+                    $query = $dbh->prepare($sql2);
+                    $query->bindParam(':email', $email, PDO::PARAM_STR);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+
+                    if ($query->rowCount() > 0) {
+                        foreach ($results as $result) {
+                            echo $result->username;
+                        }
+                    }
+                    ?></span>
+                <img class="img-profile rounded-circle"
+                     src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                 aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="profile.php">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profile
+                </a>
+                <a class="dropdown-item" href="update-password.php">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Update Password
+                </a>
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                </a>
+            </div>
+        </li>
+
+    </ul>
+
 </nav>

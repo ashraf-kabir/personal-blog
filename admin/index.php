@@ -7,341 +7,426 @@ if (strlen($_SESSION['alogin']) == 0) {
 } else {
     ?>
     <!DOCTYPE html>
-    <html>
+    <html lang="en">
+
     <head>
+
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Dashboard - Admin</title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-        <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>SB Admin 2 - Dashboard</title>
+
+        <!-- Custom fonts for this template-->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+              rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
     </head>
 
     <body id="page-top">
+
+        <!-- Page Wrapper -->
         <div id="wrapper">
 
-            <!-- sidebar -->
+            <!-- Sidebar -->
             <?php include "includes/sidebar.php"; ?>
+            <!-- End of Sidebar -->
 
-            <div class="d-flex flex-column" id="content-wrapper">
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
                 <div id="content">
 
-                    <!-- header -->
+                    <!-- Topbar -->
                     <?php include "includes/header.php"; ?>
+                    <!-- End of Topbar -->
 
+                    <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                            <h3 class="text-dark mb-0">Dashboard</h3><a
-                                    class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
-                                        class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a></div>
+
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                        class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        </div>
+
+                        <!-- Content Row -->
                         <div class="row">
-                            <div class="col-md-6 col-xl-3 mb-4">
-                                <div class="card shadow border-left-primary py-2">
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
                                     <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
+                                        <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-uppercase text-primary font-weight-bold text-xs mb-1">
-                                                    <span>Earnings (monthly)</span></div>
-                                                <div class="text-dark font-weight-bold h5 mb-0"><span>$40,000</span>
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Earnings (Monthly)
                                                 </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                                             </div>
-                                            <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xl-3 mb-4">
-                                <div class="card shadow border-left-success py-2">
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
                                     <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
+                                        <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-uppercase text-success font-weight-bold text-xs mb-1">
-                                                    <span>Earnings (annual)</span></div>
-                                                <div class="text-dark font-weight-bold h5 mb-0"><span>$215,000</span>
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Earnings (Annual)
                                                 </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                                             </div>
-                                            <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xl-3 mb-4">
-                                <div class="card shadow border-left-info py-2">
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-info shadow h-100 py-2">
                                     <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
+                                        <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-uppercase text-info font-weight-bold text-xs mb-1">
-                                                    <span>Tasks</span>
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                    Tasks
                                                 </div>
                                                 <div class="row no-gutters align-items-center">
                                                     <div class="col-auto">
-                                                        <div class="text-dark font-weight-bold h5 mb-0 mr-3">
-                                                            <span>50%</span></div>
+                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%
+                                                        </div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="progress progress-sm">
-                                                            <div class="progress-bar bg-info" aria-valuenow="50"
-                                                                 aria-valuemin="0" aria-valuemax="100"
-                                                                 style="width: 50%;">
-                                                                <span class="sr-only">50%</span></div>
+                                                        <div class="progress progress-sm mr-2">
+                                                            <div class="progress-bar bg-info" role="progressbar"
+                                                                 style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                                 aria-valuemax="100"></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-auto"><i
-                                                        class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <div class="col-auto">
+                                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xl-3 mb-4">
-                                <div class="card shadow border-left-warning py-2">
+
+                            <!-- Pending Requests Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
                                     <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
+                                        <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-uppercase text-warning font-weight-bold text-xs mb-1">
-                                                    <span>Pending Requests</span></div>
-                                                <div class="text-dark font-weight-bold h5 mb-0"><span>18</span></div>
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    Pending Requests
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                             </div>
-                                            <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <div class="col-auto">
+                                                <i class="fas fa-comments fa-2x text-gray-300"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Content Row -->
+
                         <div class="row">
-                            <div class="col-lg-7 col-xl-8">
+
+                            <!-- Area Chart -->
+                            <div class="col-xl-8 col-lg-7">
                                 <div class="card shadow mb-4">
-                                    <div class="card-header d-flex justify-content-between align-items-center">
-                                        <h6 class="text-primary font-weight-bold m-0">Earnings Overview</h6>
+                                    <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
                                         <div class="dropdown no-arrow">
-                                            <button class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown"
-                                                    aria-expanded="false" type="button"><i
-                                                        class="fas fa-ellipsis-v text-gray-400"></i></button>
-                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"
-                                                 role="menu">
-                                                <p class="text-center dropdown-header">dropdown header:</p><a
-                                                        class="dropdown-item" role="presentation"
-                                                        href="#">&nbsp;Action</a><a class="dropdown-item"
-                                                                                    role="presentation" href="#">&nbsp;Another
-                                                                                                                 action</a>
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                 aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-header">Dropdown Header:</div>
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
                                                 <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" role="presentation" href="#">&nbsp;Something
-                                                                                                      else
-                                                                                                      here</a></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
                                         </div>
                                     </div>
+                                    <!-- Card Body -->
                                     <div class="card-body">
                                         <div class="chart-area">
-                                            <canvas data-bs-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Earnings&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;0&quot;,&quot;10000&quot;,&quot;5000&quot;,&quot;15000&quot;,&quot;10000&quot;,&quot;20000&quot;,&quot;15000&quot;,&quot;25000&quot;],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}]}}}"></canvas>
+                                            <canvas id="myAreaChart"></canvas>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-5 col-xl-4">
+
+                            <!-- Pie Chart -->
+                            <div class="col-xl-4 col-lg-5">
                                 <div class="card shadow mb-4">
-                                    <div class="card-header d-flex justify-content-between align-items-center">
-                                        <h6 class="text-primary font-weight-bold m-0">Revenue Sources</h6>
+                                    <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
                                         <div class="dropdown no-arrow">
-                                            <button class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown"
-                                                    aria-expanded="false" type="button"><i
-                                                        class="fas fa-ellipsis-v text-gray-400"></i></button>
-                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"
-                                                 role="menu">
-                                                <p class="text-center dropdown-header">dropdown header:</p><a
-                                                        class="dropdown-item" role="presentation"
-                                                        href="#">&nbsp;Action</a><a class="dropdown-item"
-                                                                                    role="presentation" href="#">&nbsp;Another
-                                                                                                                 action</a>
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                 aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-header">Dropdown Header:</div>
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
                                                 <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" role="presentation" href="#">&nbsp;Something
-                                                                                                      else
-                                                                                                      here</a></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
                                         </div>
                                     </div>
+                                    <!-- Card Body -->
                                     <div class="card-body">
-                                        <div class="chart-area">
-                                            <canvas data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Direct&quot;,&quot;Social&quot;,&quot;Referral&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;50&quot;,&quot;30&quot;,&quot;15&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas>
+                                        <div class="chart-pie pt-4 pb-2">
+                                            <canvas id="myPieChart"></canvas>
                                         </div>
-                                        <div
-                                                class="text-center small mt-4"><span class="mr-2"><i
-                                                        class="fas fa-circle text-primary"></i>&nbsp;Direct</span><span
-                                                    class="mr-2"><i
-                                                        class="fas fa-circle text-success"></i>&nbsp;Social</span><span
-                                                    class="mr-2"><i
-                                                        class="fas fa-circle text-info"></i>&nbsp;Refferal</span></div>
+                                        <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i> Direct
+                    </span>
+                                            <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                                            <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Content Row -->
                         <div class="row">
+
+                            <!-- Content Column -->
                             <div class="col-lg-6 mb-4">
+
+                                <!-- Project Card Example -->
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="text-primary font-weight-bold m-0">Projects</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="small font-weight-bold">Server migration<span
+                                        <h4 class="small font-weight-bold">Server Migration <span
                                                     class="float-right">20%</span></h4>
                                         <div class="progress mb-4">
-                                            <div class="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0"
-                                                 aria-valuemax="100" style="width: 20%;"><span
-                                                        class="sr-only">20%</span>
-                                            </div>
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
+                                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <h4 class="small font-weight-bold">Sales tracking<span
+                                        <h4 class="small font-weight-bold">Sales Tracking <span
                                                     class="float-right">40%</span></h4>
                                         <div class="progress mb-4">
-                                            <div class="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0"
-                                                 aria-valuemax="100" style="width: 40%;"><span
-                                                        class="sr-only">40%</span>
-                                            </div>
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
+                                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <h4 class="small font-weight-bold">Customer Database<span
+                                        <h4 class="small font-weight-bold">Customer Database <span
                                                     class="float-right">60%</span></h4>
                                         <div class="progress mb-4">
-                                            <div class="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0"
-                                                 aria-valuemax="100" style="width: 60%;"><span
-                                                        class="sr-only">60%</span>
-                                            </div>
+                                            <div class="progress-bar" role="progressbar" style="width: 60%"
+                                                 aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <h4 class="small font-weight-bold">Payout Details<span
+                                        <h4 class="small font-weight-bold">Payout Details <span
                                                     class="float-right">80%</span></h4>
                                         <div class="progress mb-4">
-                                            <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0"
-                                                 aria-valuemax="100" style="width: 80%;"><span
-                                                        class="sr-only">80%</span>
-                                            </div>
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                                                 aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <h4 class="small font-weight-bold">Account setup<span
+                                        <h4 class="small font-weight-bold">Account Setup <span
                                                     class="float-right">Complete!</span></h4>
-                                        <div class="progress mb-4">
-                                            <div class="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0"
-                                                 aria-valuemax="100" style="width: 100%;"><span
-                                                        class="sr-only">100%</span>
-                                            </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="text-primary font-weight-bold m-0">Todo List</h6>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <div class="row align-items-center no-gutters">
-                                                <div class="col mr-2">
-                                                    <h6 class="mb-0"><strong>Lunch meeting</strong></h6><span
-                                                            class="text-xs">10:30 AM</span></div>
-                                                <div class="col-auto">
-                                                    <div class="custom-control custom-checkbox"><input
-                                                                class="custom-control-input" type="checkbox"
-                                                                id="formCheck-1"><label class="custom-control-label"
-                                                                                        for="formCheck-1"></label></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row align-items-center no-gutters">
-                                                <div class="col mr-2">
-                                                    <h6 class="mb-0"><strong>Lunch meeting</strong></h6><span
-                                                            class="text-xs">11:30 AM</span></div>
-                                                <div class="col-auto">
-                                                    <div class="custom-control custom-checkbox"><input
-                                                                class="custom-control-input" type="checkbox"
-                                                                id="formCheck-2"><label class="custom-control-label"
-                                                                                        for="formCheck-2"></label></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row align-items-center no-gutters">
-                                                <div class="col mr-2">
-                                                    <h6 class="mb-0"><strong>Lunch meeting</strong></h6><span
-                                                            class="text-xs">12:30 AM</span></div>
-                                                <div class="col-auto">
-                                                    <div class="custom-control custom-checkbox"><input
-                                                                class="custom-control-input" type="checkbox"
-                                                                id="formCheck-3"><label class="custom-control-label"
-                                                                                        for="formCheck-3"></label></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col">
+
+                                <!-- Color System -->
                                 <div class="row">
                                     <div class="col-lg-6 mb-4">
-                                        <div class="card text-white bg-primary shadow">
+                                        <div class="card bg-primary text-white shadow">
                                             <div class="card-body">
-                                                <p class="m-0">Primary</p>
-                                                <p class="text-white-50 small m-0">#4e73df</p>
+                                                Primary
+                                                <div class="text-white-50 small">#4e73df</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-4">
-                                        <div class="card text-white bg-success shadow">
+                                        <div class="card bg-success text-white shadow">
                                             <div class="card-body">
-                                                <p class="m-0">Success</p>
-                                                <p class="text-white-50 small m-0">#1cc88a</p>
+                                                Success
+                                                <div class="text-white-50 small">#1cc88a</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-4">
-                                        <div class="card text-white bg-info shadow">
+                                        <div class="card bg-info text-white shadow">
                                             <div class="card-body">
-                                                <p class="m-0">Info</p>
-                                                <p class="text-white-50 small m-0">#36b9cc</p>
+                                                Info
+                                                <div class="text-white-50 small">#36b9cc</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-4">
-                                        <div class="card text-white bg-warning shadow">
+                                        <div class="card bg-warning text-white shadow">
                                             <div class="card-body">
-                                                <p class="m-0">Warning</p>
-                                                <p class="text-white-50 small m-0">#f6c23e</p>
+                                                Warning
+                                                <div class="text-white-50 small">#f6c23e</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-4">
-                                        <div class="card text-white bg-danger shadow">
+                                        <div class="card bg-danger text-white shadow">
                                             <div class="card-body">
-                                                <p class="m-0">Danger</p>
-                                                <p class="text-white-50 small m-0">#e74a3b</p>
+                                                Danger
+                                                <div class="text-white-50 small">#e74a3b</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-4">
-                                        <div class="card text-white bg-secondary shadow">
+                                        <div class="card bg-secondary text-white shadow">
                                             <div class="card-body">
-                                                <p class="m-0">Secondary</p>
-                                                <p class="text-white-50 small m-0">#858796</p>
+                                                Secondary
+                                                <div class="text-white-50 small">#858796</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                            </div>
+
+                            <div class="col-lg-6 mb-4">
+
+                                <!-- Illustrations -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                                 src="img/undraw_posting_photo.svg" alt="">
+                                        </div>
+                                        <p>Add some quality, svg illustrations to your project courtesy of <a
+                                                    target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>,
+                                           a
+                                           constantly updated collection of beautiful svg images that you can use
+                                           completely
+                                           free and without attribution!</p>
+                                        <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations
+                                                                                                    on
+                                                                                                    unDraw &rarr;</a>
+                                    </div>
+                                </div>
+
+                                <!-- Approach -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to
+                                           reduce
+                                           CSS bloat and poor page performance. Custom CSS classes are used to create
+                                           custom
+                                           components and custom utility classes.</p>
+                                        <p class="mb-0">Before working with this theme, you should become familiar with
+                                                        the
+                                                        Bootstrap framework, especially the utility classes.</p>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+
                     </div>
+                    <!-- /.container-fluid -->
+
                 </div>
+                <!-- End of Main Content -->
 
                 <!-- Footer -->
-                <?php include 'includes/footer.php'; ?>
+                <?php include "includes/footer.php"; ?>
+                <!-- End of Footer -->
 
             </div>
-            <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/chart.min.js"></script>
-        <script src="assets/js/bs-charts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-        <script src="assets/js/theme.js"></script>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="logout.php">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
+
     </body>
 
     </html>

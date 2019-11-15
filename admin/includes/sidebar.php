@@ -1,35 +1,118 @@
-<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
-     style="background-color: #071e22;">
-    <div class="container-fluid d-flex flex-column p-0">
-        <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-            <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-            <div class="sidebar-brand-text mx-3"><span>Admin Panel</span></div>
-        </a>
-        <hr class="sidebar-divider my-0">
-        <ul class="nav navbar-nav text-light" id="accordionSidebar">
-            <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php"><i
-                        class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="profile.php"><i
-                        class="fas fa-user"></i><span>Profile</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="table.php"><i
-                        class="fas fa-table"></i><span>Table</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="forgot-password.php"><i
-                        class="fas fa-key"></i><span>Forgotten Password</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="manage-users.php"><i
-                            class="fas fa-window-maximize"></i><span>Manage Users</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="manage-posts.php"><i
-                            class="fas fa-window-maximize"></i><span>Manage Posts</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="add-post.php"><i
-                        class="fas fa-window-maximize"></i><span>Add Posts</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="manage-pages.php"><i
-                            class="fas fa-window-maximize"></i><span>Manage Pages</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="manage-comments.php"><i
-                            class="fas fa-window-maximize"></i><span>Manage Comments</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="404.php"><i
-                            class="fas fa-exclamation-circle"></i><span>Page Not Found</span></a></li>
-        </ul>
-        <div class="text-center d-none d-md-inline">
-            <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
         </div>
+        <div class="sidebar-brand-text mx-3">Admin Panel<sup>2</sup></div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" href="index.php">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Interface
     </div>
-</nav>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Components</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Components:</h6>
+                <a class="collapse-item" href="buttons.php">Buttons</a>
+                <a class="collapse-item" href="cards.php">Cards</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+           aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Utilities</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="utilities-color.php">Colors</a>
+                <a class="collapse-item" href="utilities-border.php">Borders</a>
+                <a class="collapse-item" href="utilities-animation.php">Animations</a>
+                <a class="collapse-item" href="utilities-other.php">Other</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Addons
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+           aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Pages</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Users:</h6>
+                <a class="collapse-item" href="add-users.php">Add Users</a>
+                <a class="collapse-item" href="manage-users.php">Manage Users</a>
+                <div class="collapse-divider"></div>
+                <h6 class="collapse-header">Posts:</h6>
+                <a class="collapse-item" href="add-post.php">Add Posts</a>
+                <a class="collapse-item" href="manage-posts.php">Manage Posts</a>
+                <h6 class="collapse-header">Comments:</h6>
+                <a class="collapse-item" href="manage-comments.php">Manage Pages</a>
+                <h6 class="collapse-header">Pages:</h6>
+                <a class="collapse-item" href="manage-pages.php">Manage Pages</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+        <a class="nav-link" href="charts.php">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Charts</span></a>
+    </li>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="tables.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Tables</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+</ul>

@@ -1,5 +1,7 @@
-<footer class="bg-white sticky-footer">
+<footer class="sticky-footer bg-white">
     <div class="container my-auto">
-        <div class="text-center my-auto copyright"><span>Copyright © Ashraf Kabir 2019</span></div>
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Ashraf Kabir 2019</span>
+        </div>
     </div>
 </footer>
