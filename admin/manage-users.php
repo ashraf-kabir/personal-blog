@@ -216,8 +216,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
 
