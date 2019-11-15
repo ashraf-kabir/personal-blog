@@ -129,7 +129,7 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls"><label
                                         for="file1">Add an image</label>
-                                <input type="file" class="form-control-file" id="file1" name="img1" required><small
+                                <input type="file" class="form-control-file" id="file1" name="img1"><small
                                         class="form-text text-danger help-block">Header Image</small></div>
                         </div>
 
