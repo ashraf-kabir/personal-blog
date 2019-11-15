@@ -1,3 +1,11 @@
+<?php
+session_set_cookie_params(0);
+session_start();
+include('includes/config.php');
+if (strlen($_SESSION['alogin']) == 0) {
+    header('location: login.php');
+} else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -607,3 +615,4 @@
 </body>
 
 </html>
+<?php } ?>
