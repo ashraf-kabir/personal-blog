@@ -150,7 +150,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     </div>
 
 
-
                                                     <div class="form-group">
                                                         <div class="form-row">
                                                             <div class="col-md-12 col-lg-12 col-xl-12">
