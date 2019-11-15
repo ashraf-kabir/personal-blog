@@ -29,7 +29,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->bindParam(':aid', $aid, PDO::PARAM_STR);
         $query->bindParam(':sts2', $sts2, PDO::PARAM_STR);
         $query->execute();
-        echo "<script>alert('Post approved')</script>";
+        echo "<script>alert('Post approved');document.location = 'manage-posts.php';</script>";
     }
     ?>
     <!DOCTYPE html>
@@ -43,7 +43,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Manage Pages</title>
+        <title>Manage Posts</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
