@@ -61,6 +61,58 @@ if (strlen($_SESSION['alogin']) == 0) {
                         <!-- Content Row -->
                         <div class="row">
 
+                            <!-- Active Users -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Active Users
+                                                </div>
+                                                <?php
+                                                $sql = "SELECT `id` from `users` WHERE `status`=1";
+                                                $query = $dbh->prepare($sql);
+                                                $query->execute();
+                                                $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                                $regusers = $query->rowCount();
+                                                ?>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo htmlentities($regusers); ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-check-double fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pending Users -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    Pending Users
+                                                </div>
+                                                <?php
+                                                $sql = "SELECT `id` from `users` WHERE `status`=0";
+                                                $query = $dbh->prepare($sql);
+                                                $query->execute();
+                                                $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                                $regusers = $query->rowCount();
+                                                ?>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo htmlentities($regusers); ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Earnings (Monthly) Card Example -->
                             <div class="col-xl-3 col-md-6 mb-4">
                                 <div class="card border-left-primary shadow h-100 py-2">
@@ -74,25 +126,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Earnings (Monthly) Card Example -->
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-success shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                    Earnings (Annual)
-                                                </div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -130,24 +163,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                 </div>
                             </div>
 
-                            <!-- Pending Requests Card Example -->
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-warning shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                    Pending Requests
-                                                </div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
 
                         <!-- Content Row -->
