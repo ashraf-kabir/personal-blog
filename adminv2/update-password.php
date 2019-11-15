@@ -105,10 +105,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
                                                             <div class="form-group">
                                                                 <label for="cp"><strong>Current Password</strong></label>
-                                                                <input class="form-control" id="cp" type="text"
-                                                                       name="password"
-                                                                       value=""
-                                                                       required>
+                                                                <input class="form-control" id="cp" type="password"
+                                                                       name="password" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -118,9 +116,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <div class="form-group">
                                                                 <label for="np"><strong>New Password</strong></label>
                                                                 <input class="form-control" id="np" type="text"
-                                                                       name="newpassword"
-                                                                       value=""
-                                                                       required>
+                                                                       name="newpassword" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -130,9 +126,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <div class="form-group">
                                                                 <label for="cpd"><strong>Confirm Password</strong></label>
                                                                 <input class="form-control" id="cpd" type="text"
-                                                                       name="confirmpassword"
-                                                                       value=""
-                                                                       required>
+                                                                       name="confirmpassword" required>
                                                             </div>
                                                         </div>
                                                     </div>
