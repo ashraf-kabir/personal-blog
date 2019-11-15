@@ -76,7 +76,7 @@
                                 <a class="small" href="forgot-password.php">Forgot Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="login.php">Already have an account? Login!</a>
+                                <a class="small" href="logout.php">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>
