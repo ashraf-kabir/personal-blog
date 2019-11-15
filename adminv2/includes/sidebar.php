@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Admin Panel<sup>2</sup></div>
     </a>
 
     <!-- Divider -->
@@ -78,14 +78,17 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.php">Login</a>
-                <a class="collapse-item" href="register.php">Register</a>
-                <a class="collapse-item" href="forgot-password.php">Forgot Password</a>
+                <h6 class="collapse-header">Users:</h6>
+                <a class="collapse-item" href="add-users.php">Add Users</a>
+                <a class="collapse-item" href="manage-users.php">Manage Users</a>
                 <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.php">404 Page</a>
-                <a class="collapse-item" href="blank.php">Blank Page</a>
+                <h6 class="collapse-header">Posts:</h6>
+                <a class="collapse-item" href="add-post.php">Add Posts</a>
+                <a class="collapse-item" href="manage-posts.php">Manage Posts</a>
+                <h6 class="collapse-header">Comments:</h6>
+                <a class="collapse-item" href="manage-comments.php">Manage Pages</a>
+                <h6 class="collapse-header">Pages:</h6>
+                <a class="collapse-item" href="manage-pages.php">Manage Pages</a>
             </div>
         </div>
     </li>
