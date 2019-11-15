@@ -33,7 +33,7 @@ if (!empty($_SESSION['alogin'])) {
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SB Admin 2 - Login</title>
+        <title>Admin Login</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -42,6 +42,42 @@ if (!empty($_SESSION['alogin'])) {
 
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+        <script type="text/javascript">
+            function validate() {
+                let email = document.userlogin.email.value;
+                let pass = document.userlogin.password.value;
+                if (email === "" || email === null && pass === "" || pass === null) {
+                    //alert("Please provide your email and password");
+                    document.getElementById('emailcheck').innerHTML = 'Enter your email address';
+                    document.getElementById('passwordcheck').innerHTML = 'Enter your password';
+                    //document.userlogin.password.focus() ;
+                    return false;
+                }
+                if (email === "" || email === null) {
+                    //alert("Please provide your email");
+                    document.getElementById('emailcheck').innerHTML = 'Enter your email address';
+                    document.userlogin.email.focus();
+                    return false;
+                } else {
+                    var mailformat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    if (email.match(mailformat)) {
+                        if (pass === "" || pass === null) {
+                            //alert("Please provide your password");
+                            document.getElementById('passwordcheck').innerHTML = 'Enter your password';
+                            document.userlogin.password.focus();
+                            return false;
+                        }
+                        return true;
+                        // when password field is not empty
+                    } else {
+                        document.getElementById('emailcheck').innerHTML = 'Enter a correct email address';
+                        document.userlogin.email.focus();
+                        return false;
+                    }
+                }
+            }
+        </script>
 
     </head>
 
@@ -64,15 +100,17 @@ if (!empty($_SESSION['alogin'])) {
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                         </div>
-                                        <form class="user" method="post">
+                                        <form class="user" method="post" name="userlogin" onsubmit="return validate();" novalidate>
                                             <div class="form-group">
                                                 <input type="email" class="form-control form-control-user"
-                                                       id="exampleInputEmail" aria-describedby="emailHelp"
+                                                       id="email" aria-describedby="emailHelp"
                                                        placeholder="Enter Email Address..." name="email">
+                                                <span id="emailcheck" style="font-size: 12px; color: red;"></span>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" class="form-control form-control-user"
-                                                       id="exampleInputPassword" placeholder="Password" name="password">
+                                                       id="password" placeholder="Password" name="password">
+                                                <span id="passwordcheck" style="font-size: 12px; color: red;"></span>
                                             </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">

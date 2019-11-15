@@ -100,7 +100,7 @@ if (!empty($_SESSION['login'])) {
                                             <div class="form-group">
                                                 <input class="form-control form-control-user"
                                                        type="email" id="email" aria-describedby="emailHelp"
-                                                       placeholder="Enter Email Address" name="email" autocomplete="on">
+                                                       placeholder="Enter Email Address" name="email" autocomplete="off">
                                                 <span id="emailcheck" style="font-size: 12px; color: red;"></span>
                                             </div>
                                             <div class="form-group">
