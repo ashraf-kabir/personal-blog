@@ -63,6 +63,57 @@ if (strlen($_SESSION['alogin']) == 0) {
             }
         </script>
 
+        <script>
+            var checkPass = function () {
+                var password = document.getElementById('newpass').value;
+                var repassword = document.getElementById('confirmpass').value;
+                var regexpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,12}$/;
+                if (password !== "" || password !== null) {
+                    if (password.match(regexpass)) {
+                        document.getElementById('newpassmsg').innerHTML = '';
+                        document.getElementById('submit').disabled = false;
+                        if (password === repassword) {
+                            document.getElementById('confirmpassmsg').style.color = 'green';
+                            document.getElementById('confirmpassmsg').innerHTML = 'password matched';
+                            document.getElementById('submit').disabled = false;
+                        } else {
+                            document.getElementById('confirmpassmsg').style.color = 'red';
+                            document.getElementById('confirmpassmsg').innerHTML = 'password not matching';
+                            document.getElementById('submit').disabled = true;
+                        }
+                    } else {
+                        document.getElementById('newpassmsg').innerHTML = 'Minimum len 8 & max len 12 where 1 uppercase & 1 digit mandatory';
+                        document.getElementById('submit').disabled = true;
+                    }
+                } else {
+                    document.getElementById('newpassmsg').innerHTML = 'Empty password';
+                    document.getElementById('submit').disabled = true;
+                }
+            };
+        </script>
+
+        <script>
+            function validate() {
+                var currentpass = document.chngpwd.password.value;
+                var newpass = document.chngpwd.newpassword.value;
+                var confirmpass = document.chngpwd.confirmpassword.value;
+
+                if (currentpass === "" || currentpass === null) {
+                    document.getElementById('passmsg').style.color = 'red';
+                    document.getElementById('passmsg').innerHTML = 'Invalid current password';
+                    return false;
+                }
+                if (newpass === "" || newpass === null) {
+                    document.getElementById('newpassmsg').innerHTML = 'Invalid new password';
+                    return false;
+                }
+                if (confirmpass === "" || confirmpass === null) {
+                    document.getElementById('confirmpassmsg').innerHTML = 'Invalid confirm password';
+                    return false;
+                }
+            }
+        </script>
+
     </head>
 
     <body id="page-top">
@@ -99,14 +150,17 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                             <div class="card-body">
 
-                                                <form method="post" name="chngpwd" onSubmit="return valid();">
+                                                <form method="post" name="chngpwd" onSubmit="return validate();"
+                                                      novalidate>
 
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
                                                             <div class="form-group">
-                                                                <label for="cp"><strong>Current Password</strong></label>
-                                                                <input class="form-control" id="cp" type="password"
-                                                                       name="password" required>
+                                                                <label for="pass"><strong>Current
+                                                                                          Password</strong></label>
+                                                                <input class="form-control" id="pass" type="password"
+                                                                       name="password" autocomplete="off" required>
+                                                                <span id="passmsg" style="font-size: 12px;"></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -114,9 +168,12 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
                                                             <div class="form-group">
-                                                                <label for="np"><strong>New Password</strong></label>
-                                                                <input class="form-control" id="np" type="text"
-                                                                       name="newpassword" required>
+                                                                <label for="newpass"><strong>New
+                                                                                             Password</strong></label>
+                                                                <input class="form-control" id="newpass" type="password"
+                                                                       name="newpassword" autocomplete="off"
+                                                                       onkeyup="checkPass();" required>
+                                                                <span id="newpassmsg" style="font-size: 12px;"></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -124,9 +181,13 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <div class="form-row">
                                                         <div class="col-md-8 col-lg-6 col-xl-6">
                                                             <div class="form-group">
-                                                                <label for="cpd"><strong>Confirm Password</strong></label>
-                                                                <input class="form-control" id="cpd" type="text"
-                                                                       name="confirmpassword" required>
+                                                                <label for="confirmpass"><strong>Confirm
+                                                                                                 Password</strong></label>
+                                                                <input class="form-control" id="confirmpass" type="password"
+                                                                       name="confirmpassword" autocomplete="off"
+                                                                       onkeyup="checkPass();" required>
+                                                                <span id="confirmpassmsg"
+                                                                      style="font-size: 12px;"></span>
                                                             </div>
                                                         </div>
                                                     </div>
