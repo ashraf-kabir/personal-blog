@@ -82,9 +82,10 @@ if (!empty($_SESSION['alogin'])) {
                                                                                                           Me</label>
                                                 </div>
                                             </div>
-                                            <a href="index.php" class="btn btn-primary btn-user btn-block" name="login">
+                                            <button class="btn btn-primary btn-block text-white btn-user" type="submit"
+                                                    name="login">
                                                 Login
-                                            </a>
+                                            </button>
                                             <hr>
                                             <a href="index.php" class="btn btn-google btn-user btn-block">
                                                 <i class="fab fa-google fa-fw"></i> Login with Google
