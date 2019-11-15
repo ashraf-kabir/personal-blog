@@ -13,7 +13,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->execute();
         echo "<script>alert('Post has deleted successfully');document.location = 'manage-posts.php';</script>";
     } elseif (isset($_REQUEST['uid'])) {
-        $did = intval($_GET['uid']);
+        $uid = intval($_GET['uid']);
         $sts3 = 2;
         $sql3 = "UPDATE posts SET status=:sts3 WHERE id=:uid";
         $query = $dbh->prepare($sql3);
