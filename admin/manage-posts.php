@@ -11,7 +11,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query = $dbh->prepare($sql);
         $query->bindParam(':delid', $delid, PDO::PARAM_STR);
         $query->execute();
-        echo "<script>alert('Post has deleted successfully')</script>";
+        echo "<script>alert('Post has deleted successfully');document.location = 'manage-posts.php';</script>";
     } elseif (isset($_REQUEST['uid'])) {
         $did = intval($_GET['uid']);
         $sts3 = 2;
@@ -20,7 +20,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->bindParam(':uid', $uid, PDO::PARAM_STR);
         $query->bindParam(':sts3', $sts3, PDO::PARAM_STR);
         $query->execute();
-        echo "<script>alert('Post Unpublished')</script>";
+        echo "<script>alert('Post Unpublished');document.location = 'manage-posts.php';</script>";
     } elseif (isset($_REQUEST['aid'])) {
         $aid = intval($_GET['aid']);
         $sts2 = 1;
