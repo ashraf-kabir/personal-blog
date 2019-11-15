@@ -174,7 +174,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                 } ?>
 
                                                                 <div class="form-group">
-                                                                    <button class="btn btn-primary" type="submit"
+                                                                    <button class="btn btn-primary float-right" type="submit"
                                                                             name="submit">Update
                                                                     </button>
                                                                 </div>
