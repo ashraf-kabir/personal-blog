@@ -11,7 +11,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query = $dbh->prepare($sql);
         $query->bindParam(':delid', $delid, PDO::PARAM_STR);
         $query->execute();
-        echo "<script>alert('Post has deleted successfully');document.location = 'manage-posts.php';</script>";
+        echo "<script>alert('Post deleted successfully');document.location = 'manage-posts.php';</script>";
     } elseif (isset($_REQUEST['uid'])) {
         $uid = intval($_GET['uid']);
         $sts3 = 2;
