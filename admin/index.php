@@ -72,7 +72,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         Active Users
                                                     </div>
                                                     <?php
-                                                    $sql = "SELECT `id` from `users` WHERE `status`=1";
+                                                    $sql = "SELECT `id` FROM `users` WHERE `status`=1";
                                                     $query = $dbh->prepare($sql);
                                                     $query->execute();
                                                     $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -100,7 +100,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         Pending Users
                                                     </div>
                                                     <?php
-                                                    $sql = "SELECT `id` from `users` WHERE `status`=0";
+                                                    $sql = "SELECT `id` FROM `users` WHERE `status`=0";
                                                     $query = $dbh->prepare($sql);
                                                     $query->execute();
                                                     $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -120,19 +120,28 @@ if (strlen($_SESSION['alogin']) == 0) {
                             <!-- Earnings (Monthly) Card Example -->
                             <div class="col-xl-3 col-md-6 mb-4">
                                 <div class="card border-left-primary shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Earnings (Monthly)
+                                    <a href="manage-posts.php">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        Pending Posts
+                                                    </div>
+                                                    <?php
+                                                    $sql = "SELECT `id` FROM `posts` WHERE `status`=0";
+                                                    $query = $dbh->prepare($sql);
+                                                    $query->execute();
+                                                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                                    $pendingposts = $query->rowCount();
+                                                    ?>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo htmlentities($pendingposts); ?></div>
                                                 </div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-blog fa-2x text-gray-300"></i>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
 
