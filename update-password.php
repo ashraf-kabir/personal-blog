@@ -25,9 +25,9 @@ if (strlen($_SESSION['login']) == 0) {
             $chngpwd1->bindParam(':email', $email, PDO::PARAM_STR);
             $chngpwd1->bindParam(':newpassword', $newpassword, PDO::PARAM_STR);
             $chngpwd1->execute();
-            echo "<script>alert('Your password has successfully updated')</script>";
+            echo "<script>alert('Your password successfully updated');document.location = 'index.php';</script>";
         } else {
-            echo "<script>alert('Your current password is not correct')</script>";
+            echo "<script>alert('Your current password is not correct');document.location = 'update-password.php';</script>";
         }
     }
     ?>
