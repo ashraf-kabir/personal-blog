@@ -39,7 +39,7 @@
                                     <?php echo htmlentities($result2->fname." ".$result2->lname); ?>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="profile.php">Edit Profile</a>
+                                    <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
                                     <a class="dropdown-item" href="update-password.php">Update Password</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="logout.php">Log out</a>
