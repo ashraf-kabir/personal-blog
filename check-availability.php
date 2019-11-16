@@ -15,7 +15,7 @@ if (!empty($_POST["email"])) {
             echo "<span style='color:red'>Email already EXISTS</span>";
             echo "<script>$('#submit').prop('disabled',true);</script>";
         } else {
-            echo "<span style='color:green'></span>";
+            echo "<span></span>";
             echo "<script>$('#submit').prop('disabled',false);</script>";
         }
     }
