@@ -19,7 +19,7 @@ if (strlen($_SESSION['login']) == 0) {
         $query->bindParam(':email', $email, PDO::PARAM_STR);
 
         $query->execute();
-        echo "<script>alert('User updated');document.location = 'index.php';</script>";
+        echo "<script>alert('User UPDATED');document.location = 'index.php';</script>";
     }
     ?>
     <!DOCTYPE html>
