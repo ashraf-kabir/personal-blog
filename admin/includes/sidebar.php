@@ -86,7 +86,7 @@
                 <a class="collapse-item" href="add-post.php">Add Posts</a>
                 <a class="collapse-item" href="manage-posts.php">Manage Posts</a>
                 <h6 class="collapse-header">Comments:</h6>
-                <a class="collapse-item" href="manage-comments.php">Manage Pages</a>
+                <a class="collapse-item" href="manage-comments.php">Manage Comments</a>
                 <h6 class="collapse-header">Pages:</h6>
                 <a class="collapse-item" href="manage-pages.php">Manage Pages</a>
             </div>
