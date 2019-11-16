@@ -92,16 +92,13 @@ if (strlen($_SESSION['login']) == 0) {
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="tel" class="form-control" id="phone" name="phone"
+                                <input type="tel" class="form-control" id="phone" name="phone" autocomplete="off"
                                        value="<?php echo htmlentities($result->phone); ?>">
                             </div>
                             <?php }
                             } ?>
                             <div class="form-group">
-                                <a href="update-password.php" style="text-decoration: none;" class="btn btn-danger float-right">Update Password</a>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary" name="submit">Update</button>
+                                <button type="submit" class="btn btn-danger float-right" name="submit">Update</button>
                             </div>
                         </form>
                     </div>
