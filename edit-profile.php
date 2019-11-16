@@ -56,13 +56,13 @@ if (strlen($_SESSION['login']) == 0) {
         <div class="container">
 
             <div class="row">
-                <div class="col-md-10 col-lg-8">
+                <div class="col-md-9 col-lg-6">
                     <div class="clearfix">
                         <h4>Update Profile</h4>
                         <br>
                         <?php
                         $email = $_SESSION['login'];
-                        $sql2 = "SELECT * FROM users WHERE email=:email";
+                        $sql2 = "SELECT * FROM `users` WHERE `email`=:email";
                         $query = $dbh->prepare($sql2);
                         $query->bindParam(':email', $email, PDO::PARAM_STR);
                         $query->execute();
