@@ -11,7 +11,7 @@ if (strlen($_SESSION['login']) == 0) {
         $phone = $_POST['phone'];
         $email = $_SESSION['login'];
 
-        $sql1 = "UPDATE `users` SET fname=:fname,lname=:lname,email=:email,phone=:phone WHERE email=:email";
+        $sql1 = "UPDATE `users` SET `fname`=:fname,`lname`=:lname,`email`=:email,`phone`=:phone WHERE `email`=:email";
         $query = $dbh->prepare($sql1);
         $query->bindParam(':fname', $fname, PDO::PARAM_STR);
         $query->bindParam(':lname', $lname, PDO::PARAM_STR);
