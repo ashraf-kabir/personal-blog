@@ -147,7 +147,7 @@ if (!empty($_SESSION['login'])) {
                     //var fnamevalidation = /^[a-zA-Z ]{2,15}$/;
                     if (fname.match(fnamevalidation)) {
                         //document.getElementById('checkfname').style.color = 'green';
-                        //document.getElementById('checkfname').innerHTML = 'valid first name';
+                        document.getElementById('checkfname').innerHTML = '';
                         document.getElementById('submit').disabled = false;
                     }
                 }
@@ -165,7 +165,7 @@ if (!empty($_SESSION['login'])) {
                     //var fnamevalidation = /^[a-zA-Z ]{2,15}$/;
                     if (lname.match(lnamevalidation)) {
                         //document.getElementById('checklname').style.color = 'green';
-                        //document.getElementById('checklname').innerHTML = 'valid last name';
+                        document.getElementById('checklname').innerHTML = '';
                         document.getElementById('submit').disabled = false;
                     }
                 }
