@@ -86,8 +86,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="post-preview">
                             <h2 class="post-title"><?php echo htmlentities($result->title); ?></h2>
-                            <p class="post-meta">Category: <a
-                                        href="#"><?php echo htmlentities($result->catname); ?></a><br>
+                            <p class="post-meta">Category: <?php echo htmlentities($result->catname); ?><br>
                                                  Posted
                                                  by&nbsp;<b><?php echo htmlentities($result->username); ?></b>
                                                  on <?php echo htmlentities($result->creationdate); ?>
@@ -172,10 +171,8 @@ if (isset($_POST['submit'])) {
                                                 <?php }
                                             }
                                         } else { ?>
-                                            <input type="text" name="name"
-                                                   value=""
-                                                   class="form-control" placeholder="Enter your fullname"
-                                                   required>
+                                            <input type="text" name="name" class="form-control"
+                                                   placeholder="Enter your fullname" autocomplete="off" required>
                                         <?php } ?>
                                     </div>
 
@@ -185,12 +182,12 @@ if (isset($_POST['submit'])) {
                                             <input type="email" name="email"
                                                    value="<?php echo $_SESSION['login']; ?>"
                                                    class="form-control"
-                                                   placeholder="Enter your Valid email" required>
+                                                   placeholder="Enter your Valid email" autocomplete="off" required>
                                         <?php } else { ?>
                                             <input type="email" name="email"
                                                    value=""
                                                    class="form-control"
-                                                   placeholder="Enter your Valid email" required>
+                                                   placeholder="Enter your Valid email" autocomplete="off" required>
                                         <?php } ?>
                                     </div>
 
@@ -200,9 +197,10 @@ if (isset($_POST['submit'])) {
                                     </div>
                                     <?php if ($_SESSION['login']) {
                                         ?>
-                                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                                        <button type="submit" class="btn btn-primary float-right" name="submit">Submit
+                                        </button>
                                     <?php } else { ?>
-                                        <a href="login.php" class="btn btn-primary">Log in & Comment</a>
+                                        <a href="login.php" class="btn btn-primary float-right">Log in & Comment</a>
                                     <?php } ?>
                                 </form>
                             </div>
