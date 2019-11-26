@@ -94,7 +94,7 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li <?php if ($page_no <= 1) {
-                        echo "class='disabled'";
+                        echo "class='page-item disabled'";
                     } ?>>
                         <a class="page-link" <?php if ($page_no > 1) {
                             echo "href='?page_no=$previous_page'";
@@ -152,7 +152,7 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
                     ?>
 
                     <li <?php if ($page_no >= $total_no_of_pages) {
-                        echo "class='disabled'";
+                        echo "class='page-item disabled'";
                     } ?>>
                         <a class="page-link" <?php if ($page_no < $total_no_of_pages) {
                             echo "href='?page_no=$next_page'";
