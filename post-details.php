@@ -100,8 +100,8 @@ if (isset($_POST['submit'])) {
                                         width="auto" height="auto" style="border:solid 1px #000"></p>
                             <?php } ?>
                             <p style="text-align: justify;"><?php echo htmlentities($result->description); ?></p>
-                            <p class="post-meta">Posted by&nbsp;<?php echo htmlentities($result->username); ?> on <a
-                                        href="#"> <?php echo htmlentities($result->creationdate); ?></a>
+                            <p class="post-meta">Posted by&nbsp;<?php echo htmlentities($result->username); ?>
+                                                 on <?php echo htmlentities($result->creationdate); ?>
                             </p>
                         </div>
                         <?php }
