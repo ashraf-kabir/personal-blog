@@ -85,7 +85,8 @@ $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
                         </div>
                     <?php }
                 } ?>
-                <div style='padding: 10px 20px 0; border-top: dotted 1px #CCC;'>
+
+                <div style='padding: 10px 20px 0;'>
                     <strong>Page <?php echo $page_no . " of " . $total_no_of_pages; ?></strong>
                 </div>
 
