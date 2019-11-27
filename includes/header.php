@@ -2,8 +2,9 @@
     <div class="container">
         <a class="navbar-brand" href="http://ashrafkabir.com/">Ashraf Kabir</a>
         <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i
-                    class="fa fa-bars"></i></button>
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+        </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
@@ -26,7 +27,7 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Log in</a></li>
                 <?php } else {
                     $email = $_SESSION['login'];
-                    $sql = "SELECT fname,lname FROM users WHERE email=:email";
+                    $sql = "SELECT `fname`,`lname` FROM `users` WHERE `email`=:email";
                     $query = $dbh->prepare($sql);
                     $query->bindParam(':email', $email, PDO::PARAM_STR);
                     $query->execute();
