@@ -22,7 +22,7 @@ if (strlen($_SESSION['login']) == 0) {
         $query->bindParam(':id', $id, PDO::PARAM_STR);
         $query->execute();
 
-        echo "<script>alert('Post has updated successfully');</script>";
+        echo "<script>alert('Post has updated successfully');document.location = 'view-posts.php';</script>";
     }
     ?>
     <!DOCTYPE html>
