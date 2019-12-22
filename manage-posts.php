@@ -88,7 +88,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     }
 
                                     $status = 1;
-                                    $sql = "SELECT title,p.id,catname FROM posts p, categories c, users u WHERE c.id=p.category AND p.userid=:uid AND p.status=:status";
+                                    $sql = "SELECT title,posts.id,catname FROM posts, categories WHERE categories.id=posts.category AND posts.userid=:uid AND posts.status=:status";
                                     $query = $dbh->prepare($sql);
                                     $query->bindParam(':uid', $uid, PDO::PARAM_STR);
                                     $query->bindParam(':status', $status, PDO::PARAM_STR);
