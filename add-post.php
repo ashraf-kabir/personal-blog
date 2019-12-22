@@ -52,7 +52,7 @@ if (strlen($_SESSION['login']) == 0) {
     }
     ?>
     <!DOCTYPE html>
-    <html>
+    <html lang="en">
 
     <head>
         <meta charset="utf-8">
@@ -63,6 +63,8 @@ if (strlen($_SESSION['login']) == 0) {
               href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
         <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+        <script src="assets/js/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>tinymce.init({selector: 'textarea'});</script>
     </head>
 
     <body>
@@ -88,16 +90,17 @@ if (strlen($_SESSION['login']) == 0) {
                     <h2 class="post-title">Add a post</h2>
                     <form id="contactForm" method="post" enctype="multipart/form-data">
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls"><label
-                                        for="title">Title</label><input
-                                        class="form-control" type="text" id="title" required placeholder="Title"
-                                        name="title"><small
-                                        class="form-text text-danger help-block"></small></div>
+                            <div class="form-group floating-label-form-group controls">
+                                <label for="title">Title</label>
+                                <input class="form-control" type="text" id="title" required placeholder="Title"
+                                       name="title">
+                                <small class="form-text text-danger help-block">Title</small>
+                            </div>
                         </div>
 
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls"><label for="select1"><strong>Select
-                                                                                                                    Category</strong></label>
+                            <div class="form-group floating-label-form-group controls">
+                                <label for="select1"><strong>Select Category</strong></label>
                                 <select class="form-control" id="select1"
                                         name="selectcat" required>
                                     <option value="">-- Select --</option>
@@ -114,33 +117,41 @@ if (strlen($_SESSION['login']) == 0) {
                                             </option>
                                         <?php }
                                     } ?>
-                                </select><small class="form-text text-danger help-block"></small>
+                                </select>
+                                <small class="form-text text-danger help-block">Select Category</small>
                             </div>
                         </div>
 
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls"><label
-                                        for="grabber">Grabber</label><input
-                                        class="form-control" type="text" id="grabber" required placeholder="Grabber"
-                                        name="grabber"><small
-                                        class="form-text text-danger help-block"></small></div>
+                            <div class="form-group floating-label-form-group controls">
+                                <label for="grabber">Grabber</label>
+                                <input class="form-control" type="text" id="grabber" required placeholder="Grabber"
+                                       name="grabber">
+                                <small class="form-text text-danger help-block">Grabber</small>
+                            </div>
                         </div>
 
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls"><label
-                                        for="file1">Add an image</label>
-                                <input type="file" class="form-control-file" id="file1" name="img1"><small
-                                        class="form-text text-danger help-block">Header Image</small></div>
+                            <div class="form-group floating-label-form-group controls">
+                                <label for="file1">Add an image</label>
+                                <input type="file" class="form-control-file" id="file1" name="img1">
+                                <small class="form-text text-danger help-block">Header Image</small>
+                            </div>
                         </div>
 
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-3"><label for="desc">Description</label><textarea
-                                        class="form-control" id="desc"
-                                        data-validation-required-message="Description" required
-                                        placeholder="Description" rows="5" name="description"></textarea><small
-                                        class="form-text text-danger help-block"></small></div>
+                            <div class="form-group floating-label-form-group controls">
+                                <label for="desc">Description</label>
+                                <textarea class="form-control" id="desc" required rows="5"
+                                          name="description"></textarea>
+                                <small class="form-text text-danger help-block">Description</small>
+                            </div>
                         </div>
-
+                        <script>
+                            $(document).ready(function () {
+                                $('#desc').summernote();
+                            });
+                        </script>
                         <?php
                         $email = $_SESSION['login'];
                         $sql2 = "SELECT fname,lname,id FROM users WHERE email=:email ";
@@ -153,11 +164,12 @@ if (strlen($_SESSION['login']) == 0) {
                                 $name = $result2->fname . " " . $result2->lname;
                                 ?>
                                 <div class="control-group">
-                                    <div class="form-group floating-label-form-group controls"><label
-                                                for="name">Username</label><input
-                                                class="form-control" type="text" id="name" required
-                                                name="name" value="<?php echo htmlentities($name); ?>"><small
-                                                class="form-text text-danger help-block">Username</small></div>
+                                    <div class="form-group floating-label-form-group controls">
+                                        <label for="name">Username</label>
+                                        <input class="form-control" type="text" id="name" required
+                                               name="name" value="<?php echo htmlentities($name); ?>">
+                                        <small class="form-text text-danger help-block">Username</small>
+                                    </div>
                                 </div>
                             <?php }
                         }
@@ -166,7 +178,8 @@ if (strlen($_SESSION['login']) == 0) {
                         <br>
                         <div id="success"></div>
                         <div class="form-group">
-                            <button class="btn btn-primary float-right" id="sendMessageButton" type="submit" name="submit">Post
+                            <button class="btn btn-primary float-right" id="sendMessageButton" type="submit"
+                                    name="submit">Post
                             </button>
                         </div>
                     </form>
