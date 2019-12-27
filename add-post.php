@@ -147,11 +147,6 @@ if (strlen($_SESSION['login']) == 0) {
                                 <small class="form-text text-danger help-block">Description</small>
                             </div>
                         </div>
-                        <script>
-                            $(document).ready(function () {
-                                $('#desc').summernote();
-                            });
-                        </script>
                         <?php
                         $email = $_SESSION['login'];
                         $sql2 = "SELECT fname,lname,id FROM users WHERE email=:email ";
