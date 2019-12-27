@@ -169,7 +169,6 @@ if (strlen($_SESSION['login']) == 0) {
                             <?php }
                         }
                         ?>
-
                         <br>
                         <div id="success"></div>
                         <div class="form-group">
