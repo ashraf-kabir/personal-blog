@@ -7,9 +7,7 @@
  Database: MySql
  
  (PDO style followed which is secured than mysqli commands)
- 
- 
- 
+  
  User Panel:
  1. Register
  2. Log in
@@ -22,3 +20,4 @@
  3. approve or decline posts
  4. approve or decline comments
  
+If you need the sql file, contact via email <ashrafkabir95@gmail.com>
