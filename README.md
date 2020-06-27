@@ -19,5 +19,8 @@
  2. approve or decline users
  3. approve or decline posts
  4. approve or decline comments
- 
+ 5. passwords are md5 encrypted, so change from phpmyadmin manually to login as admin
+
+n.b.: admin panel is at project-folder/admin
+
 If you need the sql file, contact via email <ashrafkabir95@gmail.com>
