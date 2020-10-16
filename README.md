@@ -23,4 +23,4 @@
 
 n.b.: admin panel is at project-folder/admin
 
-If you need the sql file, contact via email <ashrafkabir95@gmail.com>
+If you need the sql file, contact via email <ashrafkabir95@gmail.com> & must mention the repository name.
