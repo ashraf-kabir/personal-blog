@@ -23,4 +23,8 @@
 
 n.b.: admin panel is at project-folder/admin
 
-If you need the sql file, contact via email <ashrafkabir95@gmail.com> & must mention the repository name.
+#### If you need the sql file, contact via email <ashrafkabir95@gmail.com> & must mention this repository name & link.
+
+#### Preview: Home Page
+
+![Homepage preview]https://github.com/ashraf-kabir/personal-blog/blob/master/personal-blog-home-preview.png
