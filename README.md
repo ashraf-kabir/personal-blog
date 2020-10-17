@@ -27,4 +27,4 @@ n.b.: admin panel is at project-folder/admin
 
 #### Preview: Home Page
 
-![Homepage preview]https://github.com/ashraf-kabir/personal-blog/blob/master/personal-blog-home-preview.png
+![Homepage preview](https://github.com/ashraf-kabir/personal-blog/blob/master/personal-blog-home-preview.png)
