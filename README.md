@@ -24,6 +24,9 @@
 #### sql file is attached inside the sql directory.
 
 n.b.: admin panel is at project-folder/admin
+admin login
+email: admin@gmail.com
+password: 12345678
 
 ### Preview: Home Page
 

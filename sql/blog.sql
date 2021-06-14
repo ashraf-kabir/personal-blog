@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`, `creationdate`, `updationdate`) VALUES
-(1, 'admin', 'ashrafkabir95@gmail.com', '252f21fdd58ad7fe14f41fd70c8be552', '2019-11-14 17:36:19', NULL);
+(1, 'admin', 'admin@gmail.com', '25d55ad283aa400af464c76d713c07ad', '2019-11-14 17:36:19', NULL);
 
 -- --------------------------------------------------------
 
